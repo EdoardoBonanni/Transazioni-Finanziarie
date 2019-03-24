@@ -21,6 +21,7 @@ public:
     Utenza(const std::string n,const std::string i,const int nc, const std::string p);
     bool ispersonaFisica();
     const std::string getNome() const;
+    const std::string getCognome() const;
 
 private:
     std::string nome;

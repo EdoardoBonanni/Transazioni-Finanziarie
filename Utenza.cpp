@@ -38,3 +38,7 @@ bool Utenza::ispersonaFisica() {
 const std::string Utenza::getNome() const {
     return nome;
 }
+
+const std::string Utenza::getCognome() const {
+    return cognome;
+}

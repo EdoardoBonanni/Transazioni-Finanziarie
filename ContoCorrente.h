@@ -12,9 +12,11 @@ class ContoCorrente {
 public:
     ContoCorrente(Utenza* t, int s=0);
     float getSaldo() const;
+    Utenza* getTitolare() const;
     bool InviaDenaro(float denaro, ContoCorrente* other);
     bool RiceviDenaro(float denaro, ContoCorrente* other);
-    void depositaDenaro(float denaro);
+    void DepositaDenaro(float denaro);
+    bool PrelevaDenaro(float denaro);
 private:
     float saldo;
     Utenza* titolare;
