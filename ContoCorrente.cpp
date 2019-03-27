@@ -14,10 +14,6 @@ float ContoCorrente::getSaldo() const {
     return saldo;
 }
 
-Utenza* ContoCorrente::getTitolare() const {
-    return titolare;
-}
-
 bool ContoCorrente::InviaDenaro(float denaro, ContoCorrente* other) {
     if(denaro <= saldo) {
         other->saldo += denaro;

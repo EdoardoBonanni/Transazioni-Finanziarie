@@ -14,10 +14,10 @@ private:
 public:
     Utenza(const std::string n, const std::string c, char s,
                     const int gn, const int mn, const int an);
-    Utenza(const std::string n, const std::string c, char s,
+    /*Utenza(const std::string n, const std::string c, char s,
            const int gn, const int mn, const int an,
            const std::string ln, const std::string pn, const std::string i,
-           int nc, const std::string p);
+           int nc, const std::string p);*/
     Utenza(const std::string n,const std::string i,const int nc, const std::string p);
     bool ispersonaFisica();
     const std::string getNome() const;
@@ -26,10 +26,10 @@ public:
 private:
     std::string nome;
     std::string cognome;
-    char sesso;
+    //char sesso;
     Date* dataNascita;
-    std::string luogoNascita;
-    std::string provinciaNascita;
+    /*std::string luogoNascita;
+    std::string provinciaNascita;*/
     std::string indirizzo;
     int numeroCivico;
     std::string provincia;

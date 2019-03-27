@@ -5,18 +5,21 @@
 #ifndef TRANSAZIONIFINANZIARIE_FILEMGR_H
 #define TRANSAZIONIFINANZIARIE_FILEMGR_H
 
-#include<cstdio>
+#include<fstream>
+#include<iostream>
 #include<stdexcept>
-class FileMgr {
+class FileMgr{
 public:
-    FileMgr(const char* filename, bool input);
+    FileMgr(std::string filename, bool input);
     ~FileMgr();
-    void write(const char* str);
-    const char* read();
+    void write(std::string filename, std::string str);
+    std::string read(std::string filename);
+    std::string readLine(std::string filename);
+    void openNewFile(std::string filename, std::string str);
+    bool isFileExists() const;
 private:
-    std::FILE* file_handle;
-    FileMgr(const FileMgr &);
-    FileMgr &  operator==(const FileMgr &);
+    std::fstream file;
+    bool fileExists;
 };
 
 

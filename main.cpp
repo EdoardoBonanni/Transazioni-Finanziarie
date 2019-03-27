@@ -1,46 +1,70 @@
 #include <iostream>
+#include<fstream>
 #include <map>
 #include "Date.h"
 #include "Utenza.h"
 #include "ContoCorrente.h"
+#include "FileMgr.h"
 
 using namespace std;
 int main() {
+    //lettura file Utenze
+    string nome, cognome, filename, str;
+    char sesso;
+    int gn, mn, an;
+    cout << "Inserisca il suo nome (solo primo nome)" << std::endl;
+    cin >> nome;
+    cout << "Inserisca il suo cognome (senza spaziature per cognome doppio)" << endl;
+    cin >> cognome;
+    filename = nome + cognome +".txt";
+    FileMgr* fileUtenze = new FileMgr(str, true);
+    if(fileUtenze->isFileExists() == false) {
+        cout << "Inserisca il suo giorno di nascita" << endl;
+        cin >> gn;
+        cout << "Inserisca il suo mese di nascita" << endl;
+        cin >> mn;
+        cout << "Inserisca il suo anno di nascita" << endl;
+        cin >> an;
+        cout << "Inserisca il suo sesso" << endl;
+        cin >> sesso;
+        string gns = std::to_string(gn);
+        string mns = std::to_string(mn);
+        string ans = std::to_string(an);
+        Utenza* u = new Utenza(nome, cognome, sesso, gn, mn, an);
+        ContoCorrente* uc = new ContoCorrente(u, 0);
+        str = nome + " " + cognome + " " + sesso + " " + gns + "/" + mns + "/" + ans;
+        fileUtenze->openNewFile(filename, str);
+    }else{
+        //
+    }
+    /*
     //situazione contocorrente
-    Utenza* poste = new Utenza("Poste italiane", "via togliatti", 2, "firenze");
+    Utenza* poste = new Utenza("Poste", "via togliatti", 2, "firenze");
     ContoCorrente* contoposte = new ContoCorrente(poste, 1000000);
-    map<ContoCorrente*, pair<string,string>> lstConti;
-    pair<ContoCorrente*, pair<string,string>> pair1 = {contoposte, {poste->getNome(), " " } };
+    const char* c;
+    if(poste->ispersonaFisica())
+        str = poste->getNome() + " " + poste->getCognome();
+    else
+        str = poste->getNome() + " X";
+    c = str.c_str();
+    cout << c << endl;
+    fileUtenze->write(c);
+    map<pair<string,string>, ContoCorrente*> lstConti;
+    pair<pair<string,string>, ContoCorrente*> pair1 = {{poste->getNome(), " " }, contoposte  };
     lstConti.insert(pair1);
     Utenza* person1 = new Utenza("Pippo", "Pluto", 'm', 7, 3, 1990);
     ContoCorrente* conto1 = new ContoCorrente(person1);
-    pair<ContoCorrente*, pair<string,string>> pair2 = {conto1, {person1->getNome(), person1->getCognome() } };
+    pair<pair<string,string>, ContoCorrente*> pair2 = {{person1->getNome(), person1->getCognome() }, conto1 };
     lstConti.insert(pair2);
-    /*string nome, cognome;
-    char sesso;
-    int gn, mn, an;*/
     pair<string,string> pairn;
+    map<pair<string,string>, ContoCorrente*>::const_iterator iter;
     string searchName, nomeInvio, cognomeInvio;
     float deposito, invio, prelievo;
     bool result, trovato, correctInsert;
     int switch1, switch2, switch3, d;
-    /*cout << "Inserisci i tuoi dati" << endl;
-    cout << "Inserisci il tuo nome" << endl;
-    cin >> nome;
-    cout << "Inserisci il tuo cognome" << endl;
-    cin >> cognome;
-    cout << "Inserisci il tuo sesso" << endl;
-    cin >> sesso;
-    cout << "Inserisci il tuo giorno di nascita" << endl;
-    cin >> gn;
-    cout << "Inserisci il tuo mese di nascita" << endl;
-    cin >> mn;
-    cout << "Inserisci il tuo anno di nascita" << endl;
-    cin >> an;
-    Utenza* me = new Utenza(nome, cognome, sesso, gn, mn, an);*/
     Utenza* me = new Utenza("Edoardo", "Bonanni", 'm', 2, 3, 1998);
     ContoCorrente* myBankAccount = new ContoCorrente(me);
-    pair<ContoCorrente*, pair<string,string>> pair3 = {myBankAccount, {me->getNome(), me->getCognome() } };
+    pair< pair<string,string>, ContoCorrente*> pair3 = {{me->getNome(), me->getCognome() }, myBankAccount  };
     lstConti.insert(pair3);
     while(true){
         cout << "Inserire il numero corrispondente alla operazione che si vuole eseguire" << endl;
@@ -99,25 +123,28 @@ int main() {
                         cout << "Inserire il cognome" << endl;
                         cin >> cognomeInvio;
                         trovato = false;
-                        for(auto i : lstConti){
-                            if(i.second.first == nomeInvio && i.second.second == cognomeInvio){
-                                //puntatore al contocorrente trovato
-                                trovato = true;
-                                break;
-                            }
-                        }
+                        iter = lstConti.find(make_pair(nomeInvio, cognomeInvio));
                         correctInsert=false;
-                        if(trovato){
+                        if(iter != lstConti.end()){
                             while(correctInsert){
                                 cout << "Inserire il valore del denaro che vuole inviare, inserire valore 0 se si vuole annullare il bonifico " << endl;
                                 cin >> invio;
                                 if(invio >= 0)
                                     correctInsert=true;
                             }
-                            if(invio > 0 && myBankAccount->InviaDenaro(invio, //puntatore al contocorrente trovato)) {
-                                cout << "Inserire il valore del denaro che vuole inviare, inserire valore 0 se si vuole annullare il bonifico " << endl;
-                                cin >> invio;;
+                            if(invio > 0 && myBankAccount->InviaDenaro(invio, iter->second)) {
+                                cout << "Bonifico avvenuto con successo " << endl;
+                                cout << "Hai inviato " << invio <<" euro addesso il tuo credito è di " << myBankAccount->getSaldo() << endl;
                             }
+                            else if(invio == 0){
+                                cout << "Operazione annullata " << endl;
+                            }
+                            else if(!myBankAccount->InviaDenaro(invio, iter->second)){
+                                cout << "Credito insufficente, il tuo credito è di " << myBankAccount->getSaldo() << endl;
+                            }
+                        }
+                        else{
+                            cout << "Nessun conto corrente con quel nome trovato" << endl;
                         }
                         result = false;
                         break;
@@ -135,14 +162,7 @@ int main() {
                 cout << "Ha inserito un valore associato a nessuna operazione " << endl;
                 break;
         }
-    }/*
-    cout << "Inserisci il denaro da inviare a " << poste->getNome() << endl;
-    cin >> invio;
-    result = myBankAccount->InviaDenaro(invio, contoposte);
-    if(result)
-        cout << "Transazione avvenuta con successo" << endl;
-    else
-        cout << "Errore nella transazione " << endl;
-    cout << "Il tuo saldo rimanente e' " << myBankAccount->getSaldo();*/
+    }
+    */
     return 0;
 }
