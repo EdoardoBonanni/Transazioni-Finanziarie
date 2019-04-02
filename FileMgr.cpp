@@ -5,76 +5,106 @@
 #include <cstring>
 #include "FileMgr.h"
 FileMgr::FileMgr(std::string filename, bool input) {
-    fileExists=true;
+    openFile(filename, input);
+}
+
+void FileMgr::openFile(std::string filename, bool input){
     try {
         if (input)
-            file.open(filename, std::fstream::in);
+            file.open(filename, std::ios::in);
         else
             file.open(filename, std::fstream::app);
+        fileExists=true;
     }catch(std::ios_base::failure ex){
-        std::cout << "Il file " << filename << " non può essere aperto o non esiste" << std::endl;
+        std::cout << "Errore nella lettura dei dati deell'account" << std::endl;
         fileExists = false;
     }
 }
 
 FileMgr::~FileMgr() {
+    file.flush();
     file.close();
 }
 
 std::string FileMgr::read(std::string filename) {
     std::string s ="", tot ="";
     try {
-        if(file.is_open()) {
-            while (!file.eof()) {
-                getline(file, s);
-                tot += s;
-            }
-        }else{
-            file.open(filename, std::fstream::in);
+        if(!file.is_open()) {
+            openFile(filename, true);
+        }
+        if (file.good()) {
             while (!file.eof()) {
                 getline(file, s);
                 tot += s;
             }
         }
     }catch(std::ios_base::failure ex){
-        std::cout << "Errore nella lettura del file" << std::endl;
+        std::cout << "Errore nella lettura dei dati" << std::endl;
     }
-    delete file;
+    file.close();
     return tot;
 }
 
-std::string FileMgr::readLine(std::string filename) {
+std::string FileMgr::readFirstLine(std::string filename) {
     std::string s ="";
     try {
-        if(file.is_open()) {
-            /*while (!file.eof()) {
-                getline(file, s);
-                tot += s;
-            }*/
-        }else{
-            file.open(filename, std::fstream::in);
-            /*while (!file.eof()) {
-                getline(file, s);
-                tot += s;
-            }*/
+        if(!file.is_open()) {
+            openFile(filename, true);
+        }
+        if (file.good()) {
+            getline(file, s);
         }
     }catch(std::ios_base::failure ex){
-        std::cout << "Errore nella lettura del file" << std::endl;
+        std::cout << "Errore nella lettura dei dati" << std::endl;
     }
-    delete file;
+    file.close();
     return s;
+}
+
+std::string FileMgr::readSecondLastLine(std::string filename) {
+    std::string s ="";
+    try {
+        size_t count = countLines(filename);
+        if(!file.is_open()) {
+            openFile(filename, true);
+        }
+        if (file.good()) {
+            for (size_t i = 0; i < count - 1; ++i) {
+                getline(file, s);
+            }
+            getline(file, s);
+        }
+    }catch(std::ios_base::failure ex){
+        std::cout << "Errore nella lettura dei dati" << std::endl;
+    }
+    file.close();
+    return s;
+}
+
+size_t FileMgr::countLines(std::string filename) {
+    size_t count = 0;
+    try {
+        if(!file.is_open()) {
+            openFile(filename, true);
+        }
+        if (file.good()) {
+            std::string line;
+            while (getline(file, line)) {
+                ++count;
+            }
+        }
+    }catch(std::ios_base::failure ex){
+        std::cout << "Errore nella lettura dei dati" << std::endl;
+    }
+    file.close();
+    return count;
 }
 
 void FileMgr::write(std::string filename,std::string str) {
     try {
-        if(file.is_open()) {
-            if (!file.eof()) {
-                file << str;
-                file << "\n";
-                file.flush();
-            }
-        }else{
-            file.open(filename, std::fstream::app);
+        if(!file.is_open())
+            openFile(filename, false);
+        if (file.good()) {
             if (!file.eof()) {
                 file << str;
                 file << "\n";
@@ -82,24 +112,26 @@ void FileMgr::write(std::string filename,std::string str) {
             }
         }
     }catch(std::ios_base::failure ex){
-        std::cout << "Errore nella scrittura del file" << std::endl;
+        std::cout << "Errore nel salvataggio dei dati" << std::endl;
     }
+    file.close();
 }
 
 void FileMgr::openNewFile(std::string filename, std::string str) {
     try {
         file.open(filename, std::fstream::out);
-        if(file.is_open()) {
+        if(file.good()) {
             if (!file.eof()) {
                 file << str;
                 file << "\n";
                 file.flush();
             }
         }
+        fileExists=true;
     }catch(std::ios_base::failure ex){
-        std::cout << "Errore nella creazione del nuovo file" << std::endl;
+        std::cout << "Errore nella creazione del nuovo utente" << std::endl;
     }
-    delete file;
+    file.close();
 }
 
 bool FileMgr::isFileExists() const {

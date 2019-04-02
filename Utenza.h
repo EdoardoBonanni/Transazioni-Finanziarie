@@ -12,6 +12,7 @@ class Utenza {
 
 private:
 public:
+    Utenza(const std::string n, const std::string c);
     Utenza(const std::string n, const std::string c, char s,
                     const int gn, const int mn, const int an);
     /*Utenza(const std::string n, const std::string c, char s,
@@ -19,17 +20,22 @@ public:
            const std::string ln, const std::string pn, const std::string i,
            int nc, const std::string p);*/
     Utenza(const std::string n,const std::string i,const int nc, const std::string p);
+    virtual ~Utenza();
     bool ispersonaFisica();
     const std::string getNome() const;
     const std::string getCognome() const;
+    char getSesso() const;
+    const std::string getIndirizzo() const;
+    int getNumeroCivico() const;
+    const std::string getProvincia() const;
 
 private:
     std::string nome;
     std::string cognome;
-    //char sesso;
+    char sesso;
     Date* dataNascita;
-    /*std::string luogoNascita;
-    std::string provinciaNascita;*/
+    std::string luogoNascita;
+    std::string provinciaNascita;
     std::string indirizzo;
     int numeroCivico;
     std::string provincia;

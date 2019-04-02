@@ -14,12 +14,15 @@ public:
     ~FileMgr();
     void write(std::string filename, std::string str);
     std::string read(std::string filename);
-    std::string readLine(std::string filename);
+    std::string readFirstLine(std::string filename);
+    std::string readSecondLastLine(std::string filename);
     void openNewFile(std::string filename, std::string str);
     bool isFileExists() const;
 private:
     std::fstream file;
     bool fileExists;
+    void openFile(std::string filename, bool input);
+    size_t countLines(std::string filename);
 };
 
 

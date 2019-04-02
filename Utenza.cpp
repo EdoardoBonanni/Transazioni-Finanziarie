@@ -4,6 +4,8 @@
 
 #include "Utenza.h"
 
+Utenza::Utenza(const std::string n, const std::string c) : nome(n), cognome(c) {}
+
 Utenza::Utenza(const std::string n, const std::string c, char s,
                         const int gn, const int mn, const int an)
         :nome(n), cognome(c), sesso(s) {
@@ -41,4 +43,24 @@ const std::string Utenza::getNome() const {
 
 const std::string Utenza::getCognome() const {
     return cognome;
+}
+
+Utenza::~Utenza() {
+    delete dataNascita;
+}
+
+char Utenza::getSesso() const {
+    return sesso;
+}
+
+const std::string Utenza::getIndirizzo() const {
+    return indirizzo;
+}
+
+int Utenza::getNumeroCivico() const {
+    return numeroCivico;
+}
+
+const std::string Utenza::getProvincia() const {
+    return provincia;
 }
