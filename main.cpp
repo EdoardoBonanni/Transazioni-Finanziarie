@@ -2,8 +2,10 @@
 #include<fstream>
 #include <map>
 #include <sstream>
-#include <iterator>
 #include <vector>
+#include <iomanip>
+#include <tgmath.h>
+#include "time.h"
 #include "Date.h"
 #include "Utenza.h"
 #include "ContoCorrente.h"
@@ -11,13 +13,22 @@
 
 using namespace std;
 int main() {
-    //lettura file Utenze
-    string nome, cognome, filename, str, posteName, fileNamePoste;
-    char sesso;
-    float saldo;
-    int gn, mn, an;
+    srand(time(NULL));
+    string searchName, nomeInvio, cognomeInvio, nome, cognome, filename, filenameOther, str, str1, posteName, fileNamePoste, token;
+    vector<string> container;
+    float deposito, invio, prelievo, saldo, f, f1;
+    bool result, correctInsert;
+    int switch1, switch2, switch3, gn, mn, an;
+    const char* c;
+    time_t t = time(0);
+    struct tm* now;
+    char sesso, delim1 = ' ';;
+    std::stringstream ss;
     ContoCorrente* myBankAccount;
-    map<pair<string,string>, ContoCorrente*> lstConti;
+    ContoCorrente* otherBankAccount;
+    Utenza* me;
+    Utenza* other;
+    FileMgr* fileOtherUser;
     cout << "Inserisca il suo nome (solo primo nome)" << std::endl;
     cin >> nome;
     cout << "Inserisca il suo cognome (senza spaziature per cognome doppio)" << endl;
@@ -25,78 +36,75 @@ int main() {
     filename = nome + cognome +".txt";
     FileMgr* fileUtenze = new FileMgr(filename, true);
     if(fileUtenze->isFileExists() == false) {
-        cout << "Inserisca il suo giorno di nascita" << endl;
-        cin >> gn;
-        cout << "Inserisca il suo mese di nascita" << endl;
-        cin >> mn;
+        do {
+            cout << "Inserisca il suo giorno di nascita" << endl;
+            cin >> gn;
+        }while(gn<=0 || gn>31);
+        do {
+            cout << "Inserisca il suo mese di nascita" << endl;
+            cin >> mn;
+        }while(gn<=0 || gn>12);
         cout << "Inserisca il suo anno di nascita" << endl;
         cin >> an;
-        cout << "Inserisca il suo sesso" << endl;
+        do{
+        cout << "Inserisca il suo sesso (m,f)" << endl;
         cin >> sesso;
+        }while(sesso != 'm' && sesso != 'f');
         string ss(1,sesso);
         string gns = std::to_string(gn);
         string mns = std::to_string(mn);
         string ans = std::to_string(an);
-        Utenza* me = new Utenza(nome, cognome, sesso, gn, mn, an);
+        me = new Utenza(nome, cognome, sesso, gn, mn, an);
         myBankAccount = new ContoCorrente(me, 0);
         str = nome + " " + cognome;
         fileUtenze->openNewFile(filename, str);
         str = ss + " " + gns + "/" + mns + "/" + ans;
         fileUtenze->write(filename, str);
+        now = localtime(&t);
+        str = "Account creato il " + std::to_string(now->tm_mday) + "/" +
+                std::to_string((now->tm_mon +1)) + "/" + std::to_string((now->tm_year+1900)) +
+                " " + std::to_string(now->tm_hour) + ":" + std::to_string(now->tm_min) + ":" +
+                std::to_string(now->tm_sec);
+        fileUtenze->write(filename, str);
+        str = "0 euro disponibili sul tuo conto";
+        fileUtenze->write(filename, str);
     }else{
         str = fileUtenze->readFirstLine(filename);
-        //divisione stringa nome e cognome
-        vector<string> container, container1;
-        char delim1 = ' ';
-        //char delim2 = ' ';
-        std::stringstream ss(str);
-        std::string token;
+        ss.str("");
+        ss << str;
         while (std::getline(ss, token, delim1) /*|| std::getline(ss, token, delim2)*/) {
             container.push_back(token);
         }
         nome = container[0];
         cognome = container[1];
-        Utenza* me = new Utenza(nome, cognome);
+        me = new Utenza(nome, cognome);
         str = fileUtenze->readSecondLastLine(filename);
-        std::stringstream ss1(str);
-        while (std::getline(ss1, token, delim1) /*|| std::getline(ss, token, delim2)*/) {
-            container1.push_back(token);
+        ss.clear();
+        ss.seekg(0);
+        ss.seekp(0);
+        ss << str;
+        for(int i=0; i< container.size(); i++)
+            container.erase(container.begin(), container.end());
+        while (std::getline(ss, token, delim1) /*|| std::getline(ss, token, delim2)*/) {
+            container.push_back(token);
         }
         saldo = stof(container[0]);
         myBankAccount = new ContoCorrente(me, saldo);
+        ss.clear();
+        ss.seekg(0);
+        ss.seekp(0);
     }
-    //situazione contocorrente
     posteName = "Poste";
     fileNamePoste = posteName +".txt";
     FileMgr* filePoste = new FileMgr(fileNamePoste, true);
     Utenza* poste = new Utenza(posteName, "via togliatti", 2, "firenze");
     ContoCorrente* contoposte = new ContoCorrente(poste, 1000000000);
-    const char* c;
     if(filePoste->isFileExists() == false) {
-        /*if (poste->ispersonaFisica())
-            str = poste->getNome() + " " + poste->getCognome();
-        else*/
         str = poste->getNome() + " X";
         filePoste->openNewFile(fileNamePoste, str);
         str = poste->getIndirizzo() + " " + std::to_string(poste->getNumeroCivico()) + " " + poste->getProvincia();
         filePoste->write(fileNamePoste, str);
     }
-    pair<pair<string,string>, ContoCorrente*> pair1 = {{poste->getNome(), " " }, contoposte  };
-    lstConti.insert(pair1);
-    /*Utenza* person1 = new Utenza("Pippo", "Pluto", 'm', 7, 3, 1990);
-    ContoCorrente* conto1 = new ContoCorrente(person1);
-    pair<pair<string,string>, ContoCorrente*> pair2 = {{person1->getNome(), person1->getCognome() }, conto1 };
-    lstConti.insert(pair2);*/
-    pair<string,string> pairn;
-    map<pair<string,string>, ContoCorrente*>::const_iterator iter;
-    string searchName, nomeInvio, cognomeInvio;
-    float deposito, invio, prelievo;
-    bool result, trovato, correctInsert;
-    int switch1, switch2, switch3, d;
-    /*Utenza* me = new Utenza("Edoardo", "Bonanni", 'm', 2, 3, 1998);
-    ContoCorrente* myBankAccount = new ContoCorrente(me);
-    pair< pair<string,string>, ContoCorrente*> pair3 = {{me->getNome(), me->getCognome() }, myBankAccount  };
-    lstConti.insert(pair3);*/
     while(true){
         cout << "Inserire il numero corrispondente alla operazione che si vuole eseguire" << endl;
         cout << "1) Prelevare denaro dal proprio conto corrente" << endl;
@@ -105,15 +113,32 @@ int main() {
         cin >> switch1;
         switch(switch1){
             case 1:
+                cout << "Il suo credito è di " << myBankAccount->getSaldo() << endl;
                 cout << "Inserire il denaro che vuole prelevare dal proprio conto corrente" << endl;
                 cin >> prelievo;
                 if(myBankAccount->PrelevaDenaro(prelievo)){
                     cout << "Prelievo avvenuto con successo" << endl;
-                    cout << "Il suo credito adesso è di " << myBankAccount->getSaldo() << endl;
+                    f = round(myBankAccount->getSaldo()*100.0)/100.0;
+                    cout << "Il suo credito adesso è di " << f << endl;
+                    now = localtime(&t);
+                    str = " ";
+                    fileUtenze->write(filename, str);
+                    ss.str("");
+                    ss << std::fixed << std::setprecision(2) << prelievo;
+                    str = "Prelievo di " + ss.str() + " avvenuto con successo";
+                    fileUtenze->write(filename, str);
+                    str = "Data " + std::to_string(now->tm_mday) + "/" +
+                          std::to_string((now->tm_mon +1)) + "/" + std::to_string((now->tm_year+1900)) +
+                          " " + std::to_string(now->tm_hour) + ":" + std::to_string(now->tm_min) + ":" +
+                          std::to_string(now->tm_sec);
+                    fileUtenze->write(filename, str);
+                    ss.str("");
+                    ss << f;
+                    str = ss.str() + " euro disponibili sul tuo conto";
+                    fileUtenze->write(filename, str);
                 }
                 else{
                     cout << "Credito insufficiente" << endl;
-                    cout << "Il suo credito è di " << myBankAccount->getSaldo() << endl;
                 }
                 break;
             case 2:
@@ -124,11 +149,29 @@ int main() {
                     cin >> switch2;
                     switch (switch2){
                         case 1:
-                            d = rand() % 1000000;
-                            deposito = (float)d/100;
+                            f1 = (rand()%100000);
+                            f1 /= 100;
+                            deposito = round(f1*100.0)/100.0;
                             myBankAccount->DepositaDenaro(deposito);
                             cout << "Il suo deposito di " << deposito << " è andato a buon fine" <<endl;
-                            cout << "Il suo credito adesso è di " << myBankAccount->getSaldo() << endl;
+                            f = round(myBankAccount->getSaldo()*100.0)/100.0;
+                            cout << "Il suo credito adesso è di " << f << endl;
+                            now = localtime(&t);
+                            str = " ";
+                            fileUtenze->write(filename, str);
+                            ss.str("");
+                            ss << std::fixed << std::setprecision(2) << deposito;
+                            str = "Deposito di " + ss.str() + " avvenuto con successo";
+                            fileUtenze->write(filename, str);
+                            str = "Data " + std::to_string(now->tm_mday) + "/" +
+                                  std::to_string((now->tm_mon +1)) + "/" + std::to_string((now->tm_year+1900)) +
+                                  " " + std::to_string(now->tm_hour) + ":" + std::to_string(now->tm_min) + ":" +
+                                  std::to_string(now->tm_sec);
+                            fileUtenze->write(filename, str);
+                            ss.str("");
+                            ss << f;
+                            str = ss.str() + " euro disponibili sul tuo conto";
+                            fileUtenze->write(filename, str);
                             result = false;
                             break;
                         case 2:
@@ -153,34 +196,87 @@ int main() {
                         cin >> nomeInvio;
                         cout << "Inserire il cognome" << endl;
                         cin >> cognomeInvio;
-                        trovato = false;
-                        iter = lstConti.find(make_pair(nomeInvio, cognomeInvio));
-                        correctInsert=false;
-                        if(iter != lstConti.end()){
-                            while(correctInsert){
-                                cout << "Inserire il valore del denaro che vuole inviare, inserire valore 0 se si vuole annullare il bonifico " << endl;
-                                cin >> invio;
-                                if(invio >= 0)
-                                    correctInsert=true;
+                        if(nomeInvio == nome && cognomeInvio == cognome)
+                            cout << "Non puoi fare un bonifico a te stesso" << endl;
+                        else {
+                            filenameOther = nomeInvio + cognomeInvio +".txt";
+                            fileOtherUser = new FileMgr(filenameOther, true);
+                            if(fileOtherUser->isFileExists())
+                            {
+                                //cout utente trovato
+                                other = new Utenza(nomeInvio, cognomeInvio);
+                                str = fileOtherUser->readSecondLastLine(filenameOther);
+                                ss.clear();
+                                ss.seekg(0);
+                                ss.seekp(0);
+                                ss << str;
+                                for(int i=0; i< container.size(); i++)
+                                    container.erase(container.begin(), container.end());
+                                while (std::getline(ss, token, delim1) /*|| std::getline(ss, token, delim2)*/) {
+                                    container.push_back(token);
+                                }
+                                saldo = stof(container[0]);
+                                ss.clear();
+                                ss.seekg(0);
+                                ss.seekp(0);
+                                otherBankAccount = new ContoCorrente(other, saldo);
+                                f = round(myBankAccount->getSaldo()*100.0)/100.0;
+                                do{
+                                    cout << "Il suo credito è di " << f << endl;
+                                    cout << "Inserire il valore del denaro che vuole inviare, inserire valore 0 se si vuole annullare il bonifico " << endl;
+                                    cin >> invio;
+                                }while(invio < 0);
+                                f1 = round(invio*100.0)/100.0;
+                                if((invio>0) && myBankAccount->InviaDenaro(f1, otherBankAccount)){
+                                    cout << "Bonifico avvenuto con successo " << endl;
+                                    f = round(myBankAccount->getSaldo()*100.0)/100.0;
+                                    cout << "Hai inviato " << f1 << " euro addesso il tuo credito è di " << f << endl;
+                                    now = localtime(&t);
+                                    //me
+                                    str = " ";
+                                    fileUtenze->write(filename, str);
+                                    ss.str("");
+                                    ss << std::fixed << std::setprecision(2) << f1;
+                                    str = "Bonifico di " + ss.str() + " avvenuto con successo a " + nomeInvio + " " + cognomeInvio;
+                                    fileUtenze->write(filename, str);
+                                    str = "Data " + std::to_string(now->tm_mday) + "/" +
+                                          std::to_string((now->tm_mon +1)) + "/" + std::to_string((now->tm_year+1900)) +
+                                          " " + std::to_string(now->tm_hour) + ":" + std::to_string(now->tm_min) + ":" +
+                                          std::to_string(now->tm_sec);
+                                    fileUtenze->write(filename, str);
+                                    ss.str("");
+                                    ss << std::fixed << std::setprecision(2) << f;
+                                    str = ss.str() + " euro disponibili sul tuo conto";
+                                    fileUtenze->write(filename, str);
+                                    //other
+                                    str = " ";
+                                    fileOtherUser->write(filenameOther, str);
+                                    ss.str("");
+                                    ss << f;
+                                    str = "Bonifico di " + ss.str() + " ricevuto con successo da " + nome + " " + cognome;
+                                    fileOtherUser->write(filenameOther, str);
+                                    str = "Data " + std::to_string(now->tm_mday) + "/" +
+                                          std::to_string((now->tm_mon +1)) + "/" + std::to_string((now->tm_year+1900)) +
+                                          " " + std::to_string(now->tm_hour) + ":" + std::to_string(now->tm_min) + ":" +
+                                          std::to_string(now->tm_sec);
+                                    fileOtherUser->write(filenameOther, str);
+                                    ss.str("");
+                                    f = round(otherBankAccount->getSaldo()*100.0)/100.0;
+                                    ss << f;
+                                    str = ss.str() + " euro disponibili sul tuo conto";
+                                    fileOtherUser->write(filenameOther, str);
+                                } else if (invio == 0) {
+                                    cout << "Operazione annullata " << endl;
+                                } else {
+                                    cout << "Credito insufficente, il tuo credito è di " << f << endl;
+                                }
+                            }else{
+                                cout << "Conto corrente richiesto non trovato" << endl;
                             }
-                            if(invio > 0 && myBankAccount->InviaDenaro(invio, iter->second)) {
-                                cout << "Bonifico avvenuto con successo " << endl;
-                                cout << "Hai inviato " << invio <<" euro addesso il tuo credito è di " << myBankAccount->getSaldo() << endl;
-                            }
-                            else if(invio == 0){
-                                cout << "Operazione annullata " << endl;
-                            }
-                            else if(!myBankAccount->InviaDenaro(invio, iter->second)){
-                                cout << "Credito insufficente, il tuo credito è di " << myBankAccount->getSaldo() << endl;
-                            }
-                        }
-                        else{
-                            cout << "Nessun conto corrente con quel nome trovato" << endl;
                         }
                         result = false;
                         break;
                     case 2:
-
                         result = false;
                         break;
                     default:

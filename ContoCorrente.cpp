@@ -15,9 +15,9 @@ float ContoCorrente::getSaldo() const {
 }
 
 bool ContoCorrente::InviaDenaro(float denaro, ContoCorrente* other) {
-    if(denaro <= saldo) {
+    if(denaro <= this->saldo) {
         other->saldo += denaro;
-        saldo -= denaro;
+        this->saldo -= denaro;
         return true;
     }
     return false;
@@ -26,7 +26,7 @@ bool ContoCorrente::InviaDenaro(float denaro, ContoCorrente* other) {
 bool ContoCorrente::RiceviDenaro(float denaro, ContoCorrente *other) {
     if(denaro <= other->getSaldo()) {
         other->saldo -= other->getSaldo();
-        saldo += denaro;
+        this->saldo += denaro;
         return true;
     }
     return false;

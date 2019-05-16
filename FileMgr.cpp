@@ -6,6 +6,7 @@
 #include "FileMgr.h"
 FileMgr::FileMgr(std::string filename, bool input) {
     openFile(filename, input);
+    file.close();
 }
 
 void FileMgr::openFile(std::string filename, bool input){
@@ -14,9 +15,12 @@ void FileMgr::openFile(std::string filename, bool input){
             file.open(filename, std::ios::in);
         else
             file.open(filename, std::fstream::app);
-        fileExists=true;
+        if(file.is_open())
+            fileExists=true;
+        else
+            fileExists=false;
     }catch(std::ios_base::failure ex){
-        std::cout << "Errore nella lettura dei dati deell'account" << std::endl;
+        std::cout << "Errore nella lettura dei dati dell'account" << std::endl;
         fileExists = false;
     }
 }
