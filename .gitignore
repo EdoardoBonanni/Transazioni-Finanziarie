@@ -1,3 +1,5 @@
-cmake-build-debug/
+cmake-build-debug/CMakeFiles/
+cmake-build-debug/TransazioniFinanziarie
+cmake-build-debug/TransazioniFinanziarie.cbp
 .idea/
 
