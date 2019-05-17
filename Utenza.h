@@ -12,7 +12,7 @@ class Utenza {
 
 private:
 public:
-    Utenza(const std::string n, const std::string c);
+    Utenza(const std::string n, const std::string c, bool pf);
     Utenza(const std::string n, const std::string c, char s,
                     const int gn, const int mn, const int an);
     /*Utenza(const std::string n, const std::string c, char s,

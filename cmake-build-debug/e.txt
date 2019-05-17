@@ -1,0 +1,24 @@
+e X
+r 3 p
+Account creato il 17/5/2019 17:3:13
+0 euro disponibili sul suo conto
+ 
+Deposito di 791.96 avvenuto con successo
+Data 17/5/2019 17:3:13
+791.96 euro disponibili sul tuo conto
+ 
+Bonifico di 12.45 avvenuto con successo a w w
+Data 17/5/2019 17:3:13
+779.51 euro disponibili sul tuo conto
+ 
+Prelievo di 12.51 avvenuto con successo
+Data 17/5/2019 17:5:26
+12.51 euro disponibili sul tuo conto
+ 
+Bonifico di 3.33 avvenuto con successo a w w
+Data 17/5/2019 17:5:26
+763.67 euro disponibili sul tuo conto
+ 
+Bonifico di 12.55 ricevuto con successo da r
+Data 17/5/2019 17:6:1
+776.22 euro disponibili sul tuo conto

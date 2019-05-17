@@ -4,10 +4,9 @@
 
 #include "ContoCorrente.h"
 
-ContoCorrente::ContoCorrente(Utenza* t, int s) : titolare(t) {
-    saldo = 0;
-    if(!t->ispersonaFisica())
-        saldo = s;
+ContoCorrente::ContoCorrente(Utenza* t, float s){
+    titolare = t;
+    saldo = s;
 }
 
 float ContoCorrente::getSaldo() const {

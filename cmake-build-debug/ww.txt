@@ -1,0 +1,68 @@
+w w
+m 2/2/2
+Account creato il 16/5/2019 18:36:32
+0 euro disponibili sul tuo conto
+ 
+Deposito di 732.15 avvenuto con successo
+Data 16/5/2019 18:36:32
+732.15 euro disponibili sul tuo conto
+ 
+Deposito di 386.48 avvenuto con successo
+Data 16/5/2019 18:36:32
+1118.63 euro disponibili sul tuo conto
+ 
+Prelievo di 118.87 avvenuto con successo
+Data 16/5/2019 18:36:32
+999.76 euro disponibili sul tuo conto
+ 
+Bonifico di 99.76 avvenuto con successo a w q
+Data 16/5/2019 18:36:32
+900.00 euro disponibili sul tuo conto
+ 
+Bonifico di 33.30 avvenuto con successo a w q
+Data 16/5/2019 18:38:56
+866.70 euro disponibili sul tuo conto
+ 
+Bonifico di 133.70 avvenuto con successo a w q
+Data 17/5/2019 15:36:9
+732.30 euro disponibili sul tuo conto
+ 
+Deposito di 318.67 avvenuto con successo
+Data 17/5/2019 15:39:35
+1050.67 euro disponibili sul tuo conto
+ 
+Prelievo di 122.20 avvenuto con successo
+Data 17/5/2019 15:39:35
+928.47 euro disponibili sul tuo conto
+ 
+Bonifico di 28.17 avvenuto con successo a w q
+Data 17/5/2019 15:39:35
+900.30 euro disponibili sul tuo conto
+ 
+Bonifico di 12.51 avvenuto con successo a w q
+Data 17/5/2019 15:42:55
+887.49 euro disponibili sul tuo conto
+ 
+Deposito di 490.79 avvenuto con successo
+Data 17/5/2019 15:56:1
+1377.79 euro disponibili sul tuo conto
+ 
+Deposito di 470.79 avvenuto con successo
+Data 17/5/2019 15:59:6
+1848.58 euro disponibili sul tuo conto
+ 
+Bonifico di 48.18 avvenuto con successo a w q
+Data 17/5/2019 15:59:6
+1800.40 euro disponibili sul tuo conto
+ 
+Deposito di 999.24 avvenuto con successo
+Data 17/5/2019 17:2:16
+2799.64 euro disponibili sul tuo conto
+ 
+Bonifico di 12.45 ricevuto con successo da e
+Data 17/5/2019 17:3:13
+2812.09 euro disponibili sul tuo conto
+ 
+Bonifico di 3.33 ricevuto con successo da e
+Data 17/5/2019 17:5:26
+2815.42 euro disponibili sul tuo conto
