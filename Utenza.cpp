@@ -17,7 +17,6 @@ Utenza::Utenza(const std::string n, const std::string c, char s,
     dataNascita = new Date(gn, mn, an);
     personaFisica = true;
 }
-
 /*Utenza::Utenza(const std::string n, const std::string c, char s,
                const int gn, const int mn, const int an,
                const std::string ln, const std::string pn, const std::string i,

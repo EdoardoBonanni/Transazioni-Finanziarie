@@ -1,12 +1,16 @@
 e e
-m 2/2/2020
-Account creato il 17/5/2019 17:45:0
+m 2/2/1922
+Account creato il 18/5/2019 17:21:56
 0 euro disponibili sul suo conto
  
-Deposito di 284.17 avvenuto con successo
-Data 17/5/2019 17:45:0
-284.17 euro disponibili sul tuo conto
+Deposito di 808.81 avvenuto con successo
+Data 18/5/2019 17:21:56
+808.81 euro disponibili sul tuo conto
  
-Deposito di 658 avvenuto con successo
-Data 17/5/2019 17:45:0
-942.17 euro disponibili sul tuo conto
+Prelievo di 12.33 avvenuto con successo
+Data 18/5/2019 17:21:56
+796.48 euro disponibili sul tuo conto
+ 
+Bonifico di 12.33 avvenuto con successo a z z
+Data 18/5/2019 17:21:56
+784.15 euro disponibili sul tuo conto
