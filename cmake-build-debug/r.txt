@@ -10,3 +10,15 @@ Data 17/5/2019 17:6:1
 Bonifico di 12.55 avvenuto con successo a e
 Data 17/5/2019 17:6:1
 861.31 euro disponibili sul tuo conto
+ 
+Bonifico di 12.05 ricevuto con successo da z
+Data 22/5/2019 15:51:39
+873.36 euro disponibili sul tuo conto
+ 
+Bonifico di 12 ricevuto con successo da z
+Data 22/5/2019 15:51:39
+885.36 euro disponibili sul tuo conto
+ 
+Bonifico di 12.56 ricevuto con successo da z
+Data 22/5/2019 16:1:33
+897.92 euro disponibili sul tuo conto
