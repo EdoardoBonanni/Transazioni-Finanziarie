@@ -24,10 +24,20 @@ private:
         ss.seekg(0);
         ss.seekp(0);
     }
+    float readSaldo(vector<string> container, std::stringstream& ss, char delim){
+        for (int i = 0; i < container.size(); i++)
+            container.erase(container.begin(), container.end());
+        string token;
+        while (std::getline(ss, token, delim)) {
+            container.push_back(token);
+        }
+        float s = stof(container[0]);
+        return s;
+    }
 public:
     void run() {
         srand(time(NULL));
-        string searchName, nomeInvio, cognomeInvio, nome, cognome = " ", ind, prov, filename, filenameOther, str, str1, posteName, fileNamePoste, token;
+        string searchName, nomeInvio, cognomeInvio, nome, cognome = " ", ind, prov, filename, filenameOther, str, str1, posteName, fileNamePoste;
         vector <string> container;
         float deposito, invio, prelievo, saldo, f, f1;
         bool result, exitMenu = false, searchCognome = false, failure = false, fatalError = false, sendToYou =false;
@@ -54,7 +64,10 @@ public:
                 cinClear();
             }
         } while ((pf < 0 || pf > 1) || failure == true);
-        cout << "Inserisca il suo nome (o il nome dell'azienda)" << std::endl;
+        if(pf==1)
+            cout << "Inserisca il suo nome" << endl;
+        else
+            cout << "Inserisca il nome dell'azienda" << endl;
         cin >> nome;
         if (pf == 1) {
             cout << "Inserisca il suo cognome (senza spaziature per cognome doppio)" << endl;
@@ -139,7 +152,7 @@ public:
                 cin >> prov;
                 string ncs = std::to_string(nc);
                 me = new Utenza(nome, ind, nc, prov);
-                str = nome + " X";
+                str = nome;
                 if (!fatalError)
                     fileUtenze->openNewFile(filename, str, fatalError);
                 str = ind + " " + ncs + " " + prov;
@@ -160,26 +173,14 @@ public:
         } else if (fileUtenze->isFileExists() == true && !fatalError) {
             str = fileUtenze->readFirstLine(filename, fatalError);
             if (!fatalError) {
-                ss.str("");
-                ss << str;
-                while (std::getline(ss, token, delim1) /*|| std::getline(ss, token, delim2)*/) {
-                    container.push_back(token);
-                }
-                nome = container[0];
-                cognome = container[1];
-                if (cognome != "X")
+                if(pf)
                     searchCognome = true;
                 me = new Utenza(nome, cognome, searchCognome);
                 str = fileUtenze->readSecondLastLine(filename, fatalError);
                 if (!fatalError) {
                     resetStream(ss);
                     ss << str;
-                    for (int i = 0; i < container.size(); i++)
-                        container.erase(container.begin(), container.end());
-                    while (std::getline(ss, token, delim1) /*|| std::getline(ss, token, delim2)*/) {
-                        container.push_back(token);
-                    }
-                    saldo = stof(container[0]);
+                    saldo = readSaldo(container, ss, delim1);
                     myBankAccount = new ContoCorrente(me, saldo);
                     resetStream(ss);
                 }
@@ -191,7 +192,7 @@ public:
         Utenza *poste = new Utenza(posteName, "via togliatti", 2, "firenze");
         ContoCorrente *contoposte = new ContoCorrente(poste, 1000000000);
         if (filePoste->isFileExists() == false && !fatalError) {
-            str = poste->getNome() + " X";
+            str = poste->getNome();
             filePoste->openNewFile(fileNamePoste, str, fatalError);
             if (!fatalError) {
                 str = poste->getIndirizzo() + " " + std::to_string(poste->getNumeroCivico()) + " " +
@@ -313,6 +314,7 @@ public:
                         }
                         break;
                     case 3:
+                        sendToYou = false;
                         do {
                             try {
                                 cout << "Inserire 1 se vuole fare il bonifico ad persona fisica altrimenti 0 " << endl;
@@ -346,12 +348,7 @@ public:
                             if (!fatalError) {
                                 resetStream(ss);
                                 ss << str;
-                                for (int i = 0; i < container.size(); i++)
-                                    container.erase(container.begin(), container.end());
-                                while (std::getline(ss, token, delim1) /*|| std::getline(ss, token, delim2)*/) {
-                                    container.push_back(token);
-                                }
-                                saldo = stof(container[0]);
+                                saldo = readSaldo(container, ss, delim1);
                                 resetStream(ss);;
                                 f = round(saldo * 100.0) / 100.0;
                                 otherBankAccount = new ContoCorrente(other, f);
@@ -372,7 +369,7 @@ public:
                                 } while ((invio < 0) || failure == true);
                                 f1 = round(invio * 100.0) / 100.0;
                                 if ((invio > 0) && myBankAccount->InviaDenaro(f1, otherBankAccount)) {
-                                    cout << "Bonifico avvenuto con successo " << endl;
+                                    cout << "Bonifico inviato con successo " << endl;
                                     f = round(myBankAccount->getSaldo() * 100.0) / 100.0;
                                     cout << "Hai inviato " << f1 << " euro addesso il tuo credito è di " << f << endl;
                                     now = localtime(&t);
@@ -383,10 +380,10 @@ public:
                                         ss.str("");
                                         ss << f1;
                                         if (pfo == 1)
-                                            str = "Bonifico di " + ss.str() + " avvenuto con successo a " + nomeInvio +
+                                            str = "Bonifico di " + ss.str() + " inviato con successo a " + nomeInvio +
                                                   " " + cognomeInvio;
                                         else
-                                            str = "Bonifico di " + ss.str() + " avvenuto con successo a " + nomeInvio;
+                                            str = "Bonifico di " + ss.str() + " inviato con successo a " + nomeInvio;
                                         fileUtenze->write(filename, str, fatalError);
                                         if (!fatalError) {
                                             str = "Data " + std::to_string(now->tm_mday) + "/" +

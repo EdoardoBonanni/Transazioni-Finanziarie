@@ -12,6 +12,7 @@
 class ContoCorrente {
 public:
     ContoCorrente(Utenza* t, float s=0);
+    ~ContoCorrente();
     float getSaldo() const;
     bool InviaDenaro(float denaro, ContoCorrente* other);
     bool RiceviDenaro(float denaro, ContoCorrente* other);

@@ -5,7 +5,7 @@
 #include "Utenza.h"
 
 Utenza::Utenza(const std::string n, const std::string c, bool pf) : nome(n), cognome(c) {
-    if(pf==1)
+    if(pf)
         personaFisica=true;
     else
         personaFisica=false;

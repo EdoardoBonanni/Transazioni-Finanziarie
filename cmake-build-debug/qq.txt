@@ -1,0 +1,16 @@
+q q
+m 2/2/1933
+Account creato il 22/5/2019 21:42:32
+0 euro disponibili sul suo conto
+ 
+Deposito di 844.15 avvenuto con successo
+Data 22/5/2019 21:42:32
+844.15 euro disponibili sul tuo conto
+ 
+Prelievo di 122 avvenuto con successo
+Data 22/5/2019 21:42:32
+722.15 euro disponibili sul tuo conto
+ 
+Bonifico di 122.05 avvenuto con successo a r
+Data 22/5/2019 21:42:32
+600.1 euro disponibili sul tuo conto

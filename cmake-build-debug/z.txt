@@ -34,3 +34,7 @@ Data 22/5/2019 15:51:39
 Bonifico di 12.56 avvenuto con successo a r
 Data 22/5/2019 16:1:33
 1415 euro disponibili sul tuo conto
+ 
+Bonifico di 123.33 ricevuto con successo da r
+Data 22/5/2019 22:4:27
+1538.33 euro disponibili sul tuo conto

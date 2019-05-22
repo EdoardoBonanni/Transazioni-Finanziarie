@@ -1,0 +1,12 @@
+s X
+s 3 s
+Account creato il 22/5/2019 22:18:51
+0 euro disponibili sul suo conto
+ 
+Deposito di 555.76 avvenuto con successo
+Data 22/5/2019 22:18:51
+555.76 euro disponibili sul tuo conto
+ 
+Bonifico di 122.76 inviato con successo a l l
+Data 22/5/2019 22:18:51
+433 euro disponibili sul tuo conto

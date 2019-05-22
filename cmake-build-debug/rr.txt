@@ -6,3 +6,11 @@ Account creato il 22/5/2019 15:46:51
 Deposito di 729.98 avvenuto con successo
 Data 22/5/2019 15:46:51
 729.98 euro disponibili sul tuo conto
+ 
+Prelievo di 21 avvenuto con successo
+Data 22/5/2019 21:58:54
+708.98 euro disponibili sul tuo conto
+ 
+Bonifico di 23.44 avvenuto con successo a e e
+Data 22/5/2019 22:2:56
+685.54 euro disponibili sul tuo conto

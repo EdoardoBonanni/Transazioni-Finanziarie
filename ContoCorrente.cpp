@@ -10,6 +10,11 @@ ContoCorrente::ContoCorrente(Utenza* t, float s){
     saldo = s;
 }
 
+ContoCorrente::~ContoCorrente() {
+    if(titolare != nullptr)
+        delete titolare;
+}
+
 float ContoCorrente::getSaldo() const {
     return saldo;
 }
