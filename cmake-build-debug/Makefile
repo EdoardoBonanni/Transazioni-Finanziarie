@@ -247,6 +247,36 @@ gtest/fast:
 	$(MAKE) -f test/lib/googletest-master/googletest/CMakeFiles/gtest.dir/build.make test/lib/googletest-master/googletest/CMakeFiles/gtest.dir/build
 .PHONY : gtest/fast
 
+Bonifico.o: Bonifico.cpp.o
+
+.PHONY : Bonifico.o
+
+# target to build an object file
+Bonifico.cpp.o:
+	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/Bonifico.cpp.o
+	$(MAKE) -f CMakeFiles/myExecutable.dir/build.make CMakeFiles/myExecutable.dir/Bonifico.cpp.o
+.PHONY : Bonifico.cpp.o
+
+Bonifico.i: Bonifico.cpp.i
+
+.PHONY : Bonifico.i
+
+# target to preprocess a source file
+Bonifico.cpp.i:
+	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/Bonifico.cpp.i
+	$(MAKE) -f CMakeFiles/myExecutable.dir/build.make CMakeFiles/myExecutable.dir/Bonifico.cpp.i
+.PHONY : Bonifico.cpp.i
+
+Bonifico.s: Bonifico.cpp.s
+
+.PHONY : Bonifico.s
+
+# target to generate assembly for a file
+Bonifico.cpp.s:
+	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/Bonifico.cpp.s
+	$(MAKE) -f CMakeFiles/myExecutable.dir/build.make CMakeFiles/myExecutable.dir/Bonifico.cpp.s
+.PHONY : Bonifico.cpp.s
+
 ContoCorrente.o: ContoCorrente.cpp.o
 
 .PHONY : ContoCorrente.o
@@ -307,6 +337,66 @@ Date.cpp.s:
 	$(MAKE) -f CMakeFiles/myExecutable.dir/build.make CMakeFiles/myExecutable.dir/Date.cpp.s
 .PHONY : Date.cpp.s
 
+DateTime.o: DateTime.cpp.o
+
+.PHONY : DateTime.o
+
+# target to build an object file
+DateTime.cpp.o:
+	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/DateTime.cpp.o
+	$(MAKE) -f CMakeFiles/myExecutable.dir/build.make CMakeFiles/myExecutable.dir/DateTime.cpp.o
+.PHONY : DateTime.cpp.o
+
+DateTime.i: DateTime.cpp.i
+
+.PHONY : DateTime.i
+
+# target to preprocess a source file
+DateTime.cpp.i:
+	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/DateTime.cpp.i
+	$(MAKE) -f CMakeFiles/myExecutable.dir/build.make CMakeFiles/myExecutable.dir/DateTime.cpp.i
+.PHONY : DateTime.cpp.i
+
+DateTime.s: DateTime.cpp.s
+
+.PHONY : DateTime.s
+
+# target to generate assembly for a file
+DateTime.cpp.s:
+	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/DateTime.cpp.s
+	$(MAKE) -f CMakeFiles/myExecutable.dir/build.make CMakeFiles/myExecutable.dir/DateTime.cpp.s
+.PHONY : DateTime.cpp.s
+
+Deposito.o: Deposito.cpp.o
+
+.PHONY : Deposito.o
+
+# target to build an object file
+Deposito.cpp.o:
+	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/Deposito.cpp.o
+	$(MAKE) -f CMakeFiles/myExecutable.dir/build.make CMakeFiles/myExecutable.dir/Deposito.cpp.o
+.PHONY : Deposito.cpp.o
+
+Deposito.i: Deposito.cpp.i
+
+.PHONY : Deposito.i
+
+# target to preprocess a source file
+Deposito.cpp.i:
+	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/Deposito.cpp.i
+	$(MAKE) -f CMakeFiles/myExecutable.dir/build.make CMakeFiles/myExecutable.dir/Deposito.cpp.i
+.PHONY : Deposito.cpp.i
+
+Deposito.s: Deposito.cpp.s
+
+.PHONY : Deposito.s
+
+# target to generate assembly for a file
+Deposito.cpp.s:
+	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/Deposito.cpp.s
+	$(MAKE) -f CMakeFiles/myExecutable.dir/build.make CMakeFiles/myExecutable.dir/Deposito.cpp.s
+.PHONY : Deposito.cpp.s
+
 FileMgr.o: FileMgr.cpp.o
 
 .PHONY : FileMgr.o
@@ -336,6 +426,126 @@ FileMgr.cpp.s:
 	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/FileMgr.cpp.s
 	$(MAKE) -f CMakeFiles/myExecutable.dir/build.make CMakeFiles/myExecutable.dir/FileMgr.cpp.s
 .PHONY : FileMgr.cpp.s
+
+Investimento.o: Investimento.cpp.o
+
+.PHONY : Investimento.o
+
+# target to build an object file
+Investimento.cpp.o:
+	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/Investimento.cpp.o
+	$(MAKE) -f CMakeFiles/myExecutable.dir/build.make CMakeFiles/myExecutable.dir/Investimento.cpp.o
+.PHONY : Investimento.cpp.o
+
+Investimento.i: Investimento.cpp.i
+
+.PHONY : Investimento.i
+
+# target to preprocess a source file
+Investimento.cpp.i:
+	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/Investimento.cpp.i
+	$(MAKE) -f CMakeFiles/myExecutable.dir/build.make CMakeFiles/myExecutable.dir/Investimento.cpp.i
+.PHONY : Investimento.cpp.i
+
+Investimento.s: Investimento.cpp.s
+
+.PHONY : Investimento.s
+
+# target to generate assembly for a file
+Investimento.cpp.s:
+	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/Investimento.cpp.s
+	$(MAKE) -f CMakeFiles/myExecutable.dir/build.make CMakeFiles/myExecutable.dir/Investimento.cpp.s
+.PHONY : Investimento.cpp.s
+
+Menu.o: Menu.cpp.o
+
+.PHONY : Menu.o
+
+# target to build an object file
+Menu.cpp.o:
+	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/Menu.cpp.o
+	$(MAKE) -f CMakeFiles/myExecutable.dir/build.make CMakeFiles/myExecutable.dir/Menu.cpp.o
+.PHONY : Menu.cpp.o
+
+Menu.i: Menu.cpp.i
+
+.PHONY : Menu.i
+
+# target to preprocess a source file
+Menu.cpp.i:
+	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/Menu.cpp.i
+	$(MAKE) -f CMakeFiles/myExecutable.dir/build.make CMakeFiles/myExecutable.dir/Menu.cpp.i
+.PHONY : Menu.cpp.i
+
+Menu.s: Menu.cpp.s
+
+.PHONY : Menu.s
+
+# target to generate assembly for a file
+Menu.cpp.s:
+	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/Menu.cpp.s
+	$(MAKE) -f CMakeFiles/myExecutable.dir/build.make CMakeFiles/myExecutable.dir/Menu.cpp.s
+.PHONY : Menu.cpp.s
+
+Prelievo.o: Prelievo.cpp.o
+
+.PHONY : Prelievo.o
+
+# target to build an object file
+Prelievo.cpp.o:
+	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/Prelievo.cpp.o
+	$(MAKE) -f CMakeFiles/myExecutable.dir/build.make CMakeFiles/myExecutable.dir/Prelievo.cpp.o
+.PHONY : Prelievo.cpp.o
+
+Prelievo.i: Prelievo.cpp.i
+
+.PHONY : Prelievo.i
+
+# target to preprocess a source file
+Prelievo.cpp.i:
+	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/Prelievo.cpp.i
+	$(MAKE) -f CMakeFiles/myExecutable.dir/build.make CMakeFiles/myExecutable.dir/Prelievo.cpp.i
+.PHONY : Prelievo.cpp.i
+
+Prelievo.s: Prelievo.cpp.s
+
+.PHONY : Prelievo.s
+
+# target to generate assembly for a file
+Prelievo.cpp.s:
+	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/Prelievo.cpp.s
+	$(MAKE) -f CMakeFiles/myExecutable.dir/build.make CMakeFiles/myExecutable.dir/Prelievo.cpp.s
+.PHONY : Prelievo.cpp.s
+
+Transazione.o: Transazione.cpp.o
+
+.PHONY : Transazione.o
+
+# target to build an object file
+Transazione.cpp.o:
+	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/Transazione.cpp.o
+	$(MAKE) -f CMakeFiles/myExecutable.dir/build.make CMakeFiles/myExecutable.dir/Transazione.cpp.o
+.PHONY : Transazione.cpp.o
+
+Transazione.i: Transazione.cpp.i
+
+.PHONY : Transazione.i
+
+# target to preprocess a source file
+Transazione.cpp.i:
+	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/Transazione.cpp.i
+	$(MAKE) -f CMakeFiles/myExecutable.dir/build.make CMakeFiles/myExecutable.dir/Transazione.cpp.i
+.PHONY : Transazione.cpp.i
+
+Transazione.s: Transazione.cpp.s
+
+.PHONY : Transazione.s
+
+# target to generate assembly for a file
+Transazione.cpp.s:
+	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/Transazione.cpp.s
+	$(MAKE) -f CMakeFiles/myExecutable.dir/build.make CMakeFiles/myExecutable.dir/Transazione.cpp.s
+.PHONY : Transazione.cpp.s
 
 Utenza.o: Utenza.cpp.o
 
@@ -416,15 +626,36 @@ help:
 	@echo "... gmock"
 	@echo "... gtest_main"
 	@echo "... gtest"
+	@echo "... Bonifico.o"
+	@echo "... Bonifico.i"
+	@echo "... Bonifico.s"
 	@echo "... ContoCorrente.o"
 	@echo "... ContoCorrente.i"
 	@echo "... ContoCorrente.s"
 	@echo "... Date.o"
 	@echo "... Date.i"
 	@echo "... Date.s"
+	@echo "... DateTime.o"
+	@echo "... DateTime.i"
+	@echo "... DateTime.s"
+	@echo "... Deposito.o"
+	@echo "... Deposito.i"
+	@echo "... Deposito.s"
 	@echo "... FileMgr.o"
 	@echo "... FileMgr.i"
 	@echo "... FileMgr.s"
+	@echo "... Investimento.o"
+	@echo "... Investimento.i"
+	@echo "... Investimento.s"
+	@echo "... Menu.o"
+	@echo "... Menu.i"
+	@echo "... Menu.s"
+	@echo "... Prelievo.o"
+	@echo "... Prelievo.i"
+	@echo "... Prelievo.s"
+	@echo "... Transazione.o"
+	@echo "... Transazione.i"
+	@echo "... Transazione.s"
 	@echo "... Utenza.o"
 	@echo "... Utenza.i"
 	@echo "... Utenza.s"

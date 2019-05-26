@@ -10,15 +10,20 @@
 #include "Date.h"
 
 class Utenza {
-
-private:
 public:
     Utenza(const std::string n, const std::string c, bool pf);
     Utenza(const std::string n, const std::string c, char s,
-                    const int gn, const int mn, const int an);
+                    const int gn, const int mn, const int an, bool isBissextile);
     Utenza(const std::string n,const std::string i,const int nc, const std::string p);
+
+    Utenza(const Utenza& that);
+    Utenza& operator=(Utenza& that);
+    bool operator==(const Utenza &u);
+    bool operator!=(const Utenza &u);
+
     virtual ~Utenza();
-    bool ispersonaFisica();
+
+    bool ispersonaFisica() const;
     const std::string getNome() const;
     const std::string getCognome() const;
     char getSesso() const;

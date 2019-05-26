@@ -31,6 +31,35 @@ FileMgr::~FileMgr() {
     file.close();
 }
 
+void FileMgr::deleteLine(std::string filename, std::string str, bool &fatalerror) {
+    std::string line;
+    std::ofstream temp;
+    temp.open("temp.txt");
+    try {
+        if(!file.is_open()) {
+            openFile(filename, true, fatalerror);
+        }
+        if (file.good()) {
+            while (!file.eof()) {
+                getline(file, line);
+                if (line != str)
+                {
+                    temp << line << std::endl;
+                }
+            }
+        }
+    }catch(std::ios_base::failure ex){
+        std::cout << "Errore nella lettura dei dati" << std::endl;
+        fatalerror = true;
+    }
+    temp.close();
+    file.close();
+    std::string filenameModified = filename + "Investment.txt";
+    const char* s = filenameModified.c_str();
+    remove(s);
+    rename("temp.txt",s);
+}
+
 std::string FileMgr::read(std::string filename, bool &fatalError) {
     std::string s ="", tot ="";
     try {
@@ -49,44 +78,6 @@ std::string FileMgr::read(std::string filename, bool &fatalError) {
     }
     file.close();
     return tot;
-}
-
-std::string FileMgr::readFirstLine(std::string filename, bool &fatalError) {
-    std::string s ="";
-    try {
-        if(!file.is_open()) {
-            openFile(filename, true, fatalError);
-        }
-        if (file.good()) {
-            getline(file, s);
-        }
-    }catch(std::ios_base::failure ex){
-        std::cout << "Errore nella lettura dei dati" << std::endl;
-        fatalError = true;
-    }
-    file.close();
-    return s;
-}
-
-std::string FileMgr::readSecondLastLine(std::string filename, bool &fatalError) {
-    std::string s ="";
-    try {
-        size_t count = countLines(filename, fatalError);
-        if(!file.is_open()) {
-            openFile(filename, true, fatalError);
-        }
-        if (file.good()) {
-            for (size_t i = 0; i < count - 1; ++i) {
-                getline(file, s);
-            }
-            getline(file, s);
-        }
-    }catch(std::ios_base::failure ex){
-        std::cout << "Errore nella lettura dei dati" << std::endl;
-        fatalError = true;
-    }
-    file.close();
-    return s;
 }
 
 size_t FileMgr::countLines(std::string filename, bool &fatalError) {
@@ -148,4 +139,5 @@ void FileMgr::openNewFile(std::string filename, std::string str, bool &fatalErro
 bool FileMgr::isFileExists() const {
     return fileExists;
 }
+
 

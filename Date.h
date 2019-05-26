@@ -8,14 +8,26 @@
 
 class Date {
 public:
-    Date(int g, int m, int a);
+    Date(){};
+    Date(int g, int m, int a, bool isBissextile);
+
+    ~Date();
+
+    Date(const Date& that);
+    Date& operator=(Date& that);
+    bool operator==(const Date &d);
+    bool operator!=(const Date &d);
+
     int getGiorno() const;
     int getMese() const;
     int getAnno() const;
+
     void setGiorno(int g);
     void setMese(int m);
     void setAnno(int a);
-private:
+
+protected:
+    bool checkData(int g, int m, int a, bool isBissextile);
     int giorno;
     int mese;
     int anno;

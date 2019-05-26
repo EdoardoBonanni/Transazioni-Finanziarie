@@ -8,19 +8,23 @@
 #include<fstream>
 #include<iostream>
 #include<stdexcept>
+#include "Transazione.h"
+
 class FileMgr{
 public:
     FileMgr(std::string filename, bool input, bool &fatalError);
     ~FileMgr();
+
     void write(std::string filename, std::string str, bool &fatalError);
     std::string read(std::string filename, bool &fatalError);
-    std::string readFirstLine(std::string filename, bool &fatalError);
-    std::string readSecondLastLine(std::string filename, bool &fatalError);
     void openNewFile(std::string filename, std::string str, bool &fatalError);
     bool isFileExists() const;
+    void deleteLine(std::string filename, std::string str, bool &fatalerror);
+
 private:
     std::fstream file;
     bool fileExists;
+
     void openFile(std::string filename, bool input, bool &fatalError);
     size_t countLines(std::string filename, bool &fatalError);
 };
