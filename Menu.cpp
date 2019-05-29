@@ -11,9 +11,6 @@
 #include "Utenza.h"
 #include "ContoCorrente.h"
 #include "FileMgr.h"
-#include "Bonifico.h"
-#include "Prelievo.h"
-#include "Deposito.h"
 
 using namespace std;
 class Menu {
@@ -37,10 +34,10 @@ private:
         float s = stof(container[0]);
         return s;
     }
-    DateTime* calcolaDateTime(){
+    DateTime* calcolaDateTime(DateTime* dt){
         time_t t = time(0);
-        struct tm *now;
-        DateTime* dt = new DateTime(now->tm_mday, now->tm_mon + 1, now->tm_year + 1900, now->tm_hour, now->tm_min, now->tm_sec, true);
+        struct tm *now = std::localtime(&t);
+        dt = new DateTime(now->tm_mday, now->tm_mon + 1, now->tm_year + 1900, now->tm_hour, now->tm_min, now->tm_sec, true);
         return dt;
     }
 public:
@@ -52,16 +49,14 @@ public:
         bool res, res1, result, isBissextile = false, exitMenu = false, searchCognome = false, failure = false, fatalError = false, sendToYou =false;
         int switch1, switch2, gn, mn, an, pf, pfo, nc;
         const char *c;
-        DateTime* dt;
+        DateTime* dt, *now;
         char sesso, delim1 = ' ';;
         std::stringstream ss;
         ContoCorrente *myBankAccount, *otherBankAccount;
         Utenza *me, *other;
         FileMgr *fileOtherUser, *fileOtherUserTransaction, *fileOtherUserInvestment;
-        Bonifico* b;
+        Transazione* t1;
         Investimento* i;
-        Prelievo* p;
-        Deposito* dep;
         cin.exceptions(std::istream::failbit);
         do {
             try {
@@ -178,7 +173,7 @@ public:
                     fileUtenze->write(filename, str, fatalError);
             }
             myBankAccount = new ContoCorrente(me, 0, 0);
-            dt = calcolaDateTime();
+            dt = calcolaDateTime(dt);
             str = "Account creato il " + std::to_string(dt->getGiorno()) + ":" +
                   std::to_string(dt->getMese()) + ":" + std::to_string(dt->getAnno()) +
                   " " + std::to_string(dt->getOra()) + ":" + std::to_string(dt->getMinuto()) + ":" +
@@ -191,9 +186,9 @@ public:
                     searchCognome = true;
                 me = new Utenza(nome, cognome, searchCognome);
                 myBankAccount = new ContoCorrente(me, 0, 0);
-                myBankAccount->getInvestimenti(fileInvestmentUtenza, filenameInvestment, fatalError);
-                if(!fatalError)
-                    myBankAccount->getTransazioni(fileTransactionUtenza, filenameTransaction, fatalError);
+                //myBankAccount->getInvestimenti(fileInvestmentUtenza, filenameInvestment, fatalError);
+                /*if(!fatalError)
+                    myBankAccount->getTransazioni(fileTransactionUtenza, filenameTransaction, fatalError);*/
             }
         }
         while (exitMenu == false && !fatalError) {
@@ -204,6 +199,7 @@ public:
                 cout << "2) Depositare denaro sul proprio conto corrente" << endl;
                 cout << "3) Effettuare un bonifico su un altro conto corrente" << endl;
                 cout << "4) Effettuare un investimento" << endl;
+                cout << "5) Rimuovere un investimento" << endl;
                 cout << "0) Per uscire" << endl;
                 cin >> switch1;
                 switch (switch1) {
@@ -219,10 +215,10 @@ public:
                             cinClear();
                         }
                         f1 = round(prelievo * 100.0) / 100.0;
-                        dt = calcolaDateTime();
-                        p = new Prelievo(f1, me, dt, false);
-                        res = myBankAccount->addTransazione(p, fileTransactionUtenza, filenameTransaction, fatalError);
-                        if (!fatalError && !res) {
+                        dt = calcolaDateTime(dt);
+                        t1 = new Transazione("Prelievo", f1, me, dt, false);
+                        res = myBankAccount->addTransazione(t1, fileTransactionUtenza, filenameTransaction, fatalError);
+                        if (!fatalError && res) {
                             cout << "Prelievo avvenuto con successo" << endl;
                             f = round(myBankAccount->getSaldo() * 100.0) / 100.0;
                             cout << "Il suo credito adesso è di " << f << endl;
@@ -243,10 +239,10 @@ public:
                                         f1 = (rand() % 100000);
                                         f1 /= 100;
                                         deposito = round(f1 * 100.0) / 100.0;
-                                        dt = calcolaDateTime();
-                                        dep = new Deposito(deposito, me, dt, false);
-                                        res = myBankAccount->addTransazione(dep, fileTransactionUtenza, filenameTransaction, fatalError);
-                                        if(!fatalError && !res) {
+                                        dt = calcolaDateTime(dt);
+                                        t1 = new Transazione("Deposito", deposito, me, dt, false);
+                                        res = myBankAccount->addTransazione(t1, fileTransactionUtenza, filenameTransaction, fatalError);
+                                        if(!fatalError && res) {
                                             cout << "Il suo deposito di " << deposito << " è andato a buon fine"
                                                  << endl;
                                             f = round(myBankAccount->getSaldo() * 100.0) / 100.0;
@@ -319,13 +315,19 @@ public:
                                     cinClear();
                                 }
                             } while ((invio < 0) || failure == true);
+                            if(pfo==1)
+                                other = new Utenza(nomeInvio, cognomeInvio, true);
+                            if(pfo==0)
+                                other = new Utenza(nomeInvio, cognomeInvio, false);
+                            otherBankAccount = new ContoCorrente(other, 100, 20);
                             f1 = round(invio * 100.0) / 100.0;
-                            b = new Bonifico(f1, me, other, dt, false);
-                            dt = calcolaDateTime();
+                            dt = calcolaDateTime(dt);
+                            t1 = new Transazione("Bonifico", f1, me, other, dt, false);
                             if ((invio > 0) && !fatalError) {
-                                res = myBankAccount->addTransazione(b, fileTransactionUtenza, filenameTransaction, fatalError);
-                                res1 = otherBankAccount->addTransazione(b, fileOtherUserTransaction, filenameOtherTransaction, fatalError);
-                                if(!fatalError && !res && !res1){
+                                res = myBankAccount->addTransazione(t1, fileTransactionUtenza, filenameTransaction, fatalError);
+                                if(res)
+                                    res1 = otherBankAccount->addTransazione(t1, fileOtherUserTransaction, filenameOtherTransaction, fatalError);
+                                if(!fatalError && res && res1){
                                     cout << "Bonifico inviato con successo " << endl;
                                     f = round(myBankAccount->getSaldo() * 100.0) / 100.0;
                                     cout << "Hai inviato " << f1 << " euro addesso il tuo credito è di " << f << endl;
@@ -357,16 +359,46 @@ public:
                         cout << "inserisci la causale " << endl;
                         cin >> causale;
                         f1 = round(investimento * 100.0) / 100.0;
-                        dt = calcolaDateTime();
+                        dt = calcolaDateTime(dt);
                         i = new Investimento(causale, f1, me, dt, false);
                         res = myBankAccount->addInvestimento(i, fileInvestmentUtenza, filenameInvestment, fatalError);
-                        if(!fatalError && !res){
+                        if(!fatalError && res){
                             cout << "Investimento eseguito con successo " << endl;
                             f = round(myBankAccount->getSaldo() * 100.0) / 100.0;
                             cout << "Hai investito " << f1 << " euro addesso il tuo credito è di " << f << endl;
                             f = round(myBankAccount->getSoldiInvestiti() * 100.0) / 100.0;
                             cout << "Hai " << f1 << " euro investiti " << endl;
                         }
+                        else
+                            cout << "Problemi nell'investimento" << endl;
+                        break;
+                    case 5:
+                        cout << "Soldi investiti " << myBankAccount->getSoldiInvestiti() << endl;
+                        cout << "Saldo " << myBankAccount->getSaldo() << endl;
+                        do {
+                            try {
+                                cout << "Inserire il valore del investimento da rimuovere " << endl;
+                                cin >> investimento;
+                                failure = false;
+                            } catch (ios_base::failure &e) {
+                                failure = true;
+                                investimento = -1;
+                                cinClear();
+                            }
+                        } while ((investimento<=0) || failure == true);
+                        cout << "inserisci la causale " << endl;
+                        cin >> causale;
+                        f1 = round(investimento * 100.0) / 100.0;
+                        i = new Investimento(causale, f1, me, dt, false);
+                        now = calcolaDateTime(dt);
+                        res = myBankAccount->removeInvestimento(i, now, fileInvestmentUtenza, filenameInvestment, fatalError);
+                        if(!fatalError && res){
+                            cout << "Investimento rimosso" << endl;
+                            cout << "Soldi investiti " << myBankAccount->getSoldiInvestiti() << endl;
+                            cout << "Saldo " << myBankAccount->getSaldo() << endl;
+                        }
+                        else
+                            cout << "Problemi nella rimozione dell'investimento" << endl;
                         break;
                     case 0:
                         exitMenu = true;

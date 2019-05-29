@@ -9,6 +9,9 @@ Date::Date(int g, int m, int a, bool isBissextile) {
         giorno = g;
         mese = m;
         anno = a;
+        isValid=true;
+    }else{
+        isValid=false;
     }
 }
 
@@ -24,26 +27,31 @@ bool Date::checkData(int g, int m, int a, bool isBissextile) {
             return true;
         if(g>0 && g<=31 && (m==1 || m==3 || m==5 || m==7 || m==8 || m==10 || m==12))
             return  true;
-        return  false;
     }
     return false;
 }
 
 Date::Date(const Date &that) {
-    giorno = that.giorno;
-    mese = that.mese;
-    anno = that.anno;
+    if(that.isValid) {
+        giorno = that.giorno;
+        mese = that.mese;
+        anno = that.anno;
+    }
+    isValid = that.isValid;
 }
 
 Date& Date::operator=(Date &that) {
-    giorno = that.giorno;
-    mese = that.mese;
-    anno = that.anno;
+    if(that.isValid) {
+        giorno = that.giorno;
+        mese = that.mese;
+        anno = that.anno;
+    }
+    isValid = that.isValid;
     return *this;
 }
 
 bool Date::operator==(const Date &d) {
-    if(giorno == d.giorno && mese == d.mese && anno == d.anno)
+    if(giorno == d.giorno && mese == d.mese && anno == d.anno && isValid)
         return true;
     else
         return  false;
@@ -65,15 +73,22 @@ int Date::getAnno() const {
     return anno;
 }
 
-void Date::setGiorno(int g) {
-    giorno = g;
+void Date::setGiorno(const int g, bool isBissextile) {
+    if(checkData(g, mese, anno, isBissextile))
+        giorno = g;
 }
 
-void Date::setMese(int m) {
-    mese = m;
+void Date::setMese(const int m, bool isBissextile) {
+    if(checkData(giorno, m, anno, isBissextile))
+        mese = m;
 }
 
-void Date::setAnno(int a) {
-    anno = a;
+void Date::setAnno(const int a, bool isBissextile) {
+    if(checkData(giorno, mese, a, isBissextile))
+        anno = a;
+}
+
+bool Date::IsValid() const {
+    return isValid;
 }
 

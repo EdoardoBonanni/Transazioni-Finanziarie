@@ -43,3 +43,11 @@ Utenza *Transazione::getMittente() const {
 Utenza *Transazione::getRicevitore() const {
     return ricevitore;
 }
+
+void Transazione::setOperazione(const std::string &operazione) {
+    Transazione::operazione = operazione;
+}
+
+const std::string &Transazione::getOperazione() const {
+    return operazione;
+}

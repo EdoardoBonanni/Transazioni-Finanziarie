@@ -296,9 +296,35 @@ cxxabi.h
 acxx_demangle.h
 -
 
+/home/edoardo/CLionProjects/TransazioniFinanziarie/Date.h
+
+/home/edoardo/CLionProjects/TransazioniFinanziarie/DateTime.h
+Date.h
+/home/edoardo/CLionProjects/TransazioniFinanziarie/Date.h
+
+/home/edoardo/CLionProjects/TransazioniFinanziarie/Utenza.h
+string
+/home/edoardo/CLionProjects/TransazioniFinanziarie/string
+Date.h
+/home/edoardo/CLionProjects/TransazioniFinanziarie/Date.h
+
 /home/edoardo/CLionProjects/TransazioniFinanziarie/test/UtenzaTest.cpp
 gtest/gtest.h
 /home/edoardo/CLionProjects/TransazioniFinanziarie/test/gtest/gtest.h
+../Utenza.h
+/home/edoardo/CLionProjects/TransazioniFinanziarie/Utenza.h
+
+/home/edoardo/CLionProjects/TransazioniFinanziarie/test/dateTest.cpp
+gtest/gtest.h
+/home/edoardo/CLionProjects/TransazioniFinanziarie/test/gtest/gtest.h
+../Date.h
+/home/edoardo/CLionProjects/TransazioniFinanziarie/Date.h
+
+/home/edoardo/CLionProjects/TransazioniFinanziarie/test/datetimeTest.cpp
+gtest/gtest.h
+/home/edoardo/CLionProjects/TransazioniFinanziarie/test/gtest/gtest.h
+../DateTime.h
+/home/edoardo/CLionProjects/TransazioniFinanziarie/DateTime.h
 
 /home/edoardo/CLionProjects/TransazioniFinanziarie/test/runAllTests.cpp
 gtest/gtest.h

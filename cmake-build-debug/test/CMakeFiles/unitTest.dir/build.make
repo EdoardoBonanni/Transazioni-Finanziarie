@@ -105,23 +105,75 @@ test/CMakeFiles/unitTest.dir/UtenzaTest.cpp.o.provides: test/CMakeFiles/unitTest
 test/CMakeFiles/unitTest.dir/UtenzaTest.cpp.o.provides.build: test/CMakeFiles/unitTest.dir/UtenzaTest.cpp.o
 
 
+test/CMakeFiles/unitTest.dir/dateTest.cpp.o: test/CMakeFiles/unitTest.dir/flags.make
+test/CMakeFiles/unitTest.dir/dateTest.cpp.o: ../test/dateTest.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/edoardo/CLionProjects/TransazioniFinanziarie/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object test/CMakeFiles/unitTest.dir/dateTest.cpp.o"
+	cd /home/edoardo/CLionProjects/TransazioniFinanziarie/cmake-build-debug/test && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/unitTest.dir/dateTest.cpp.o -c /home/edoardo/CLionProjects/TransazioniFinanziarie/test/dateTest.cpp
+
+test/CMakeFiles/unitTest.dir/dateTest.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/unitTest.dir/dateTest.cpp.i"
+	cd /home/edoardo/CLionProjects/TransazioniFinanziarie/cmake-build-debug/test && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/edoardo/CLionProjects/TransazioniFinanziarie/test/dateTest.cpp > CMakeFiles/unitTest.dir/dateTest.cpp.i
+
+test/CMakeFiles/unitTest.dir/dateTest.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/unitTest.dir/dateTest.cpp.s"
+	cd /home/edoardo/CLionProjects/TransazioniFinanziarie/cmake-build-debug/test && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/edoardo/CLionProjects/TransazioniFinanziarie/test/dateTest.cpp -o CMakeFiles/unitTest.dir/dateTest.cpp.s
+
+test/CMakeFiles/unitTest.dir/dateTest.cpp.o.requires:
+
+.PHONY : test/CMakeFiles/unitTest.dir/dateTest.cpp.o.requires
+
+test/CMakeFiles/unitTest.dir/dateTest.cpp.o.provides: test/CMakeFiles/unitTest.dir/dateTest.cpp.o.requires
+	$(MAKE) -f test/CMakeFiles/unitTest.dir/build.make test/CMakeFiles/unitTest.dir/dateTest.cpp.o.provides.build
+.PHONY : test/CMakeFiles/unitTest.dir/dateTest.cpp.o.provides
+
+test/CMakeFiles/unitTest.dir/dateTest.cpp.o.provides.build: test/CMakeFiles/unitTest.dir/dateTest.cpp.o
+
+
+test/CMakeFiles/unitTest.dir/datetimeTest.cpp.o: test/CMakeFiles/unitTest.dir/flags.make
+test/CMakeFiles/unitTest.dir/datetimeTest.cpp.o: ../test/datetimeTest.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/edoardo/CLionProjects/TransazioniFinanziarie/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object test/CMakeFiles/unitTest.dir/datetimeTest.cpp.o"
+	cd /home/edoardo/CLionProjects/TransazioniFinanziarie/cmake-build-debug/test && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/unitTest.dir/datetimeTest.cpp.o -c /home/edoardo/CLionProjects/TransazioniFinanziarie/test/datetimeTest.cpp
+
+test/CMakeFiles/unitTest.dir/datetimeTest.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/unitTest.dir/datetimeTest.cpp.i"
+	cd /home/edoardo/CLionProjects/TransazioniFinanziarie/cmake-build-debug/test && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/edoardo/CLionProjects/TransazioniFinanziarie/test/datetimeTest.cpp > CMakeFiles/unitTest.dir/datetimeTest.cpp.i
+
+test/CMakeFiles/unitTest.dir/datetimeTest.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/unitTest.dir/datetimeTest.cpp.s"
+	cd /home/edoardo/CLionProjects/TransazioniFinanziarie/cmake-build-debug/test && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/edoardo/CLionProjects/TransazioniFinanziarie/test/datetimeTest.cpp -o CMakeFiles/unitTest.dir/datetimeTest.cpp.s
+
+test/CMakeFiles/unitTest.dir/datetimeTest.cpp.o.requires:
+
+.PHONY : test/CMakeFiles/unitTest.dir/datetimeTest.cpp.o.requires
+
+test/CMakeFiles/unitTest.dir/datetimeTest.cpp.o.provides: test/CMakeFiles/unitTest.dir/datetimeTest.cpp.o.requires
+	$(MAKE) -f test/CMakeFiles/unitTest.dir/build.make test/CMakeFiles/unitTest.dir/datetimeTest.cpp.o.provides.build
+.PHONY : test/CMakeFiles/unitTest.dir/datetimeTest.cpp.o.provides
+
+test/CMakeFiles/unitTest.dir/datetimeTest.cpp.o.provides.build: test/CMakeFiles/unitTest.dir/datetimeTest.cpp.o
+
+
 # Object files for target unitTest
 unitTest_OBJECTS = \
 "CMakeFiles/unitTest.dir/runAllTests.cpp.o" \
-"CMakeFiles/unitTest.dir/UtenzaTest.cpp.o"
+"CMakeFiles/unitTest.dir/UtenzaTest.cpp.o" \
+"CMakeFiles/unitTest.dir/dateTest.cpp.o" \
+"CMakeFiles/unitTest.dir/datetimeTest.cpp.o"
 
 # External object files for target unitTest
 unitTest_EXTERNAL_OBJECTS =
 
 test/unitTest: test/CMakeFiles/unitTest.dir/runAllTests.cpp.o
 test/unitTest: test/CMakeFiles/unitTest.dir/UtenzaTest.cpp.o
+test/unitTest: test/CMakeFiles/unitTest.dir/dateTest.cpp.o
+test/unitTest: test/CMakeFiles/unitTest.dir/datetimeTest.cpp.o
 test/unitTest: test/CMakeFiles/unitTest.dir/build.make
 test/unitTest: lib/libgtestd.a
 test/unitTest: lib/libgtest_maind.a
 test/unitTest: libcore.a
 test/unitTest: lib/libgtestd.a
 test/unitTest: test/CMakeFiles/unitTest.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/edoardo/CLionProjects/TransazioniFinanziarie/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable unitTest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/edoardo/CLionProjects/TransazioniFinanziarie/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable unitTest"
 	cd /home/edoardo/CLionProjects/TransazioniFinanziarie/cmake-build-debug/test && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/unitTest.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -131,6 +183,8 @@ test/CMakeFiles/unitTest.dir/build: test/unitTest
 
 test/CMakeFiles/unitTest.dir/requires: test/CMakeFiles/unitTest.dir/runAllTests.cpp.o.requires
 test/CMakeFiles/unitTest.dir/requires: test/CMakeFiles/unitTest.dir/UtenzaTest.cpp.o.requires
+test/CMakeFiles/unitTest.dir/requires: test/CMakeFiles/unitTest.dir/dateTest.cpp.o.requires
+test/CMakeFiles/unitTest.dir/requires: test/CMakeFiles/unitTest.dir/datetimeTest.cpp.o.requires
 
 .PHONY : test/CMakeFiles/unitTest.dir/requires
 

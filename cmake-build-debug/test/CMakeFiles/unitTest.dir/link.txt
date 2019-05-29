@@ -1,1 +1,1 @@
-/usr/bin/c++  -g   CMakeFiles/unitTest.dir/runAllTests.cpp.o CMakeFiles/unitTest.dir/UtenzaTest.cpp.o  -o unitTest ../lib/libgtestd.a ../lib/libgtest_maind.a ../libcore.a ../lib/libgtestd.a -lpthread 
+/usr/bin/c++  -g   CMakeFiles/unitTest.dir/runAllTests.cpp.o CMakeFiles/unitTest.dir/UtenzaTest.cpp.o CMakeFiles/unitTest.dir/dateTest.cpp.o CMakeFiles/unitTest.dir/datetimeTest.cpp.o  -o unitTest ../lib/libgtestd.a ../lib/libgtest_maind.a ../libcore.a ../lib/libgtestd.a -lpthread 

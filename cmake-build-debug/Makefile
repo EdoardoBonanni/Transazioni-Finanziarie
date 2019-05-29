@@ -247,36 +247,6 @@ gtest/fast:
 	$(MAKE) -f test/lib/googletest-master/googletest/CMakeFiles/gtest.dir/build.make test/lib/googletest-master/googletest/CMakeFiles/gtest.dir/build
 .PHONY : gtest/fast
 
-Bonifico.o: Bonifico.cpp.o
-
-.PHONY : Bonifico.o
-
-# target to build an object file
-Bonifico.cpp.o:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/Bonifico.cpp.o
-	$(MAKE) -f CMakeFiles/myExecutable.dir/build.make CMakeFiles/myExecutable.dir/Bonifico.cpp.o
-.PHONY : Bonifico.cpp.o
-
-Bonifico.i: Bonifico.cpp.i
-
-.PHONY : Bonifico.i
-
-# target to preprocess a source file
-Bonifico.cpp.i:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/Bonifico.cpp.i
-	$(MAKE) -f CMakeFiles/myExecutable.dir/build.make CMakeFiles/myExecutable.dir/Bonifico.cpp.i
-.PHONY : Bonifico.cpp.i
-
-Bonifico.s: Bonifico.cpp.s
-
-.PHONY : Bonifico.s
-
-# target to generate assembly for a file
-Bonifico.cpp.s:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/Bonifico.cpp.s
-	$(MAKE) -f CMakeFiles/myExecutable.dir/build.make CMakeFiles/myExecutable.dir/Bonifico.cpp.s
-.PHONY : Bonifico.cpp.s
-
 ContoCorrente.o: ContoCorrente.cpp.o
 
 .PHONY : ContoCorrente.o
@@ -367,36 +337,6 @@ DateTime.cpp.s:
 	$(MAKE) -f CMakeFiles/myExecutable.dir/build.make CMakeFiles/myExecutable.dir/DateTime.cpp.s
 .PHONY : DateTime.cpp.s
 
-Deposito.o: Deposito.cpp.o
-
-.PHONY : Deposito.o
-
-# target to build an object file
-Deposito.cpp.o:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/Deposito.cpp.o
-	$(MAKE) -f CMakeFiles/myExecutable.dir/build.make CMakeFiles/myExecutable.dir/Deposito.cpp.o
-.PHONY : Deposito.cpp.o
-
-Deposito.i: Deposito.cpp.i
-
-.PHONY : Deposito.i
-
-# target to preprocess a source file
-Deposito.cpp.i:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/Deposito.cpp.i
-	$(MAKE) -f CMakeFiles/myExecutable.dir/build.make CMakeFiles/myExecutable.dir/Deposito.cpp.i
-.PHONY : Deposito.cpp.i
-
-Deposito.s: Deposito.cpp.s
-
-.PHONY : Deposito.s
-
-# target to generate assembly for a file
-Deposito.cpp.s:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/Deposito.cpp.s
-	$(MAKE) -f CMakeFiles/myExecutable.dir/build.make CMakeFiles/myExecutable.dir/Deposito.cpp.s
-.PHONY : Deposito.cpp.s
-
 FileMgr.o: FileMgr.cpp.o
 
 .PHONY : FileMgr.o
@@ -486,36 +426,6 @@ Menu.cpp.s:
 	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/Menu.cpp.s
 	$(MAKE) -f CMakeFiles/myExecutable.dir/build.make CMakeFiles/myExecutable.dir/Menu.cpp.s
 .PHONY : Menu.cpp.s
-
-Prelievo.o: Prelievo.cpp.o
-
-.PHONY : Prelievo.o
-
-# target to build an object file
-Prelievo.cpp.o:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/Prelievo.cpp.o
-	$(MAKE) -f CMakeFiles/myExecutable.dir/build.make CMakeFiles/myExecutable.dir/Prelievo.cpp.o
-.PHONY : Prelievo.cpp.o
-
-Prelievo.i: Prelievo.cpp.i
-
-.PHONY : Prelievo.i
-
-# target to preprocess a source file
-Prelievo.cpp.i:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/Prelievo.cpp.i
-	$(MAKE) -f CMakeFiles/myExecutable.dir/build.make CMakeFiles/myExecutable.dir/Prelievo.cpp.i
-.PHONY : Prelievo.cpp.i
-
-Prelievo.s: Prelievo.cpp.s
-
-.PHONY : Prelievo.s
-
-# target to generate assembly for a file
-Prelievo.cpp.s:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/Prelievo.cpp.s
-	$(MAKE) -f CMakeFiles/myExecutable.dir/build.make CMakeFiles/myExecutable.dir/Prelievo.cpp.s
-.PHONY : Prelievo.cpp.s
 
 Transazione.o: Transazione.cpp.o
 
@@ -626,9 +536,6 @@ help:
 	@echo "... gmock"
 	@echo "... gtest_main"
 	@echo "... gtest"
-	@echo "... Bonifico.o"
-	@echo "... Bonifico.i"
-	@echo "... Bonifico.s"
 	@echo "... ContoCorrente.o"
 	@echo "... ContoCorrente.i"
 	@echo "... ContoCorrente.s"
@@ -638,9 +545,6 @@ help:
 	@echo "... DateTime.o"
 	@echo "... DateTime.i"
 	@echo "... DateTime.s"
-	@echo "... Deposito.o"
-	@echo "... Deposito.i"
-	@echo "... Deposito.s"
 	@echo "... FileMgr.o"
 	@echo "... FileMgr.i"
 	@echo "... FileMgr.s"
@@ -650,9 +554,6 @@ help:
 	@echo "... Menu.o"
 	@echo "... Menu.i"
 	@echo "... Menu.s"
-	@echo "... Prelievo.o"
-	@echo "... Prelievo.i"
-	@echo "... Prelievo.s"
 	@echo "... Transazione.o"
 	@echo "... Transazione.i"
 	@echo "... Transazione.s"

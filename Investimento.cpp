@@ -10,8 +10,7 @@ Investimento::Investimento(std::string c, float i, Utenza *u, DateTime *d, bool 
     investimento = i;
     guadagno = 0;
     completed = comp;
-    if(completed)
-        dataora = d;
+    dataora = d;
 }
 
 bool Investimento::operator==(const Investimento &i) {

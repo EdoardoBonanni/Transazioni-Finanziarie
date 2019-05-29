@@ -21,16 +21,18 @@ public:
     int getGiorno() const;
     int getMese() const;
     int getAnno() const;
+    bool IsValid() const;
 
-    void setGiorno(int g);
-    void setMese(int m);
-    void setAnno(int a);
+    virtual void setGiorno(const int g, bool isBissextile);
+    virtual void setMese(const int m, bool isBissextile);
+    virtual void setAnno(const int a, bool isBissextile);
 
 protected:
     bool checkData(int g, int m, int a, bool isBissextile);
     int giorno;
     int mese;
     int anno;
+    bool isValid;
 };
 
 

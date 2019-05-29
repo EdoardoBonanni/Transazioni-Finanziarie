@@ -54,10 +54,9 @@ void FileMgr::deleteLine(std::string filename, std::string str, bool &fatalerror
     }
     temp.close();
     file.close();
-    std::string filenameModified = filename + "Investment.txt";
-    const char* s = filenameModified.c_str();
-    remove(s);
-    rename("temp.txt",s);
+    const char* filenameModified = filename.c_str();
+    remove(filenameModified);
+    rename("temp.txt",filenameModified);
 }
 
 std::string FileMgr::read(std::string filename, bool &fatalError) {

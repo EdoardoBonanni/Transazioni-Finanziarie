@@ -13,14 +13,8 @@
 class Transazione {
 public:
     Transazione();
-    Transazione(float i, Utenza* m,  const std::string o, DateTime* d, bool comp) : invio(i),  mittente(m), operazione(o), completed(comp) {
-        if(completed)
-            dataora = d;
-    }
-    Transazione(float i, Utenza* m,  Utenza* r, const std::string o, DateTime* d, bool comp) : invio(i),  mittente(m), ricevitore(r), operazione(o), completed(comp) {
-        if(completed)
-            dataora=d;
-    }
+    Transazione(const std::string o, float i, Utenza* m,  DateTime* d, bool comp) : operazione(o), invio(i),  mittente(m), dataora(d), completed(comp) {}
+    Transazione(const std::string o, float i, Utenza* m,  Utenza* r, DateTime* d, bool comp) : operazione(o), invio(i),  mittente(m), ricevitore(r), dataora(d), completed(comp) {}
 
     virtual ~Transazione() {}
 
@@ -32,15 +26,17 @@ public:
     bool isCompleted() const;
     Utenza *getMittente() const;
     Utenza *getRicevitore() const;
+    const std::string &getOperazione() const;
 
     void setDataora(DateTime *dataora);
     void setCompleted(bool completed);
+    void setOperazione(const std::string &operazione);
 
 private:
+    std::string operazione;
     Utenza* mittente;
     Utenza* ricevitore;
     float invio;
-    std::string operazione;
     DateTime* dataora;
     bool completed;
 };

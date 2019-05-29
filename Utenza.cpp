@@ -18,6 +18,14 @@ Utenza::Utenza(const std::string n, const std::string c, char s,
     personaFisica = true;
 }
 
+Utenza::Utenza(const std::string n, const std::string c, char s,
+               const int gn, const int mn, const int an, bool isBissextile,
+               const std::string i,const int nc, const std::string p)
+        :nome(n), cognome(c), sesso(s), indirizzo(i), numeroCivico(nc), provincia(p){
+    dataNascita = new Date(gn, mn, an, isBissextile);
+    personaFisica = true;
+}
+
 Utenza::Utenza(const std::string n,const std::string i,const int nc,const std::string p) :
         nome(n), indirizzo(i), numeroCivico(nc), provincia(p){
     personaFisica = false;
@@ -27,9 +35,12 @@ Utenza::Utenza(const Utenza &that) {
     if(that.ispersonaFisica()){
         nome = that.nome;
         cognome = that.cognome;
-        dataNascita->setGiorno(that.dataNascita->getGiorno());
-        dataNascita->setMese(that.dataNascita->getMese());
-        dataNascita->setAnno(that.dataNascita->getAnno());
+        dataNascita->setGiorno(that.dataNascita->getGiorno(), true);
+        dataNascita->setMese(that.dataNascita->getMese(), true);
+        dataNascita->setAnno(that.dataNascita->getAnno(), true);
+        indirizzo = that.indirizzo;
+        numeroCivico = that.numeroCivico;
+        provincia = that.provincia;
     }else{
         nome = that.nome;
         indirizzo = that.indirizzo;
@@ -44,9 +55,12 @@ Utenza& Utenza::operator=(Utenza &that) {
             delete dataNascita;
         nome = that.nome;
         cognome = that.cognome;
-        dataNascita->setGiorno(that.dataNascita->getGiorno());
-        dataNascita->setMese(that.dataNascita->getMese());
-        dataNascita->setAnno(that.dataNascita->getAnno());
+        dataNascita->setGiorno(that.dataNascita->getGiorno(), true);
+        dataNascita->setMese(that.dataNascita->getMese(), true);
+        dataNascita->setAnno(that.dataNascita->getAnno(), true);
+        indirizzo = that.indirizzo;
+        numeroCivico = that.numeroCivico;
+        provincia = that.provincia;
     }else{
         nome = that.nome;
         indirizzo = that.indirizzo;
@@ -58,7 +72,7 @@ Utenza& Utenza::operator=(Utenza &that) {
 
 bool Utenza::operator==(const Utenza &u) {
     if(personaFisica==true && u.ispersonaFisica()==true) {
-        if (nome == u.nome && cognome == u.cognome && dataNascita == u.dataNascita)
+        if (nome == u.nome && cognome == u.cognome && (dataNascita->operator==(*u.dataNascita)) && sesso == u.sesso)
             return true;
 
     }
@@ -113,4 +127,40 @@ int Utenza::getNumeroCivico() const {
 
 const std::string Utenza::getProvincia() const {
     return provincia;
+}
+
+Date *Utenza::getDataNascita() const {
+    return dataNascita;
+}
+
+bool Utenza::isPersonaFisica() const {
+    return personaFisica;
+}
+
+void Utenza::setNome(const std::string &nome) {
+    Utenza::nome = nome;
+}
+
+void Utenza::setCognome(const std::string &cognome) {
+    Utenza::cognome = cognome;
+}
+
+void Utenza::setSesso(char sesso) {
+    Utenza::sesso = sesso;
+}
+
+void Utenza::setIndirizzo(const std::string &indirizzo) {
+    Utenza::indirizzo = indirizzo;
+}
+
+void Utenza::setNumeroCivico(int numeroCivico) {
+    Utenza::numeroCivico = numeroCivico;
+}
+
+void Utenza::setDataNascita(Date *dataNascita) {
+    Utenza::dataNascita = dataNascita;
+}
+
+void Utenza::setProvincia(const std::string &provincia) {
+    Utenza::provincia = provincia;
 }

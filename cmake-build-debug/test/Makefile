@@ -198,6 +198,60 @@ UtenzaTest.cpp.s:
 	cd /home/edoardo/CLionProjects/TransazioniFinanziarie/cmake-build-debug && $(MAKE) -f test/CMakeFiles/unitTest.dir/build.make test/CMakeFiles/unitTest.dir/UtenzaTest.cpp.s
 .PHONY : UtenzaTest.cpp.s
 
+dateTest.o: dateTest.cpp.o
+
+.PHONY : dateTest.o
+
+# target to build an object file
+dateTest.cpp.o:
+	cd /home/edoardo/CLionProjects/TransazioniFinanziarie/cmake-build-debug && $(MAKE) -f test/CMakeFiles/unitTest.dir/build.make test/CMakeFiles/unitTest.dir/dateTest.cpp.o
+.PHONY : dateTest.cpp.o
+
+dateTest.i: dateTest.cpp.i
+
+.PHONY : dateTest.i
+
+# target to preprocess a source file
+dateTest.cpp.i:
+	cd /home/edoardo/CLionProjects/TransazioniFinanziarie/cmake-build-debug && $(MAKE) -f test/CMakeFiles/unitTest.dir/build.make test/CMakeFiles/unitTest.dir/dateTest.cpp.i
+.PHONY : dateTest.cpp.i
+
+dateTest.s: dateTest.cpp.s
+
+.PHONY : dateTest.s
+
+# target to generate assembly for a file
+dateTest.cpp.s:
+	cd /home/edoardo/CLionProjects/TransazioniFinanziarie/cmake-build-debug && $(MAKE) -f test/CMakeFiles/unitTest.dir/build.make test/CMakeFiles/unitTest.dir/dateTest.cpp.s
+.PHONY : dateTest.cpp.s
+
+datetimeTest.o: datetimeTest.cpp.o
+
+.PHONY : datetimeTest.o
+
+# target to build an object file
+datetimeTest.cpp.o:
+	cd /home/edoardo/CLionProjects/TransazioniFinanziarie/cmake-build-debug && $(MAKE) -f test/CMakeFiles/unitTest.dir/build.make test/CMakeFiles/unitTest.dir/datetimeTest.cpp.o
+.PHONY : datetimeTest.cpp.o
+
+datetimeTest.i: datetimeTest.cpp.i
+
+.PHONY : datetimeTest.i
+
+# target to preprocess a source file
+datetimeTest.cpp.i:
+	cd /home/edoardo/CLionProjects/TransazioniFinanziarie/cmake-build-debug && $(MAKE) -f test/CMakeFiles/unitTest.dir/build.make test/CMakeFiles/unitTest.dir/datetimeTest.cpp.i
+.PHONY : datetimeTest.cpp.i
+
+datetimeTest.s: datetimeTest.cpp.s
+
+.PHONY : datetimeTest.s
+
+# target to generate assembly for a file
+datetimeTest.cpp.s:
+	cd /home/edoardo/CLionProjects/TransazioniFinanziarie/cmake-build-debug && $(MAKE) -f test/CMakeFiles/unitTest.dir/build.make test/CMakeFiles/unitTest.dir/datetimeTest.cpp.s
+.PHONY : datetimeTest.cpp.s
+
 runAllTests.o: runAllTests.cpp.o
 
 .PHONY : runAllTests.o
@@ -241,6 +295,12 @@ help:
 	@echo "... UtenzaTest.o"
 	@echo "... UtenzaTest.i"
 	@echo "... UtenzaTest.s"
+	@echo "... dateTest.o"
+	@echo "... dateTest.i"
+	@echo "... dateTest.s"
+	@echo "... datetimeTest.o"
+	@echo "... datetimeTest.i"
+	@echo "... datetimeTest.s"
 	@echo "... runAllTests.o"
 	@echo "... runAllTests.i"
 	@echo "... runAllTests.s"
