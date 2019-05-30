@@ -2,9 +2,9 @@
 #include "Conto.h"
 
 
-Conto::Conto(Utenza* t, std::string n, float s, float si){
+Conto::Conto(std::shared_ptr<Utenza> t, std::string n, float s, float si){
     investimenti = std::list<Investimento*>();
-    transazioni = std::list<Transazione*>();
+    transazioni = std::list<std::shared_ptr<Transazione>>();
     titolare = t;
     nome = n;
     saldo = s;
@@ -17,7 +17,6 @@ Conto::~Conto() {
         investimenti.erase(iter);
     }
     for(auto iter = transazioni.begin(); iter != transazioni.end(); iter++){
-        delete (*iter);
         transazioni.erase(iter);
     }
     investimenti.clear();
@@ -63,11 +62,11 @@ void Conto::setSoldiInvestiti(float soldiInvestiti) {
     Conto::soldiInvestiti = soldiInvestiti;
 }
 
-Utenza* Conto::getUtenza() const {
+std::shared_ptr<Utenza> Conto::getUtenza() const {
     return titolare;
 }
 
-bool Conto::addTransazione(Transazione *t, FileMgr* fm, bool& fatalerror) {
+bool Conto::addTransazione(std::shared_ptr<Transazione> t, FileMgr* fm, bool& fatalerror) {
     switch(t->getType()){
         case typeTransaction::Deposito:
             saldo += t->getInvio();
@@ -85,7 +84,7 @@ bool Conto::addTransazione(Transazione *t, FileMgr* fm, bool& fatalerror) {
                 return true;
             }
         case typeTransaction::Bonifico:
-            if (t->getMittente()->getUtenza() == titolare && this->nome == t->getMittente()->getNome()) {
+            if (t->getMittente()->getUtenza() == titolare && nome == t->getMittente()->getNome()) {
                 if (t->getInvio() <= saldo) {
                     transazioni.push_back(t);
                     addTransactionToFile(t, fm, fatalerror);
@@ -107,7 +106,7 @@ bool Conto::addTransazione(Transazione *t, FileMgr* fm, bool& fatalerror) {
     return false;
 }
 
-bool Conto::addInvestimento(Investimento *i, FileMgr* fm, bool& fatalerror) {
+bool Conto::addInvestimento(Investimento* i, FileMgr* fm, bool& fatalerror) {
     if(i->getInvestimento() <= saldo) {
         i->setCompleted(true);
         investimenti.push_back(i);
@@ -121,7 +120,7 @@ bool Conto::addInvestimento(Investimento *i, FileMgr* fm, bool& fatalerror) {
     return false;
 }
 
-bool Conto::removeInvestimento(Investimento *i, DateTime* now, FileMgr* fm, bool& fatalerror) {
+bool Conto::removeInvestimento(Investimento* i, std::shared_ptr<DateTime> now, FileMgr* fm, bool& fatalerror) {
     int pos=0;
     std::list<Investimento*>::iterator iter;
     for(iter=investimenti.begin(); iter != investimenti.end(); ++iter){
@@ -141,7 +140,7 @@ bool Conto::removeInvestimento(Investimento *i, DateTime* now, FileMgr* fm, bool
     return false;
 }
 
-bool Conto::addTransactionToFile(Transazione *t, FileMgr *fm, bool &fatalerror) {
+bool Conto::addTransactionToFile(std::shared_ptr<Transazione> t, FileMgr* fm, bool &fatalerror) {
     std::string str;
     if(t->getType() == typeTransaction::Bonifico) {
         //formato linea file
@@ -190,13 +189,13 @@ bool Conto::addTransactionToFile(Transazione *t, FileMgr *fm, bool &fatalerror) 
     return true;
 }
 
-bool Conto::addInvestmentToFile(Investimento *i, FileMgr *fm, bool &fatalerror) {
+bool Conto::addInvestmentToFile(Investimento* i, FileMgr* fm, bool &fatalerror) {
     std::string str = createInvestmentString(i);
     fm->write(str, fatalerror);
     return fatalerror;
 }
 
-std::string Conto::createInvestmentString(Investimento *i) {
+std::string Conto::createInvestmentString(Investimento* i) {
     //formato linea file
     //Investimento nome cognome di denaro per causale g:m:a o:m:s
     std::string str = "Investimento da ";
@@ -214,7 +213,7 @@ std::string Conto::createInvestmentString(Investimento *i) {
     return str;
 }
 
-bool Conto::removeInvestmentFromFile(Investimento *i, FileMgr *fm, bool &fatalerror) {
+bool Conto::removeInvestmentFromFile(Investimento* i, FileMgr* fm, bool &fatalerror) {
     std::string str = createInvestmentString(i);
     fm->deleteLine(str, fatalerror);
     if(fatalerror)

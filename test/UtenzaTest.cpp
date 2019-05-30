@@ -37,7 +37,7 @@ TEST(UtenzaTest, setTest){
     EXPECT_FALSE(u1 == u3);
     EXPECT_FALSE(u2 == u4);
     u2.setSesso('m');
-    u2.setDataNascita(new Date(2, 3, 1998, false));
+    u2.setDataNascita(std::make_shared<Date>(2, 3, 1998, false));
     EXPECT_EQ(u1.getDataNascita()->getGiorno(), u2.getDataNascita()->getGiorno());
     EXPECT_TRUE(u1 == u3);
     u4.setIndirizzo("Via togliatti");

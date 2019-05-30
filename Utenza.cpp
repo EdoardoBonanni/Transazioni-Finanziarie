@@ -12,7 +12,7 @@ Utenza::Utenza(const std::string n, const std::string c, bool pf) : nome(n), cog
 Utenza::Utenza(const std::string n, const std::string c, char s,
                         const int gn, const int mn, const int an, bool isBissextile)
         :nome(n), cognome(c), sesso(s) {
-    dataNascita = new Date(gn, mn, an, isBissextile);
+    dataNascita = std::make_shared<Date>(gn, mn, an, isBissextile);
     personaFisica = true;
 }
 
@@ -20,7 +20,7 @@ Utenza::Utenza(const std::string n, const std::string c, char s,
                const int gn, const int mn, const int an, bool isBissextile,
                const std::string i,const int nc, const std::string p)
         :nome(n), cognome(c), sesso(s), indirizzo(i), numeroCivico(nc), provincia(p){
-    dataNascita = new Date(gn, mn, an, isBissextile);
+    dataNascita = std::make_shared<Date>(gn, mn, an, isBissextile);
     personaFisica = true;
 }
 
@@ -30,8 +30,6 @@ Utenza::Utenza(const std::string n,const std::string i,const int nc,const std::s
 }
 
 Utenza::~Utenza() {
-    if(dataNascita != nullptr)
-        delete dataNascita;
 }
 
 Utenza::Utenza(const Utenza &that) {
@@ -54,8 +52,6 @@ Utenza::Utenza(const Utenza &that) {
 
 Utenza& Utenza::operator=(Utenza &that) {
     if(that.ispersonaFisica()){
-        if(dataNascita!= nullptr)
-            delete dataNascita;
         nome = that.nome;
         cognome = that.cognome;
         dataNascita->setGiorno(that.dataNascita->getGiorno(), true);
@@ -128,7 +124,7 @@ const std::string Utenza::getProvincia() const {
     return provincia;
 }
 
-Date *Utenza::getDataNascita() const {
+std::shared_ptr<Date> Utenza::getDataNascita() const {
     return dataNascita;
 }
 
@@ -156,7 +152,7 @@ void Utenza::setNumeroCivico(int numeroCivico) {
     Utenza::numeroCivico = numeroCivico;
 }
 
-void Utenza::setDataNascita(Date *dataNascita) {
+void Utenza::setDataNascita(std::shared_ptr<Date> dataNascita) {
     Utenza::dataNascita = dataNascita;
 }
 

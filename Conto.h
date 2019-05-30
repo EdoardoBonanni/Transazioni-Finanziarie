@@ -17,7 +17,7 @@ class FileMgr;
 
 class Conto {
 public:
-    Conto(Utenza* t, std::string n, float s=0, float si=0);
+    Conto(std::shared_ptr<Utenza> t, std::string n, float s=0, float si=0);
     ~Conto();
 
     Conto(const Conto& that);
@@ -25,7 +25,7 @@ public:
 
     float getSaldo() const;
     float getSoldiInvestiti() const;
-    Utenza* getUtenza() const;
+    std::shared_ptr<Utenza> getUtenza() const;
 
     const std::string &getNome() const;
 
@@ -33,20 +33,20 @@ public:
     void setSoldiInvestiti(float soldiInvestiti);
 
     bool addInvestimento(Investimento* i, FileMgr* fm, bool& fatalerror);
-    bool removeInvestimento(Investimento* i, DateTime* now, FileMgr* fm, bool& fatalerror);
-    bool addTransazione(Transazione* t, FileMgr* fm, bool& fatalerror);
+    bool removeInvestimento(Investimento* i, std::shared_ptr<DateTime> now, FileMgr* fm, bool& fatalerror);
+    bool addTransazione(std::shared_ptr<Transazione> t, FileMgr* fm, bool& fatalerror);
 
 private:
     float saldo;
     float soldiInvestiti;
     std::list<Investimento*> investimenti;
-    std::list<Transazione*> transazioni;
+    std::list<std::shared_ptr<Transazione>> transazioni;
     std::string nome;
-    Utenza* titolare;
+    std::shared_ptr<Utenza> titolare;
 
     bool addInvestmentToFile(Investimento* i, FileMgr* fm, bool& fatalerror);
     bool removeInvestmentFromFile(Investimento* i, FileMgr* fm, bool& fatalerror);
-    bool addTransactionToFile(Transazione* t, FileMgr* fm, bool& fatalerror);
+    bool addTransactionToFile(std::shared_ptr<Transazione> t, FileMgr* fm, bool& fatalerror);
     std::string createInvestmentString(Investimento* i);
 };
 

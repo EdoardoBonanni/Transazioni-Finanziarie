@@ -2,7 +2,7 @@
 #include "Transazione.h"
 
 
-Transazione::Transazione(const typeTransaction t, float i, Conto *m, Conto *r, DateTime *d, bool comp) {
+Transazione::Transazione(const typeTransaction t, float i, std::shared_ptr<Conto> m, std::shared_ptr<Conto> r, std::shared_ptr<DateTime> d, bool comp) {
     type = t;
     switch(type){
         case typeTransaction::Deposito:
@@ -26,7 +26,8 @@ Transazione::Transazione(const typeTransaction t, float i, Conto *m, Conto *r, D
     }
 }
 
-Transazione::~Transazione() {}
+Transazione::~Transazione() {
+}
 
 Transazione::Transazione(const Transazione &that) {
     type = that.type;
@@ -95,7 +96,7 @@ float Transazione::getInvio() const {
     return invio;
 }
 
-DateTime *Transazione::getDataora() const {
+std::shared_ptr<DateTime> Transazione::getDataora() const {
     return dataora;
 }
 
@@ -103,7 +104,7 @@ bool Transazione::isCompleted() const {
     return completed;
 }
 
-void Transazione::setDataora(DateTime *dataora) {
+void Transazione::setDataora(std::shared_ptr<DateTime> dataora) {
     Transazione::dataora = dataora;
 }
 
@@ -111,11 +112,11 @@ void Transazione::setCompleted(bool completed) {
     Transazione::completed = completed;
 }
 
-Conto *Transazione::getMittente() const {
+std::shared_ptr<Conto> Transazione::getMittente() const {
     return mittente;
 }
 
-Conto *Transazione::getRicevitore() const {
+std::shared_ptr<Conto> Transazione::getRicevitore() const {
     return ricevitore;
 }
 

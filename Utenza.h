@@ -6,6 +6,7 @@
 #ifndef TRANSAZIONIFINANZIARIE_UTENZA_H
 #define TRANSAZIONIFINANZIARIE_UTENZA_H
 
+#include <memory>
 #include "string"
 #include "Date.h"
 
@@ -35,7 +36,7 @@ public:
     const std::string getIndirizzo() const;
     int getNumeroCivico() const;
     const std::string getProvincia() const;
-    Date *getDataNascita() const;
+    std::shared_ptr<Date> getDataNascita() const;
     bool isPersonaFisica() const;
 
     void setNome(const std::string &nome);
@@ -43,14 +44,14 @@ public:
     void setSesso(char sesso);
     void setIndirizzo(const std::string &indirizzo);
     void setNumeroCivico(int numeroCivico);
-    void setDataNascita(Date *dataNascita);
+    void setDataNascita(std::shared_ptr<Date> dataNascita);
     void setProvincia(const std::string &provincia);
 
 private:
     std::string nome;
     std::string cognome;
     char sesso;
-    Date* dataNascita;
+    std::shared_ptr<Date> dataNascita;
     std::string indirizzo;
     int numeroCivico;
     std::string provincia;

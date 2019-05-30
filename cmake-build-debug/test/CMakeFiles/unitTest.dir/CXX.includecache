@@ -345,6 +345,8 @@ Conto.h
 /home/edoardo/CLionProjects/TransazioniFinanziarie/Conto.h
 
 /home/edoardo/CLionProjects/TransazioniFinanziarie/Utenza.h
+memory
+-
 string
 /home/edoardo/CLionProjects/TransazioniFinanziarie/string
 Date.h
@@ -389,4 +391,6 @@ gtest/gtest.h
 /home/edoardo/CLionProjects/TransazioniFinanziarie/test/gtest/gtest.h
 ../Transazione.h
 /home/edoardo/CLionProjects/TransazioniFinanziarie/Transazione.h
+memory
+/home/edoardo/CLionProjects/TransazioniFinanziarie/test/memory
 

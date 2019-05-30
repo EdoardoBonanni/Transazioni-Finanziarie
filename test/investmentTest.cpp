@@ -3,14 +3,14 @@
 #include "../Investimento.h"
 
 TEST(investmentTest, ConstructorAndEqualTest){
-    Utenza* u1 = new Utenza("Edoardo", "Bonanni", 'm', 2, 3, 1998, false, "Via calcinaia", 59, "FI");
-    Utenza* u2 = new Utenza("Poste", "Via Togliatti", 2, "FI");
-    DateTime* d1 = new DateTime(2, 2, 2019, 22, 12, 3, true);
-    DateTime* d2 = new DateTime(2, 2, 2019, 22, 12, 3, true);
-    Conto* c1 = new Conto(u1, "c1", 0, 0);
-    Conto* c2 = new Conto(u2, "c2", 0, 0);
+    std::shared_ptr<Utenza> u1 = std::make_shared<Utenza>("Edoardo", "Bonanni", 'm', 2, 3, 1998, false, "Via calcinaia", 59, "FI");
+    std::shared_ptr<Utenza> u2 = std::make_shared<Utenza>("Poste", "Via Togliatti", 2, "FI");
+    std::shared_ptr<Conto> c1 = std::make_shared<Conto>(u1, "c1", 0, 0);
+    std::shared_ptr<Conto> c2 = std::make_shared<Conto>(u2, "c2", 0, 0);
+    std::shared_ptr<DateTime> dt1 = std::make_shared<DateTime>(2, 2, 2019, 22, 12, 3, true);
+    std::shared_ptr<DateTime> dt2 = std::make_shared<DateTime>(2, 2, 2019, 22, 12, 7, true);
 
-    Investimento i1("Azioni ferrari", 2000, c1, d1, false);
+    Investimento i1("Azioni ferrari", 2000, c1, dt1, false);
     EXPECT_EQ(i1.getInvestimento(), 2000);
     EXPECT_EQ(i1.getCausale(), "Azioni ferrari");
     EXPECT_EQ(i1.getConto()->getNome(), "c1");
@@ -18,33 +18,28 @@ TEST(investmentTest, ConstructorAndEqualTest){
     EXPECT_EQ(i1.getDataora()->getMinuto(), 12);
     EXPECT_EQ(i1.getDataora()->getSecondo(), 5);
 
-    Investimento i2("Azioni fiat", 1000, c1, d1, false);
-    Investimento i3("Azioni fiat", 1000, c1, d2, false);
-    Investimento i4("Azioni fiat", 1000, c2, d1, false);
-    Investimento i5("Azioni ferrari", 2000, c1, d1, false);
+    Investimento i2("Azioni fiat", 1000, c1, dt1, false);
+    Investimento i3("Azioni fiat", 1000, c1, dt2, false);
+    Investimento i4("Azioni fiat", 1000, c2, dt1, false);
+    Investimento i5("Azioni ferrari", 2000, c1, dt1, false);
 
     EXPECT_FALSE(i1==i2);
     EXPECT_FALSE(i2==i3);
     EXPECT_FALSE(i2==i4);
     EXPECT_TRUE(i1==i5);
-    i5.setDataora(d2);
+    i5.setDataora(dt2);
     EXPECT_FALSE(i1==i5);
-
-    delete d1;
-    delete d2;
-    delete u1;
-    delete u2;
 }
 
 TEST(investmentTest, opAssignamentANDcopyConstructorTest){
-    Utenza* u1 = new Utenza("Edoardo", "Bonanni", 'm', 2, 3, 1998, false, "Via calcinaia", 59, "FI");
-    Utenza* u2 = new Utenza("Poste", "Via Togliatti", 2, "FI");
-    DateTime* d1 = new DateTime(2, 2, 2019, 22, 12, 3, true);
-    Conto* c1 = new Conto(u1, "c1", 0, 0);
-    Conto* c2 = new Conto(u2, "c2", 0, 0);
+    std::shared_ptr<Utenza> u1 = std::make_shared<Utenza>("Edoardo", "Bonanni", 'm', 2, 3, 1998, false, "Via calcinaia", 59, "FI");
+    std::shared_ptr<Utenza> u2 = std::make_shared<Utenza>("Poste", "Via Togliatti", 2, "FI");
+    std::shared_ptr<Conto> c1 = std::make_shared<Conto>(u1, "c1", 0, 0);
+    std::shared_ptr<Conto> c2 = std::make_shared<Conto>(u2, "c2", 0, 0);
+    std::shared_ptr<DateTime> dt1 = std::make_shared<DateTime>(2, 2, 2019, 22, 12, 3, true);
 
-    Investimento i1("Azioni ferrari", 2000, c1, d1, false);
-    Investimento i2("Azioni fiat", 1000, c2, d1, false);
+    Investimento i1("Azioni ferrari", 2000, c1, dt1, false);
+    Investimento i2("Azioni fiat", 1000, c2, dt1, false);
 
     Investimento i3(i1);
     Investimento i4(i2);
@@ -53,29 +48,21 @@ TEST(investmentTest, opAssignamentANDcopyConstructorTest){
     EXPECT_TRUE(i2==i4);
     i3 = i4;
     EXPECT_TRUE(i2==i3);
-
-    delete d1;
-    delete u1;
-    delete u2;
 }
 
 TEST(investmentTest, simulateInvestmentTest){
-    Utenza* u1 = new Utenza("Edoardo", "Bonanni", 'm', 2, 3, 1998, false, "Via calcinaia", 59, "FI");
-    Conto* c1 = new Conto(u1, "c1", 0, 0);
-    DateTime* d1 = new DateTime(2, 2, 2019, 22, 12, 3, true);
-    DateTime* d2 = new DateTime(2, 2, 2019, 22, 12, 5, true);
+    std::shared_ptr<Utenza> u1 = std::make_shared<Utenza>("Edoardo", "Bonanni", 'm', 2, 3, 1998, false, "Via calcinaia", 59, "FI");
+    std::shared_ptr<Conto> c1 = std::make_shared<Conto>(u1, "c1", 0, 0);
+    std::shared_ptr<DateTime> dt1 = std::make_shared<DateTime>(2, 2, 2019, 22, 12, 3, true);
+    std::shared_ptr<DateTime> dt2 = std::make_shared<DateTime>(2, 2, 2019, 22, 12, 7, true);
 
-    Investimento i1("Azioni ferrari", 2000, c1, d1, false);
+    Investimento i1("Azioni ferrari", 2000, c1, dt1, false);
     EXPECT_EQ(i1.getGuadagno(), 0);
-    ASSERT_FALSE(d2 > d1);
-    i1.simulateInvestment(d2);
+    ASSERT_FALSE(dt2 > dt1);
+    i1.simulateInvestment(dt2);
     EXPECT_EQ(i1.getGuadagno(), 0);
     i1.setCompleted(true);
     EXPECT_EQ(i1.isCompleted(), true);
-    i1.simulateInvestment(d2);
+    i1.simulateInvestment(dt2);
     EXPECT_TRUE(i1.getGuadagno() != 0);
-
-    delete d1;
-    delete d2;
-    delete u1;
 }

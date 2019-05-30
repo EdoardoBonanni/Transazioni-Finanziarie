@@ -34,10 +34,10 @@ private:
         float s = stof(container[0]);
         return s;
     }
-    DateTime* calcolaDateTime(DateTime* dt){
+    std::shared_ptr<DateTime> calcolaDateTime(std::shared_ptr<DateTime> dt){
         time_t t = time(0);
         struct tm *now = std::localtime(&t);
-        dt = new DateTime(now->tm_mday, now->tm_mon + 1, now->tm_year + 1900, now->tm_hour, now->tm_min, now->tm_sec, true);
+        dt = make_shared<DateTime>(now->tm_mday, now->tm_mon + 1, now->tm_year + 1900, now->tm_hour, now->tm_min, now->tm_sec, true);
         return dt;
     }
 public:
@@ -49,15 +49,15 @@ public:
         bool res, res1, result, isBissextile = false, exitMenu = false, searchCognome = false, failure = false, fatalError = false, sendToYou =false;
         int switch1, switch2, gn, mn, an, pf, pfo, nc;
         const char *c;
-        DateTime* dt, *now;
+        std::shared_ptr<DateTime> dt, now;
         char sesso, delim1 = ' ';;
         std::stringstream ss;
         typeTransaction type;
-        Conto *myBankAccount, *otherBankAccount;
-        Utenza *me, *other;
-        FileMgr *fileOtherUser, *fileOtherUserTransaction, *fileOtherUserInvestment;
-        Transazione* t1;
-        Investimento* i;
+        std::shared_ptr<Conto> myBankAccount, otherBankAccount;
+        std::shared_ptr<Utenza> me, other;
+        std::unique_ptr<FileMgr> fileOtherUser, fileOtherUserTransaction, fileOtherUserInvestment;
+        std::shared_ptr<Transazione> t1;
+        std::unique_ptr<Investimento> i;
         cin.exceptions(std::istream::failbit);
         do {
             try {
@@ -88,9 +88,9 @@ public:
             filenameInvestment = nome + nomeMyconto +"Investment.txt";
             filenameTransaction = nome + nomeMyconto + "Transaction.txt";
         }
-        FileMgr *fileUtenze = new FileMgr(filename, true, fatalError);
-        FileMgr *fileInvestmentUtenza = new FileMgr(filenameInvestment, true, fatalError);
-        FileMgr *fileTransactionUtenza = new FileMgr(filenameTransaction, true, fatalError);
+        std::unique_ptr<FileMgr> fileUtenze = std::unique_ptr<FileMgr>(new FileMgr(filename, true, fatalError));
+        std::unique_ptr<FileMgr> fileInvestmentUtenza = std::unique_ptr<FileMgr> (new FileMgr(filenameInvestment, true, fatalError));
+        std::unique_ptr<FileMgr> fileTransactionUtenza = std::unique_ptr<FileMgr> (new FileMgr(filenameTransaction, true, fatalError));
         if (fileUtenze->isFileExists() == false && !fatalError) {
             if (pf == 1) {
                 do {
@@ -143,7 +143,7 @@ public:
                 string ans = std::to_string(an);
                 if(gn == 29 && mn == 2)
                     isBissextile = true;
-                me = new Utenza(nome, cognome, sesso, gn, mn, an, isBissextile);
+                me = make_shared<Utenza>(nome, cognome, sesso, gn, mn, an, isBissextile);
                 str = nome + " " + cognome;
                 if (!fatalError)
                     fileUtenze->openNewFile(str, fatalError);
@@ -167,7 +167,7 @@ public:
                 cout << "Inserisca la provincia" << endl;
                 cin >> prov;
                 string ncs = std::to_string(nc);
-                me = new Utenza(nome, ind, nc, prov);
+                me = make_shared<Utenza>(nome, ind, nc, prov);
                 str = nome;
                 if (!fatalError)
                     fileUtenze->openNewFile(str, fatalError);
@@ -175,7 +175,7 @@ public:
                 if (!fatalError)
                     fileUtenze->write(str, fatalError);
             }
-            myBankAccount = new Conto(me, nomeMyconto, 0, 0);
+            myBankAccount = make_shared<Conto>(me, nomeMyconto, 0, 0);
             dt = calcolaDateTime(dt);
             str = "Account creato il " + std::to_string(dt->getGiorno()) + ":" +
                   std::to_string(dt->getMese()) + ":" + std::to_string(dt->getAnno()) +
@@ -187,8 +187,8 @@ public:
             if (!fatalError) {
                 if(pf)
                     searchCognome = true;
-                me = new Utenza(nome, cognome, searchCognome);
-                myBankAccount = new Conto(me, nomeMyconto, 0, 0);
+                me = make_shared<Utenza>(nome, cognome, searchCognome);
+                myBankAccount = make_shared<Conto>(me, nomeMyconto, 0, 0);
             }
         }
         while (exitMenu == false && !fatalError) {
@@ -217,8 +217,8 @@ public:
                         f1 = round(prelievo * 100.0) / 100.0;
                         dt = calcolaDateTime(dt);
                         type = typeTransaction ::Prelievo;
-                        t1 = new Transazione(type, f1, myBankAccount, NULL, dt, false);
-                        res = myBankAccount->addTransazione(t1, fileTransactionUtenza, fatalError);
+                        t1 = make_shared<Transazione>(type, f1, myBankAccount, myBankAccount, dt, false);
+                        res = myBankAccount->addTransazione(t1, fileTransactionUtenza.get(), fatalError);
                         if (!fatalError && res) {
                             cout << "Prelievo avvenuto con successo" << endl;
                             f = round(myBankAccount->getSaldo() * 100.0) / 100.0;
@@ -242,8 +242,8 @@ public:
                                         deposito = round(f1 * 100.0) / 100.0;
                                         dt = calcolaDateTime(dt);
                                         type = typeTransaction ::Deposito;
-                                        t1 = new Transazione(type, f1, myBankAccount, NULL, dt, false);
-                                        res = myBankAccount->addTransazione(t1, fileTransactionUtenza, fatalError);
+                                        t1 = make_shared<Transazione>(type, f1, myBankAccount, myBankAccount, dt, false);
+                                        res = myBankAccount->addTransazione(t1, fileTransactionUtenza.get(), fatalError);
                                         if(!fatalError && res) {
                                             cout << "Il suo deposito di " << deposito << " è andato a buon fine"
                                                  << endl;
@@ -280,6 +280,8 @@ public:
                                 cinClear();
                             }
                         } while ((pfo < 0 || pfo > 1) || failure == true);
+                        cout << "Inserire il nome del conto a cui fare il bonifico" << endl;
+                        cin >> nomeOtherConto;
                         cout << "Inserire il nome della persona a cui fare il bonifico" << endl;
                         cin >> nomeInvio;
                         if (pfo == 1) {
@@ -299,10 +301,9 @@ public:
                                 filenameOtherTransaction = nomeInvio + nomeOtherConto +"Transaction.txt";
                             }
                         }
-                        fileOtherUser = new FileMgr(filenameOther, true, fatalError);
-                        fileOtherUserTransaction = new FileMgr(filenameTransaction, true, fatalError);
+                        fileOtherUser = std::unique_ptr<FileMgr> (new FileMgr(filenameOther, true, fatalError));
+                        fileOtherUserTransaction = std::unique_ptr<FileMgr> (new FileMgr(filenameOtherTransaction, true, fatalError));
                         if (fileOtherUser->isFileExists() && !fatalError && !sendToYou) {
-                            other = new Utenza(nomeInvio, cognomeInvio, pfo);
                             f = myBankAccount->getSaldo();
                             do{
                                 try {
@@ -318,19 +319,18 @@ public:
                                 }
                             } while ((invio < 0) || failure == true);
                             if(pfo==1)
-                                other = new Utenza(nomeInvio, cognomeInvio, true);
+                                other = make_shared<Utenza>(nomeInvio, cognomeInvio, true);
                             if(pfo==0)
-                                other = new Utenza(nomeInvio, cognomeInvio, false);
-
-                            otherBankAccount = new Conto(other, nomeOtherConto, 100, 20);
+                                other = make_shared<Utenza>(nomeInvio, cognomeInvio, false);
+                            otherBankAccount = make_shared<Conto>(other, nomeOtherConto, 0, 0);
                             f1 = round(invio * 100.0) / 100.0;
                             dt = calcolaDateTime(dt);
                             type = typeTransaction ::Bonifico;
-                            t1 = new Transazione(type, f1, myBankAccount, otherBankAccount, dt, false);
+                            t1 = make_shared<Transazione>(type, f1, myBankAccount, otherBankAccount, dt, false);
                             if ((invio > 0) && !fatalError) {
-                                res = myBankAccount->addTransazione(t1, fileTransactionUtenza, fatalError);
+                                //res = myBankAccount->addTransazione(t1, fileTransactionUtenza.get(), fatalError);
                                 if(res)
-                                    res1 = otherBankAccount->addTransazione(t1, fileOtherUserTransaction, fatalError);
+                                    res1 = otherBankAccount->addTransazione(t1, fileOtherUserTransaction.get(), fatalError);
                                 if(!fatalError && res && res1){
                                     cout << "Bonifico inviato con successo " << endl;
                                     f = round(myBankAccount->getSaldo() * 100.0) / 100.0;
@@ -364,8 +364,8 @@ public:
                         cin >> causale;
                         f1 = round(investimento * 100.0) / 100.0;
                         dt = calcolaDateTime(dt);
-                        i = new Investimento(causale, f1, myBankAccount, dt, false);
-                        res = myBankAccount->addInvestimento(i, fileInvestmentUtenza, fatalError);
+                        i = std::unique_ptr<Investimento>(new Investimento(causale, f1, myBankAccount, dt, false));
+                        res = myBankAccount->addInvestimento(i.get(), fileInvestmentUtenza.get(), fatalError);
                         if(!fatalError && res){
                             cout << "Investimento eseguito con successo " << endl;
                             f = round(myBankAccount->getSaldo() * 100.0) / 100.0;
@@ -393,9 +393,9 @@ public:
                         cout << "inserisci la causale " << endl;
                         cin >> causale;
                         f1 = round(investimento * 100.0) / 100.0;
-                        i = new Investimento(causale, f1, myBankAccount, dt, true);
+                        i = std::unique_ptr<Investimento>(new Investimento(causale, f1, myBankAccount, dt, true));
                         now = calcolaDateTime(dt);
-                        res = myBankAccount->removeInvestimento(i, now, fileInvestmentUtenza, fatalError);
+                        res = myBankAccount->removeInvestimento(i.get(), now, fileInvestmentUtenza.get(), fatalError);
                         if(!fatalError && res){
                             cout << "Investimento rimosso" << endl;
                             cout << "Soldi investiti " << myBankAccount->getSoldiInvestiti() << endl;
