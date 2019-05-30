@@ -153,12 +153,87 @@ test/CMakeFiles/unitTest.dir/datetimeTest.cpp.o.provides: test/CMakeFiles/unitTe
 test/CMakeFiles/unitTest.dir/datetimeTest.cpp.o.provides.build: test/CMakeFiles/unitTest.dir/datetimeTest.cpp.o
 
 
+test/CMakeFiles/unitTest.dir/transactionTest.cpp.o: test/CMakeFiles/unitTest.dir/flags.make
+test/CMakeFiles/unitTest.dir/transactionTest.cpp.o: ../test/transactionTest.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/edoardo/CLionProjects/TransazioniFinanziarie/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object test/CMakeFiles/unitTest.dir/transactionTest.cpp.o"
+	cd /home/edoardo/CLionProjects/TransazioniFinanziarie/cmake-build-debug/test && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/unitTest.dir/transactionTest.cpp.o -c /home/edoardo/CLionProjects/TransazioniFinanziarie/test/transactionTest.cpp
+
+test/CMakeFiles/unitTest.dir/transactionTest.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/unitTest.dir/transactionTest.cpp.i"
+	cd /home/edoardo/CLionProjects/TransazioniFinanziarie/cmake-build-debug/test && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/edoardo/CLionProjects/TransazioniFinanziarie/test/transactionTest.cpp > CMakeFiles/unitTest.dir/transactionTest.cpp.i
+
+test/CMakeFiles/unitTest.dir/transactionTest.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/unitTest.dir/transactionTest.cpp.s"
+	cd /home/edoardo/CLionProjects/TransazioniFinanziarie/cmake-build-debug/test && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/edoardo/CLionProjects/TransazioniFinanziarie/test/transactionTest.cpp -o CMakeFiles/unitTest.dir/transactionTest.cpp.s
+
+test/CMakeFiles/unitTest.dir/transactionTest.cpp.o.requires:
+
+.PHONY : test/CMakeFiles/unitTest.dir/transactionTest.cpp.o.requires
+
+test/CMakeFiles/unitTest.dir/transactionTest.cpp.o.provides: test/CMakeFiles/unitTest.dir/transactionTest.cpp.o.requires
+	$(MAKE) -f test/CMakeFiles/unitTest.dir/build.make test/CMakeFiles/unitTest.dir/transactionTest.cpp.o.provides.build
+.PHONY : test/CMakeFiles/unitTest.dir/transactionTest.cpp.o.provides
+
+test/CMakeFiles/unitTest.dir/transactionTest.cpp.o.provides.build: test/CMakeFiles/unitTest.dir/transactionTest.cpp.o
+
+
+test/CMakeFiles/unitTest.dir/investmentTest.cpp.o: test/CMakeFiles/unitTest.dir/flags.make
+test/CMakeFiles/unitTest.dir/investmentTest.cpp.o: ../test/investmentTest.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/edoardo/CLionProjects/TransazioniFinanziarie/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object test/CMakeFiles/unitTest.dir/investmentTest.cpp.o"
+	cd /home/edoardo/CLionProjects/TransazioniFinanziarie/cmake-build-debug/test && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/unitTest.dir/investmentTest.cpp.o -c /home/edoardo/CLionProjects/TransazioniFinanziarie/test/investmentTest.cpp
+
+test/CMakeFiles/unitTest.dir/investmentTest.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/unitTest.dir/investmentTest.cpp.i"
+	cd /home/edoardo/CLionProjects/TransazioniFinanziarie/cmake-build-debug/test && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/edoardo/CLionProjects/TransazioniFinanziarie/test/investmentTest.cpp > CMakeFiles/unitTest.dir/investmentTest.cpp.i
+
+test/CMakeFiles/unitTest.dir/investmentTest.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/unitTest.dir/investmentTest.cpp.s"
+	cd /home/edoardo/CLionProjects/TransazioniFinanziarie/cmake-build-debug/test && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/edoardo/CLionProjects/TransazioniFinanziarie/test/investmentTest.cpp -o CMakeFiles/unitTest.dir/investmentTest.cpp.s
+
+test/CMakeFiles/unitTest.dir/investmentTest.cpp.o.requires:
+
+.PHONY : test/CMakeFiles/unitTest.dir/investmentTest.cpp.o.requires
+
+test/CMakeFiles/unitTest.dir/investmentTest.cpp.o.provides: test/CMakeFiles/unitTest.dir/investmentTest.cpp.o.requires
+	$(MAKE) -f test/CMakeFiles/unitTest.dir/build.make test/CMakeFiles/unitTest.dir/investmentTest.cpp.o.provides.build
+.PHONY : test/CMakeFiles/unitTest.dir/investmentTest.cpp.o.provides
+
+test/CMakeFiles/unitTest.dir/investmentTest.cpp.o.provides.build: test/CMakeFiles/unitTest.dir/investmentTest.cpp.o
+
+
+test/CMakeFiles/unitTest.dir/contocorrenteFixture.cpp.o: test/CMakeFiles/unitTest.dir/flags.make
+test/CMakeFiles/unitTest.dir/contocorrenteFixture.cpp.o: ../test/contocorrenteFixture.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/edoardo/CLionProjects/TransazioniFinanziarie/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object test/CMakeFiles/unitTest.dir/contocorrenteFixture.cpp.o"
+	cd /home/edoardo/CLionProjects/TransazioniFinanziarie/cmake-build-debug/test && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/unitTest.dir/contocorrenteFixture.cpp.o -c /home/edoardo/CLionProjects/TransazioniFinanziarie/test/contocorrenteFixture.cpp
+
+test/CMakeFiles/unitTest.dir/contocorrenteFixture.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/unitTest.dir/contocorrenteFixture.cpp.i"
+	cd /home/edoardo/CLionProjects/TransazioniFinanziarie/cmake-build-debug/test && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/edoardo/CLionProjects/TransazioniFinanziarie/test/contocorrenteFixture.cpp > CMakeFiles/unitTest.dir/contocorrenteFixture.cpp.i
+
+test/CMakeFiles/unitTest.dir/contocorrenteFixture.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/unitTest.dir/contocorrenteFixture.cpp.s"
+	cd /home/edoardo/CLionProjects/TransazioniFinanziarie/cmake-build-debug/test && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/edoardo/CLionProjects/TransazioniFinanziarie/test/contocorrenteFixture.cpp -o CMakeFiles/unitTest.dir/contocorrenteFixture.cpp.s
+
+test/CMakeFiles/unitTest.dir/contocorrenteFixture.cpp.o.requires:
+
+.PHONY : test/CMakeFiles/unitTest.dir/contocorrenteFixture.cpp.o.requires
+
+test/CMakeFiles/unitTest.dir/contocorrenteFixture.cpp.o.provides: test/CMakeFiles/unitTest.dir/contocorrenteFixture.cpp.o.requires
+	$(MAKE) -f test/CMakeFiles/unitTest.dir/build.make test/CMakeFiles/unitTest.dir/contocorrenteFixture.cpp.o.provides.build
+.PHONY : test/CMakeFiles/unitTest.dir/contocorrenteFixture.cpp.o.provides
+
+test/CMakeFiles/unitTest.dir/contocorrenteFixture.cpp.o.provides.build: test/CMakeFiles/unitTest.dir/contocorrenteFixture.cpp.o
+
+
 # Object files for target unitTest
 unitTest_OBJECTS = \
 "CMakeFiles/unitTest.dir/runAllTests.cpp.o" \
 "CMakeFiles/unitTest.dir/UtenzaTest.cpp.o" \
 "CMakeFiles/unitTest.dir/dateTest.cpp.o" \
-"CMakeFiles/unitTest.dir/datetimeTest.cpp.o"
+"CMakeFiles/unitTest.dir/datetimeTest.cpp.o" \
+"CMakeFiles/unitTest.dir/transactionTest.cpp.o" \
+"CMakeFiles/unitTest.dir/investmentTest.cpp.o" \
+"CMakeFiles/unitTest.dir/contocorrenteFixture.cpp.o"
 
 # External object files for target unitTest
 unitTest_EXTERNAL_OBJECTS =
@@ -167,13 +242,16 @@ test/unitTest: test/CMakeFiles/unitTest.dir/runAllTests.cpp.o
 test/unitTest: test/CMakeFiles/unitTest.dir/UtenzaTest.cpp.o
 test/unitTest: test/CMakeFiles/unitTest.dir/dateTest.cpp.o
 test/unitTest: test/CMakeFiles/unitTest.dir/datetimeTest.cpp.o
+test/unitTest: test/CMakeFiles/unitTest.dir/transactionTest.cpp.o
+test/unitTest: test/CMakeFiles/unitTest.dir/investmentTest.cpp.o
+test/unitTest: test/CMakeFiles/unitTest.dir/contocorrenteFixture.cpp.o
 test/unitTest: test/CMakeFiles/unitTest.dir/build.make
 test/unitTest: lib/libgtestd.a
 test/unitTest: lib/libgtest_maind.a
 test/unitTest: libcore.a
 test/unitTest: lib/libgtestd.a
 test/unitTest: test/CMakeFiles/unitTest.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/edoardo/CLionProjects/TransazioniFinanziarie/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable unitTest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/edoardo/CLionProjects/TransazioniFinanziarie/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable unitTest"
 	cd /home/edoardo/CLionProjects/TransazioniFinanziarie/cmake-build-debug/test && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/unitTest.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -185,6 +263,9 @@ test/CMakeFiles/unitTest.dir/requires: test/CMakeFiles/unitTest.dir/runAllTests.
 test/CMakeFiles/unitTest.dir/requires: test/CMakeFiles/unitTest.dir/UtenzaTest.cpp.o.requires
 test/CMakeFiles/unitTest.dir/requires: test/CMakeFiles/unitTest.dir/dateTest.cpp.o.requires
 test/CMakeFiles/unitTest.dir/requires: test/CMakeFiles/unitTest.dir/datetimeTest.cpp.o.requires
+test/CMakeFiles/unitTest.dir/requires: test/CMakeFiles/unitTest.dir/transactionTest.cpp.o.requires
+test/CMakeFiles/unitTest.dir/requires: test/CMakeFiles/unitTest.dir/investmentTest.cpp.o.requires
+test/CMakeFiles/unitTest.dir/requires: test/CMakeFiles/unitTest.dir/contocorrenteFixture.cpp.o.requires
 
 .PHONY : test/CMakeFiles/unitTest.dir/requires
 

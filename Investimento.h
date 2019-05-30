@@ -1,6 +1,3 @@
-//
-// Created by edoardo on 23/05/19.
-//
 
 #ifndef TRANSAZIONIFINANZIARIE_INVESTIMENTO_H
 #define TRANSAZIONIFINANZIARIE_INVESTIMENTO_H
@@ -11,10 +8,15 @@
 
 class Investimento {
 public:
-    Investimento();
+    Investimento(){}
     Investimento(std::string c, float i, Utenza* u, DateTime* d, bool comp);
 
+    virtual ~Investimento();
+
+    Investimento(const Investimento& that);
+    Investimento& operator=(Investimento& that);
     bool operator==(const Investimento &i);
+    bool operator!=(const Investimento &i);
 
     const std::string &getCausale() const;
     float getInvestimento() const;

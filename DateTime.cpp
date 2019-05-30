@@ -1,6 +1,4 @@
-//
-// Created by edoardo on 23/05/19.
-//
+
 
 #include "DateTime.h"
 
@@ -26,7 +24,7 @@ DateTime::DateTime(int g, int mes, int a, int o, int min, int s, bool isBissexti
         secondo=s;
         isValid = true;
     }else{
-            isValid=false;
+        isValid=false;
     }
 }
 
@@ -42,7 +40,7 @@ DateTime::DateTime(const DateTime &that) {
     isValid = that.isValid;
 }
 
-DateTime& DateTime::operator=(DateTime &that) {
+DateTime& DateTime::operator=(const DateTime &that) {
     if(that.isValid) {
         secondo = that.secondo;
         minuto = that.minuto;
@@ -53,6 +51,23 @@ DateTime& DateTime::operator=(DateTime &that) {
     }
     isValid = that.isValid;
     return *this;
+}
+
+bool DateTime::operator>(const DateTime &that) {
+    if(anno <= that.anno) {
+        if(mese <= that.mese){
+            if(giorno <= that.giorno){
+                if(ora <= that.ora){
+                    if(minuto <= that.minuto){
+                        if(secondo <= that.secondo)
+                            return false;
+                    }
+                }
+            }
+        }
+    }
+    return true;
+
 }
 
 bool DateTime::operator==(const DateTime &dt) {

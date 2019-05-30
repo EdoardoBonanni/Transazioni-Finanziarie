@@ -1,6 +1,4 @@
-//
-// Created by edoardo on 29/08/18.
-//
+
 
 
 #ifndef TRANSAZIONIFINANZIARIE_CONTOCORRENTE_H
@@ -22,17 +20,15 @@ public:
     ContoCorrente& operator=(ContoCorrente& that);
 
     float getSaldo() const;
-    void setSaldo(float saldo);
     float getSoldiInvestiti() const;
-    void setSoldiInvestiti(float soldiInvestiti);
     Utenza* getUtenza() const;
+    void setSaldo(float saldo);
 
-    bool addInvestimento(Investimento* i, FileMgr* fm, std::string filename, bool& fatalerror);
-    bool removeInvestimento(Investimento* i, DateTime* now, FileMgr* fm, std::string filename, bool& fatalerror);
-    bool addTransazione(Transazione* t, FileMgr* fm, std::string filename, bool& fatalerror);
+    void setSoldiInvestiti(float soldiInvestiti);
 
-    bool getTransazioni(FileMgr* fm, std::string filename, bool &fatalerror);
-    bool getInvestimenti(FileMgr* fm, std::string filename, bool &fatalerror);
+    bool addInvestimento(Investimento* i, FileMgr* fm, bool& fatalerror);
+    bool removeInvestimento(Investimento* i, DateTime* now, FileMgr* fm, bool& fatalerror);
+    bool addTransazione(Transazione* t, FileMgr* fm, bool& fatalerror);
 
 private:
     float saldo;
@@ -41,9 +37,9 @@ private:
     std::list<Transazione*> transazioni;
     Utenza* titolare;
 
-    bool addInvestmentToFile(Investimento* i, FileMgr* fm, std::string filename, bool& fatalerror);
-    bool removeInvestmentFromFile(Investimento* i, FileMgr* fm, std::string filename, bool& fatalerror);
-    bool addTransactionToFile(Transazione* t, FileMgr* fm, std::string filename, bool& fatalerror);
+    bool addInvestmentToFile(Investimento* i, FileMgr* fm, bool& fatalerror);
+    bool removeInvestmentFromFile(Investimento* i, FileMgr* fm, bool& fatalerror);
+    bool addTransactionToFile(Transazione* t, FileMgr* fm, bool& fatalerror);
     std::string createInvestmentString(Investimento* i);
 };
 

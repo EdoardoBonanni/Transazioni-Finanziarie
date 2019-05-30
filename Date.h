@@ -1,6 +1,3 @@
-//
-// Created by edoardo on 29/08/18.
-//
 
 #ifndef TRANSAZIONIFINANZIARIE_DATE_H
 #define TRANSAZIONIFINANZIARIE_DATE_H

@@ -296,11 +296,51 @@ cxxabi.h
 acxx_demangle.h
 -
 
+/home/edoardo/CLionProjects/TransazioniFinanziarie/ContoCorrente.h
+Utenza.h
+/home/edoardo/CLionProjects/TransazioniFinanziarie/Utenza.h
+Transazione.h
+/home/edoardo/CLionProjects/TransazioniFinanziarie/Transazione.h
+Investimento.h
+/home/edoardo/CLionProjects/TransazioniFinanziarie/Investimento.h
+FileMgr.h
+/home/edoardo/CLionProjects/TransazioniFinanziarie/FileMgr.h
+list
+-
+
 /home/edoardo/CLionProjects/TransazioniFinanziarie/Date.h
 
 /home/edoardo/CLionProjects/TransazioniFinanziarie/DateTime.h
 Date.h
 /home/edoardo/CLionProjects/TransazioniFinanziarie/Date.h
+
+/home/edoardo/CLionProjects/TransazioniFinanziarie/FileMgr.h
+fstream
+-
+iostream
+-
+stdexcept
+-
+Transazione.h
+/home/edoardo/CLionProjects/TransazioniFinanziarie/Transazione.h
+
+/home/edoardo/CLionProjects/TransazioniFinanziarie/Investimento.h
+tgmath.h
+-
+DateTime.h
+/home/edoardo/CLionProjects/TransazioniFinanziarie/DateTime.h
+Utenza.h
+/home/edoardo/CLionProjects/TransazioniFinanziarie/Utenza.h
+
+/home/edoardo/CLionProjects/TransazioniFinanziarie/Transazione.h
+string
+/home/edoardo/CLionProjects/TransazioniFinanziarie/string
+Date.h
+/home/edoardo/CLionProjects/TransazioniFinanziarie/Date.h
+Utenza.h
+/home/edoardo/CLionProjects/TransazioniFinanziarie/Utenza.h
+DateTime.h
+/home/edoardo/CLionProjects/TransazioniFinanziarie/DateTime.h
 
 /home/edoardo/CLionProjects/TransazioniFinanziarie/Utenza.h
 string
@@ -314,6 +354,12 @@ gtest/gtest.h
 ../Utenza.h
 /home/edoardo/CLionProjects/TransazioniFinanziarie/Utenza.h
 
+/home/edoardo/CLionProjects/TransazioniFinanziarie/test/contocorrenteFixture.cpp
+gtest/gtest.h
+/home/edoardo/CLionProjects/TransazioniFinanziarie/test/gtest/gtest.h
+../ContoCorrente.h
+/home/edoardo/CLionProjects/TransazioniFinanziarie/ContoCorrente.h
+
 /home/edoardo/CLionProjects/TransazioniFinanziarie/test/dateTest.cpp
 gtest/gtest.h
 /home/edoardo/CLionProjects/TransazioniFinanziarie/test/gtest/gtest.h
@@ -326,7 +372,19 @@ gtest/gtest.h
 ../DateTime.h
 /home/edoardo/CLionProjects/TransazioniFinanziarie/DateTime.h
 
+/home/edoardo/CLionProjects/TransazioniFinanziarie/test/investmentTest.cpp
+gtest/gtest.h
+/home/edoardo/CLionProjects/TransazioniFinanziarie/test/gtest/gtest.h
+../Investimento.h
+/home/edoardo/CLionProjects/TransazioniFinanziarie/Investimento.h
+
 /home/edoardo/CLionProjects/TransazioniFinanziarie/test/runAllTests.cpp
 gtest/gtest.h
 /home/edoardo/CLionProjects/TransazioniFinanziarie/test/gtest/gtest.h
+
+/home/edoardo/CLionProjects/TransazioniFinanziarie/test/transactionTest.cpp
+gtest/gtest.h
+/home/edoardo/CLionProjects/TransazioniFinanziarie/test/gtest/gtest.h
+../Transazione.h
+/home/edoardo/CLionProjects/TransazioniFinanziarie/Transazione.h
 

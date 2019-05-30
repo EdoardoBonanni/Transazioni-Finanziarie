@@ -1,6 +1,3 @@
-//
-// Created by edoardo on 26/05/19.
-//
 
 #include "Investimento.h"
 
@@ -10,22 +7,51 @@ Investimento::Investimento(std::string c, float i, Utenza *u, DateTime *d, bool 
     investimento = i;
     guadagno = 0;
     completed = comp;
-    dataora = d;
+    if(d->IsValid())
+        dataora = d;
 }
 
+Investimento::~Investimento() {}
+
+
+Investimento::Investimento(const Investimento &that) {
+    causale = that.causale;
+    investimento = that.investimento;
+    utenza = that.utenza;
+    dataora = that.dataora;
+    completed = that.completed;
+    guadagno = that.guadagno;
+}
+
+Investimento& Investimento::operator=(Investimento &that) {
+    causale = that.causale;
+    investimento = that.investimento;
+    utenza = that.utenza;
+    dataora = that.dataora;
+    completed = that.completed;
+    guadagno = that.guadagno;
+    return *this;
+}
+
+
 bool Investimento::operator==(const Investimento &i) {
-    if(utenza ==  i.utenza && investimento == i.investimento && dataora == i.dataora
+    if(utenza->operator==(*(i.utenza)) && investimento == i.investimento && dataora->operator==(*(i.dataora))
        && causale == i.causale)
         return true;
     return false;
 }
 
+bool Investimento::operator!=(const Investimento &i) {
+    return !(*this == i);
+}
 
 void Investimento::simulateInvestment(DateTime *now) {
-    if (dataora != now) {
+    if (dataora != now && completed) {
         float g = (rand() % 10000) - 100;
         g = round(g * 100.0) / 100.0;
         guadagno += g;
+        if(guadagno=0)
+            guadagno=1;
     }
 }
 
@@ -60,4 +86,5 @@ Utenza *Investimento::getUtenza() const {
 DateTime *Investimento::getDataora() const {
     return dataora;
 }
+
 

@@ -1,4 +1,4 @@
-//
+
 #include<fstream>
 #include <map>
 #include <sstream>
@@ -143,10 +143,10 @@ public:
                 me = new Utenza(nome, cognome, sesso, gn, mn, an, isBissextile);
                 str = nome + " " + cognome;
                 if (!fatalError)
-                    fileUtenze->openNewFile(filename, str, fatalError);
+                    fileUtenze->openNewFile(str, fatalError);
                 str = ss + " " + gns + ":" + mns + ":" + ans;
                 if (!fatalError)
-                    fileUtenze->write(filename, str, fatalError);
+                    fileUtenze->write(str, fatalError);
             } else {
                 cout << "Inserisca l'indirizzo" << endl;
                 cin >> ind;
@@ -167,10 +167,10 @@ public:
                 me = new Utenza(nome, ind, nc, prov);
                 str = nome;
                 if (!fatalError)
-                    fileUtenze->openNewFile(filename, str, fatalError);
+                    fileUtenze->openNewFile(str, fatalError);
                 str = ind + " " + ncs + " " + prov;
                 if (!fatalError)
-                    fileUtenze->write(filename, str, fatalError);
+                    fileUtenze->write(str, fatalError);
             }
             myBankAccount = new ContoCorrente(me, 0, 0);
             dt = calcolaDateTime(dt);
@@ -179,16 +179,13 @@ public:
                   " " + std::to_string(dt->getOra()) + ":" + std::to_string(dt->getMinuto()) + ":" +
                   std::to_string(dt->getSecondo());
             if(!fatalError)
-                fileUtenze->write(filename, str, fatalError);
+                fileUtenze->write(str, fatalError);
         } else if (fileUtenze->isFileExists() == true && !fatalError) {
             if (!fatalError) {
                 if(pf)
                     searchCognome = true;
                 me = new Utenza(nome, cognome, searchCognome);
                 myBankAccount = new ContoCorrente(me, 0, 0);
-                //myBankAccount->getInvestimenti(fileInvestmentUtenza, filenameInvestment, fatalError);
-                /*if(!fatalError)
-                    myBankAccount->getTransazioni(fileTransactionUtenza, filenameTransaction, fatalError);*/
             }
         }
         while (exitMenu == false && !fatalError) {
@@ -217,7 +214,7 @@ public:
                         f1 = round(prelievo * 100.0) / 100.0;
                         dt = calcolaDateTime(dt);
                         t1 = new Transazione("Prelievo", f1, me, dt, false);
-                        res = myBankAccount->addTransazione(t1, fileTransactionUtenza, filenameTransaction, fatalError);
+                        res = myBankAccount->addTransazione(t1, fileTransactionUtenza, fatalError);
                         if (!fatalError && res) {
                             cout << "Prelievo avvenuto con successo" << endl;
                             f = round(myBankAccount->getSaldo() * 100.0) / 100.0;
@@ -241,7 +238,7 @@ public:
                                         deposito = round(f1 * 100.0) / 100.0;
                                         dt = calcolaDateTime(dt);
                                         t1 = new Transazione("Deposito", deposito, me, dt, false);
-                                        res = myBankAccount->addTransazione(t1, fileTransactionUtenza, filenameTransaction, fatalError);
+                                        res = myBankAccount->addTransazione(t1, fileTransactionUtenza, fatalError);
                                         if(!fatalError && res) {
                                             cout << "Il suo deposito di " << deposito << " è andato a buon fine"
                                                  << endl;
@@ -324,9 +321,9 @@ public:
                             dt = calcolaDateTime(dt);
                             t1 = new Transazione("Bonifico", f1, me, other, dt, false);
                             if ((invio > 0) && !fatalError) {
-                                res = myBankAccount->addTransazione(t1, fileTransactionUtenza, filenameTransaction, fatalError);
+                                res = myBankAccount->addTransazione(t1, fileTransactionUtenza, fatalError);
                                 if(res)
-                                    res1 = otherBankAccount->addTransazione(t1, fileOtherUserTransaction, filenameOtherTransaction, fatalError);
+                                    res1 = otherBankAccount->addTransazione(t1, fileOtherUserTransaction, fatalError);
                                 if(!fatalError && res && res1){
                                     cout << "Bonifico inviato con successo " << endl;
                                     f = round(myBankAccount->getSaldo() * 100.0) / 100.0;
@@ -361,7 +358,7 @@ public:
                         f1 = round(investimento * 100.0) / 100.0;
                         dt = calcolaDateTime(dt);
                         i = new Investimento(causale, f1, me, dt, false);
-                        res = myBankAccount->addInvestimento(i, fileInvestmentUtenza, filenameInvestment, fatalError);
+                        res = myBankAccount->addInvestimento(i, fileInvestmentUtenza, fatalError);
                         if(!fatalError && res){
                             cout << "Investimento eseguito con successo " << endl;
                             f = round(myBankAccount->getSaldo() * 100.0) / 100.0;
@@ -391,7 +388,7 @@ public:
                         f1 = round(investimento * 100.0) / 100.0;
                         i = new Investimento(causale, f1, me, dt, false);
                         now = calcolaDateTime(dt);
-                        res = myBankAccount->removeInvestimento(i, now, fileInvestmentUtenza, filenameInvestment, fatalError);
+                        res = myBankAccount->removeInvestimento(i, now, fileInvestmentUtenza, fatalError);
                         if(!fatalError && res){
                             cout << "Investimento rimosso" << endl;
                             cout << "Soldi investiti " << myBankAccount->getSoldiInvestiti() << endl;
@@ -413,5 +410,4 @@ public:
             }
         }
     }
-
 };

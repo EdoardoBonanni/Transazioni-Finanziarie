@@ -1,6 +1,3 @@
-//
-// Created by edoardo on 22/03/19.
-//
 
 #ifndef TRANSAZIONIFINANZIARIE_FILEMGR_H
 #define TRANSAZIONIFINANZIARIE_FILEMGR_H
@@ -15,18 +12,20 @@ public:
     FileMgr(std::string filename, bool input, bool &fatalError);
     ~FileMgr();
 
-    void write(std::string filename, std::string str, bool &fatalError);
-    std::string read(std::string filename, bool &fatalError);
-    void openNewFile(std::string filename, std::string str, bool &fatalError);
+    void write(std::string str, bool &fatalError);
+    std::string read(bool &fatalError);
+    void openNewFile(std::string str, bool &fatalError);
+    void deleteLine(std::string str, bool &fatalerror);
+
+    const std::string &getFilename() const;
     bool isFileExists() const;
-    void deleteLine(std::string filename, std::string str, bool &fatalerror);
 
 private:
     std::fstream file;
+    std::string filename;
     bool fileExists;
 
-    void openFile(std::string filename, bool input, bool &fatalError);
-    size_t countLines(std::string filename, bool &fatalError);
+    void openFile(bool input, bool &fatalError);
 };
 
 

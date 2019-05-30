@@ -1,6 +1,4 @@
-//
-// Created by edoardo on 29/08/18.
-//
+
 
 #include "Utenza.h"
 
@@ -29,6 +27,11 @@ Utenza::Utenza(const std::string n, const std::string c, char s,
 Utenza::Utenza(const std::string n,const std::string i,const int nc,const std::string p) :
         nome(n), indirizzo(i), numeroCivico(nc), provincia(p){
     personaFisica = false;
+}
+
+Utenza::~Utenza() {
+    if(dataNascita != nullptr)
+        delete dataNascita;
 }
 
 Utenza::Utenza(const Utenza &that) {
@@ -107,10 +110,6 @@ const std::string Utenza::getNome() const {
 
 const std::string Utenza::getCognome() const {
     return cognome;
-}
-
-Utenza::~Utenza() {
-    delete dataNascita;
 }
 
 char Utenza::getSesso() const {

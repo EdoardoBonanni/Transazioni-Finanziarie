@@ -1,6 +1,3 @@
-//
-// Created by edoardo on 23/05/19.
-//
 
 #ifndef TRANSAZIONIFINANZIARIE_TRANSAZIONE_H
 #define TRANSAZIONIFINANZIARIE_TRANSAZIONE_H
@@ -16,8 +13,10 @@ public:
     Transazione(const std::string o, float i, Utenza* m,  DateTime* d, bool comp) : operazione(o), invio(i),  mittente(m), dataora(d), completed(comp) {}
     Transazione(const std::string o, float i, Utenza* m,  Utenza* r, DateTime* d, bool comp) : operazione(o), invio(i),  mittente(m), ricevitore(r), dataora(d), completed(comp) {}
 
-    virtual ~Transazione() {}
+    virtual ~Transazione();
 
+    Transazione(const Transazione& that);
+    Transazione& operator=(Transazione& that);
     bool operator==(const Transazione &t);
     bool operator!=(const Transazione &t);
 

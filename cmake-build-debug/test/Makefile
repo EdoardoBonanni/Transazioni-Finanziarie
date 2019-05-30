@@ -198,6 +198,33 @@ UtenzaTest.cpp.s:
 	cd /home/edoardo/CLionProjects/TransazioniFinanziarie/cmake-build-debug && $(MAKE) -f test/CMakeFiles/unitTest.dir/build.make test/CMakeFiles/unitTest.dir/UtenzaTest.cpp.s
 .PHONY : UtenzaTest.cpp.s
 
+contocorrenteFixture.o: contocorrenteFixture.cpp.o
+
+.PHONY : contocorrenteFixture.o
+
+# target to build an object file
+contocorrenteFixture.cpp.o:
+	cd /home/edoardo/CLionProjects/TransazioniFinanziarie/cmake-build-debug && $(MAKE) -f test/CMakeFiles/unitTest.dir/build.make test/CMakeFiles/unitTest.dir/contocorrenteFixture.cpp.o
+.PHONY : contocorrenteFixture.cpp.o
+
+contocorrenteFixture.i: contocorrenteFixture.cpp.i
+
+.PHONY : contocorrenteFixture.i
+
+# target to preprocess a source file
+contocorrenteFixture.cpp.i:
+	cd /home/edoardo/CLionProjects/TransazioniFinanziarie/cmake-build-debug && $(MAKE) -f test/CMakeFiles/unitTest.dir/build.make test/CMakeFiles/unitTest.dir/contocorrenteFixture.cpp.i
+.PHONY : contocorrenteFixture.cpp.i
+
+contocorrenteFixture.s: contocorrenteFixture.cpp.s
+
+.PHONY : contocorrenteFixture.s
+
+# target to generate assembly for a file
+contocorrenteFixture.cpp.s:
+	cd /home/edoardo/CLionProjects/TransazioniFinanziarie/cmake-build-debug && $(MAKE) -f test/CMakeFiles/unitTest.dir/build.make test/CMakeFiles/unitTest.dir/contocorrenteFixture.cpp.s
+.PHONY : contocorrenteFixture.cpp.s
+
 dateTest.o: dateTest.cpp.o
 
 .PHONY : dateTest.o
@@ -252,6 +279,33 @@ datetimeTest.cpp.s:
 	cd /home/edoardo/CLionProjects/TransazioniFinanziarie/cmake-build-debug && $(MAKE) -f test/CMakeFiles/unitTest.dir/build.make test/CMakeFiles/unitTest.dir/datetimeTest.cpp.s
 .PHONY : datetimeTest.cpp.s
 
+investmentTest.o: investmentTest.cpp.o
+
+.PHONY : investmentTest.o
+
+# target to build an object file
+investmentTest.cpp.o:
+	cd /home/edoardo/CLionProjects/TransazioniFinanziarie/cmake-build-debug && $(MAKE) -f test/CMakeFiles/unitTest.dir/build.make test/CMakeFiles/unitTest.dir/investmentTest.cpp.o
+.PHONY : investmentTest.cpp.o
+
+investmentTest.i: investmentTest.cpp.i
+
+.PHONY : investmentTest.i
+
+# target to preprocess a source file
+investmentTest.cpp.i:
+	cd /home/edoardo/CLionProjects/TransazioniFinanziarie/cmake-build-debug && $(MAKE) -f test/CMakeFiles/unitTest.dir/build.make test/CMakeFiles/unitTest.dir/investmentTest.cpp.i
+.PHONY : investmentTest.cpp.i
+
+investmentTest.s: investmentTest.cpp.s
+
+.PHONY : investmentTest.s
+
+# target to generate assembly for a file
+investmentTest.cpp.s:
+	cd /home/edoardo/CLionProjects/TransazioniFinanziarie/cmake-build-debug && $(MAKE) -f test/CMakeFiles/unitTest.dir/build.make test/CMakeFiles/unitTest.dir/investmentTest.cpp.s
+.PHONY : investmentTest.cpp.s
+
 runAllTests.o: runAllTests.cpp.o
 
 .PHONY : runAllTests.o
@@ -279,6 +333,33 @@ runAllTests.cpp.s:
 	cd /home/edoardo/CLionProjects/TransazioniFinanziarie/cmake-build-debug && $(MAKE) -f test/CMakeFiles/unitTest.dir/build.make test/CMakeFiles/unitTest.dir/runAllTests.cpp.s
 .PHONY : runAllTests.cpp.s
 
+transactionTest.o: transactionTest.cpp.o
+
+.PHONY : transactionTest.o
+
+# target to build an object file
+transactionTest.cpp.o:
+	cd /home/edoardo/CLionProjects/TransazioniFinanziarie/cmake-build-debug && $(MAKE) -f test/CMakeFiles/unitTest.dir/build.make test/CMakeFiles/unitTest.dir/transactionTest.cpp.o
+.PHONY : transactionTest.cpp.o
+
+transactionTest.i: transactionTest.cpp.i
+
+.PHONY : transactionTest.i
+
+# target to preprocess a source file
+transactionTest.cpp.i:
+	cd /home/edoardo/CLionProjects/TransazioniFinanziarie/cmake-build-debug && $(MAKE) -f test/CMakeFiles/unitTest.dir/build.make test/CMakeFiles/unitTest.dir/transactionTest.cpp.i
+.PHONY : transactionTest.cpp.i
+
+transactionTest.s: transactionTest.cpp.s
+
+.PHONY : transactionTest.s
+
+# target to generate assembly for a file
+transactionTest.cpp.s:
+	cd /home/edoardo/CLionProjects/TransazioniFinanziarie/cmake-build-debug && $(MAKE) -f test/CMakeFiles/unitTest.dir/build.make test/CMakeFiles/unitTest.dir/transactionTest.cpp.s
+.PHONY : transactionTest.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -295,15 +376,24 @@ help:
 	@echo "... UtenzaTest.o"
 	@echo "... UtenzaTest.i"
 	@echo "... UtenzaTest.s"
+	@echo "... contocorrenteFixture.o"
+	@echo "... contocorrenteFixture.i"
+	@echo "... contocorrenteFixture.s"
 	@echo "... dateTest.o"
 	@echo "... dateTest.i"
 	@echo "... dateTest.s"
 	@echo "... datetimeTest.o"
 	@echo "... datetimeTest.i"
 	@echo "... datetimeTest.s"
+	@echo "... investmentTest.o"
+	@echo "... investmentTest.i"
+	@echo "... investmentTest.s"
 	@echo "... runAllTests.o"
 	@echo "... runAllTests.i"
 	@echo "... runAllTests.s"
+	@echo "... transactionTest.o"
+	@echo "... transactionTest.i"
+	@echo "... transactionTest.s"
 .PHONY : help
 
 

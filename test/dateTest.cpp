@@ -1,6 +1,3 @@
-//
-// Created by edoardo on 28/05/19.
-//
 
 #include "gtest/gtest.h"
 #include "../Date.h"

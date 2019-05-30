@@ -1,6 +1,3 @@
-//
-// Created by edoardo on 28/05/19.
-//
 
 #include "gtest/gtest.h"
 #include "../DateTime.h"
@@ -33,7 +30,8 @@ TEST(datetimeTest, equalAndValidTest){
     EXPECT_FALSE(d1 == d3);
     EXPECT_TRUE(d2 != d3);
     EXPECT_FALSE(d3 == d4);
-
+    EXPECT_TRUE(d3 > d1);
+    EXPECT_FALSE(d3 > d3);
 }
 
 TEST(datetimeTest, setTest){

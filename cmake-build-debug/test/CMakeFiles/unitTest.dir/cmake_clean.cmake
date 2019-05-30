@@ -3,6 +3,9 @@ file(REMOVE_RECURSE
   "CMakeFiles/unitTest.dir/UtenzaTest.cpp.o"
   "CMakeFiles/unitTest.dir/dateTest.cpp.o"
   "CMakeFiles/unitTest.dir/datetimeTest.cpp.o"
+  "CMakeFiles/unitTest.dir/transactionTest.cpp.o"
+  "CMakeFiles/unitTest.dir/investmentTest.cpp.o"
+  "CMakeFiles/unitTest.dir/contocorrenteFixture.cpp.o"
   "unitTest.pdb"
   "unitTest"
 )

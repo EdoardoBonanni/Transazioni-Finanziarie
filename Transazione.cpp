@@ -1,6 +1,3 @@
-//
-// Created by edoardo on 23/05/19.
-//
 
 #include "Transazione.h"
 
@@ -10,6 +7,27 @@ bool Transazione::operator==(const Transazione &t) {
        && operazione == t.operazione && completed == t.completed)
         return true;
     return false;
+}
+
+Transazione::~Transazione() {}
+
+Transazione::Transazione(const Transazione &that) {
+    operazione = that.operazione;
+    invio = that.invio;
+    mittente = that.mittente;
+    ricevitore = that.ricevitore;
+    dataora = that.dataora;
+    completed = that.completed;
+}
+
+Transazione& Transazione::operator=(Transazione &that) {
+    operazione = that.operazione;
+    invio = that.invio;
+    mittente = that.mittente;
+    ricevitore = that.ricevitore;
+    dataora = that.dataora;
+    completed = that.completed;
+    return *this;
 }
 
 bool Transazione::operator!=(const Transazione &t){

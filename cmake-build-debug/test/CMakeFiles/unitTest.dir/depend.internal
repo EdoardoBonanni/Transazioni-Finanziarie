@@ -25,6 +25,35 @@ test/CMakeFiles/unitTest.dir/UtenzaTest.cpp.o
  /home/edoardo/CLionProjects/TransazioniFinanziarie/Date.h
  /home/edoardo/CLionProjects/TransazioniFinanziarie/Utenza.h
  /home/edoardo/CLionProjects/TransazioniFinanziarie/test/UtenzaTest.cpp
+test/CMakeFiles/unitTest.dir/contocorrenteFixture.cpp.o
+ ../test/lib/googletest-master/googletest/include/gtest/gtest-death-test.h
+ ../test/lib/googletest-master/googletest/include/gtest/gtest-matchers.h
+ ../test/lib/googletest-master/googletest/include/gtest/gtest-message.h
+ ../test/lib/googletest-master/googletest/include/gtest/gtest-param-test.h
+ ../test/lib/googletest-master/googletest/include/gtest/gtest-printers.h
+ ../test/lib/googletest-master/googletest/include/gtest/gtest-test-part.h
+ ../test/lib/googletest-master/googletest/include/gtest/gtest-typed-test.h
+ ../test/lib/googletest-master/googletest/include/gtest/gtest.h
+ ../test/lib/googletest-master/googletest/include/gtest/gtest_pred_impl.h
+ ../test/lib/googletest-master/googletest/include/gtest/gtest_prod.h
+ ../test/lib/googletest-master/googletest/include/gtest/internal/custom/gtest-port.h
+ ../test/lib/googletest-master/googletest/include/gtest/internal/custom/gtest-printers.h
+ ../test/lib/googletest-master/googletest/include/gtest/internal/gtest-death-test-internal.h
+ ../test/lib/googletest-master/googletest/include/gtest/internal/gtest-filepath.h
+ ../test/lib/googletest-master/googletest/include/gtest/internal/gtest-internal.h
+ ../test/lib/googletest-master/googletest/include/gtest/internal/gtest-param-util.h
+ ../test/lib/googletest-master/googletest/include/gtest/internal/gtest-port-arch.h
+ ../test/lib/googletest-master/googletest/include/gtest/internal/gtest-port.h
+ ../test/lib/googletest-master/googletest/include/gtest/internal/gtest-string.h
+ ../test/lib/googletest-master/googletest/include/gtest/internal/gtest-type-util.h
+ /home/edoardo/CLionProjects/TransazioniFinanziarie/ContoCorrente.h
+ /home/edoardo/CLionProjects/TransazioniFinanziarie/Date.h
+ /home/edoardo/CLionProjects/TransazioniFinanziarie/DateTime.h
+ /home/edoardo/CLionProjects/TransazioniFinanziarie/FileMgr.h
+ /home/edoardo/CLionProjects/TransazioniFinanziarie/Investimento.h
+ /home/edoardo/CLionProjects/TransazioniFinanziarie/Transazione.h
+ /home/edoardo/CLionProjects/TransazioniFinanziarie/Utenza.h
+ /home/edoardo/CLionProjects/TransazioniFinanziarie/test/contocorrenteFixture.cpp
 test/CMakeFiles/unitTest.dir/dateTest.cpp.o
  ../test/lib/googletest-master/googletest/include/gtest/gtest-death-test.h
  ../test/lib/googletest-master/googletest/include/gtest/gtest-matchers.h
@@ -72,6 +101,32 @@ test/CMakeFiles/unitTest.dir/datetimeTest.cpp.o
  /home/edoardo/CLionProjects/TransazioniFinanziarie/Date.h
  /home/edoardo/CLionProjects/TransazioniFinanziarie/DateTime.h
  /home/edoardo/CLionProjects/TransazioniFinanziarie/test/datetimeTest.cpp
+test/CMakeFiles/unitTest.dir/investmentTest.cpp.o
+ ../test/lib/googletest-master/googletest/include/gtest/gtest-death-test.h
+ ../test/lib/googletest-master/googletest/include/gtest/gtest-matchers.h
+ ../test/lib/googletest-master/googletest/include/gtest/gtest-message.h
+ ../test/lib/googletest-master/googletest/include/gtest/gtest-param-test.h
+ ../test/lib/googletest-master/googletest/include/gtest/gtest-printers.h
+ ../test/lib/googletest-master/googletest/include/gtest/gtest-test-part.h
+ ../test/lib/googletest-master/googletest/include/gtest/gtest-typed-test.h
+ ../test/lib/googletest-master/googletest/include/gtest/gtest.h
+ ../test/lib/googletest-master/googletest/include/gtest/gtest_pred_impl.h
+ ../test/lib/googletest-master/googletest/include/gtest/gtest_prod.h
+ ../test/lib/googletest-master/googletest/include/gtest/internal/custom/gtest-port.h
+ ../test/lib/googletest-master/googletest/include/gtest/internal/custom/gtest-printers.h
+ ../test/lib/googletest-master/googletest/include/gtest/internal/gtest-death-test-internal.h
+ ../test/lib/googletest-master/googletest/include/gtest/internal/gtest-filepath.h
+ ../test/lib/googletest-master/googletest/include/gtest/internal/gtest-internal.h
+ ../test/lib/googletest-master/googletest/include/gtest/internal/gtest-param-util.h
+ ../test/lib/googletest-master/googletest/include/gtest/internal/gtest-port-arch.h
+ ../test/lib/googletest-master/googletest/include/gtest/internal/gtest-port.h
+ ../test/lib/googletest-master/googletest/include/gtest/internal/gtest-string.h
+ ../test/lib/googletest-master/googletest/include/gtest/internal/gtest-type-util.h
+ /home/edoardo/CLionProjects/TransazioniFinanziarie/Date.h
+ /home/edoardo/CLionProjects/TransazioniFinanziarie/DateTime.h
+ /home/edoardo/CLionProjects/TransazioniFinanziarie/Investimento.h
+ /home/edoardo/CLionProjects/TransazioniFinanziarie/Utenza.h
+ /home/edoardo/CLionProjects/TransazioniFinanziarie/test/investmentTest.cpp
 test/CMakeFiles/unitTest.dir/runAllTests.cpp.o
  ../test/lib/googletest-master/googletest/include/gtest/gtest-death-test.h
  ../test/lib/googletest-master/googletest/include/gtest/gtest-matchers.h
@@ -94,3 +149,29 @@ test/CMakeFiles/unitTest.dir/runAllTests.cpp.o
  ../test/lib/googletest-master/googletest/include/gtest/internal/gtest-string.h
  ../test/lib/googletest-master/googletest/include/gtest/internal/gtest-type-util.h
  /home/edoardo/CLionProjects/TransazioniFinanziarie/test/runAllTests.cpp
+test/CMakeFiles/unitTest.dir/transactionTest.cpp.o
+ ../test/lib/googletest-master/googletest/include/gtest/gtest-death-test.h
+ ../test/lib/googletest-master/googletest/include/gtest/gtest-matchers.h
+ ../test/lib/googletest-master/googletest/include/gtest/gtest-message.h
+ ../test/lib/googletest-master/googletest/include/gtest/gtest-param-test.h
+ ../test/lib/googletest-master/googletest/include/gtest/gtest-printers.h
+ ../test/lib/googletest-master/googletest/include/gtest/gtest-test-part.h
+ ../test/lib/googletest-master/googletest/include/gtest/gtest-typed-test.h
+ ../test/lib/googletest-master/googletest/include/gtest/gtest.h
+ ../test/lib/googletest-master/googletest/include/gtest/gtest_pred_impl.h
+ ../test/lib/googletest-master/googletest/include/gtest/gtest_prod.h
+ ../test/lib/googletest-master/googletest/include/gtest/internal/custom/gtest-port.h
+ ../test/lib/googletest-master/googletest/include/gtest/internal/custom/gtest-printers.h
+ ../test/lib/googletest-master/googletest/include/gtest/internal/gtest-death-test-internal.h
+ ../test/lib/googletest-master/googletest/include/gtest/internal/gtest-filepath.h
+ ../test/lib/googletest-master/googletest/include/gtest/internal/gtest-internal.h
+ ../test/lib/googletest-master/googletest/include/gtest/internal/gtest-param-util.h
+ ../test/lib/googletest-master/googletest/include/gtest/internal/gtest-port-arch.h
+ ../test/lib/googletest-master/googletest/include/gtest/internal/gtest-port.h
+ ../test/lib/googletest-master/googletest/include/gtest/internal/gtest-string.h
+ ../test/lib/googletest-master/googletest/include/gtest/internal/gtest-type-util.h
+ /home/edoardo/CLionProjects/TransazioniFinanziarie/Date.h
+ /home/edoardo/CLionProjects/TransazioniFinanziarie/DateTime.h
+ /home/edoardo/CLionProjects/TransazioniFinanziarie/Transazione.h
+ /home/edoardo/CLionProjects/TransazioniFinanziarie/Utenza.h
+ /home/edoardo/CLionProjects/TransazioniFinanziarie/test/transactionTest.cpp

@@ -1,6 +1,3 @@
-//
-// Created by edoardo on 29/08/18.
-//
 
 #include "Date.h"
 

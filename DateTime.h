@@ -1,6 +1,3 @@
-//
-// Created by edoardo on 23/05/19.
-//
 
 #ifndef TRANSAZIONIFINANZIARIE_DATETIME_H
 #define TRANSAZIONIFINANZIARIE_DATETIME_H
@@ -15,7 +12,8 @@ public:
     ~DateTime();
 
     DateTime(const DateTime& that);
-    DateTime& operator=(DateTime& that);
+    DateTime& operator=(const DateTime& that);
+    bool operator>(const DateTime &dt);
     bool operator==(const DateTime &dt);
     bool operator!=(const DateTime &dt);
 
