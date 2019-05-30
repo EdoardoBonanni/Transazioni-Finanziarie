@@ -9,7 +9,7 @@
 #include "time.h"
 #include "Date.h"
 #include "Utenza.h"
-#include "ContoCorrente.h"
+#include "Conto.h"
 #include "FileMgr.h"
 
 using namespace std;
@@ -43,7 +43,7 @@ private:
 public:
     void run() {
         srand(time(NULL));
-        string searchName, nomeInvio, cognomeInvio, nome, cognome = " ", ind, prov, filename, filenameTransaction, filenameInvestment, filenameOther, filenameOtherInvestment, filenameOtherTransaction, str, causale;
+        string searchName, nomeInvio, cognomeInvio, nome, cognome = " ", nomeMyconto, nomeOtherConto, ind, prov, filename, filenameTransaction, filenameInvestment, filenameOther, filenameOtherInvestment, filenameOtherTransaction, str, causale;
         vector <string> container;
         float deposito, invio, prelievo, saldo, f, f1, investimento;
         bool res, res1, result, isBissextile = false, exitMenu = false, searchCognome = false, failure = false, fatalError = false, sendToYou =false;
@@ -52,7 +52,8 @@ public:
         DateTime* dt, *now;
         char sesso, delim1 = ' ';;
         std::stringstream ss;
-        ContoCorrente *myBankAccount, *otherBankAccount;
+        typeTransaction type;
+        Conto *myBankAccount, *otherBankAccount;
         Utenza *me, *other;
         FileMgr *fileOtherUser, *fileOtherUserTransaction, *fileOtherUserInvestment;
         Transazione* t1;
@@ -69,6 +70,8 @@ public:
                 cinClear();
             }
         } while ((pf < 0 || pf > 1) || failure == true);
+        cout << "Inserisca il nome del conto " << endl;
+        cin >> nomeMyconto;
         if(pf==1)
             cout << "Inserisca il suo nome" << endl;
         else
@@ -77,13 +80,13 @@ public:
         if (pf == 1) {
             cout << "Inserisca il suo cognome (senza spaziature per cognome doppio)" << endl;
             cin >> cognome;
-            filename = nome + cognome + ".txt";
-            filenameInvestment = nome + cognome + "Investment.txt";
-            filenameTransaction = nome + cognome + "Transaction.txt";
+            filename = nome + cognome + nomeMyconto + ".txt";
+            filenameInvestment = nome + cognome + nomeMyconto +"Investment.txt";
+            filenameTransaction = nome + cognome + nomeMyconto +"Transaction.txt";
         } else {
             filename = nome + ".txt";
-            filenameInvestment = nome + "Investment.txt";
-            filenameTransaction = nome + "Transaction.txt";
+            filenameInvestment = nome + nomeMyconto +"Investment.txt";
+            filenameTransaction = nome + nomeMyconto + "Transaction.txt";
         }
         FileMgr *fileUtenze = new FileMgr(filename, true, fatalError);
         FileMgr *fileInvestmentUtenza = new FileMgr(filenameInvestment, true, fatalError);
@@ -172,7 +175,7 @@ public:
                 if (!fatalError)
                     fileUtenze->write(str, fatalError);
             }
-            myBankAccount = new ContoCorrente(me, 0, 0);
+            myBankAccount = new Conto(me, nomeMyconto, 0, 0);
             dt = calcolaDateTime(dt);
             str = "Account creato il " + std::to_string(dt->getGiorno()) + ":" +
                   std::to_string(dt->getMese()) + ":" + std::to_string(dt->getAnno()) +
@@ -185,7 +188,7 @@ public:
                 if(pf)
                     searchCognome = true;
                 me = new Utenza(nome, cognome, searchCognome);
-                myBankAccount = new ContoCorrente(me, 0, 0);
+                myBankAccount = new Conto(me, nomeMyconto, 0, 0);
             }
         }
         while (exitMenu == false && !fatalError) {
@@ -213,7 +216,8 @@ public:
                         }
                         f1 = round(prelievo * 100.0) / 100.0;
                         dt = calcolaDateTime(dt);
-                        t1 = new Transazione("Prelievo", f1, me, dt, false);
+                        type = typeTransaction ::Prelievo;
+                        t1 = new Transazione(type, f1, myBankAccount, NULL, dt, false);
                         res = myBankAccount->addTransazione(t1, fileTransactionUtenza, fatalError);
                         if (!fatalError && res) {
                             cout << "Prelievo avvenuto con successo" << endl;
@@ -237,7 +241,8 @@ public:
                                         f1 /= 100;
                                         deposito = round(f1 * 100.0) / 100.0;
                                         dt = calcolaDateTime(dt);
-                                        t1 = new Transazione("Deposito", deposito, me, dt, false);
+                                        type = typeTransaction ::Deposito;
+                                        t1 = new Transazione(type, f1, myBankAccount, NULL, dt, false);
                                         res = myBankAccount->addTransazione(t1, fileTransactionUtenza, fatalError);
                                         if(!fatalError && res) {
                                             cout << "Il suo deposito di " << deposito << " è andato a buon fine"
@@ -280,18 +285,18 @@ public:
                         if (pfo == 1) {
                             cout << "Inserire il cognome della persona a cui fare il bonifico" << endl;
                             cin >> cognomeInvio;
-                            if (nomeInvio == nome && cognomeInvio == cognome)
+                            if (nomeInvio == nome && cognomeInvio == cognome && nomeMyconto == nomeOtherConto)
                                 sendToYou = true;
-                            else {
-                                filenameOther = nomeInvio + cognomeInvio + ".txt";
-                                filenameOtherTransaction = nomeInvio + cognomeInvio + "Transaction.txt";
+                            else{
+                                filenameOther = nomeInvio + cognomeInvio + nomeOtherConto +".txt";
+                                filenameOtherTransaction = nomeInvio + cognomeInvio + nomeOtherConto +"Transaction.txt";
                             }
                         } else {
-                            if (nome == nomeInvio)
+                            if (nome == nomeInvio && nomeMyconto == nomeOtherConto)
                                 sendToYou=true;
-                            else {
-                                filenameOther = nomeInvio + ".txt";
-                                filenameOtherTransaction = nomeInvio + "Transaction.txt";
+                            else{
+                                filenameOther = nomeInvio + nomeOtherConto +".txt";
+                                filenameOtherTransaction = nomeInvio + nomeOtherConto +"Transaction.txt";
                             }
                         }
                         fileOtherUser = new FileMgr(filenameOther, true, fatalError);
@@ -316,10 +321,12 @@ public:
                                 other = new Utenza(nomeInvio, cognomeInvio, true);
                             if(pfo==0)
                                 other = new Utenza(nomeInvio, cognomeInvio, false);
-                            otherBankAccount = new ContoCorrente(other, 100, 20);
+
+                            otherBankAccount = new Conto(other, nomeOtherConto, 100, 20);
                             f1 = round(invio * 100.0) / 100.0;
                             dt = calcolaDateTime(dt);
-                            t1 = new Transazione("Bonifico", f1, me, other, dt, false);
+                            type = typeTransaction ::Bonifico;
+                            t1 = new Transazione(type, f1, myBankAccount, otherBankAccount, dt, false);
                             if ((invio > 0) && !fatalError) {
                                 res = myBankAccount->addTransazione(t1, fileTransactionUtenza, fatalError);
                                 if(res)
@@ -357,14 +364,14 @@ public:
                         cin >> causale;
                         f1 = round(investimento * 100.0) / 100.0;
                         dt = calcolaDateTime(dt);
-                        i = new Investimento(causale, f1, me, dt, false);
+                        i = new Investimento(causale, f1, myBankAccount, dt, false);
                         res = myBankAccount->addInvestimento(i, fileInvestmentUtenza, fatalError);
                         if(!fatalError && res){
                             cout << "Investimento eseguito con successo " << endl;
                             f = round(myBankAccount->getSaldo() * 100.0) / 100.0;
                             cout << "Hai investito " << f1 << " euro addesso il tuo credito è di " << f << endl;
                             f = round(myBankAccount->getSoldiInvestiti() * 100.0) / 100.0;
-                            cout << "Hai " << f1 << " euro investiti " << endl;
+                            cout << "Hai " << f<< " euro investiti " << endl;
                         }
                         else
                             cout << "Problemi nell'investimento" << endl;
@@ -386,13 +393,14 @@ public:
                         cout << "inserisci la causale " << endl;
                         cin >> causale;
                         f1 = round(investimento * 100.0) / 100.0;
-                        i = new Investimento(causale, f1, me, dt, false);
+                        i = new Investimento(causale, f1, myBankAccount, dt, true);
                         now = calcolaDateTime(dt);
                         res = myBankAccount->removeInvestimento(i, now, fileInvestmentUtenza, fatalError);
                         if(!fatalError && res){
                             cout << "Investimento rimosso" << endl;
                             cout << "Soldi investiti " << myBankAccount->getSoldiInvestiti() << endl;
                             cout << "Saldo " << myBankAccount->getSaldo() << endl;
+                            cout << "Guadagno " << i->getGuadagno() << endl;
                         }
                         else
                             cout << "Problemi nella rimozione dell'investimento" << endl;

@@ -247,35 +247,35 @@ gtest/fast:
 	$(MAKE) -f test/lib/googletest-master/googletest/CMakeFiles/gtest.dir/build.make test/lib/googletest-master/googletest/CMakeFiles/gtest.dir/build
 .PHONY : gtest/fast
 
-ContoCorrente.o: ContoCorrente.cpp.o
+Conto.o: Conto.cpp.o
 
-.PHONY : ContoCorrente.o
+.PHONY : Conto.o
 
 # target to build an object file
-ContoCorrente.cpp.o:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/ContoCorrente.cpp.o
-	$(MAKE) -f CMakeFiles/myExecutable.dir/build.make CMakeFiles/myExecutable.dir/ContoCorrente.cpp.o
-.PHONY : ContoCorrente.cpp.o
+Conto.cpp.o:
+	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/Conto.cpp.o
+	$(MAKE) -f CMakeFiles/myExecutable.dir/build.make CMakeFiles/myExecutable.dir/Conto.cpp.o
+.PHONY : Conto.cpp.o
 
-ContoCorrente.i: ContoCorrente.cpp.i
+Conto.i: Conto.cpp.i
 
-.PHONY : ContoCorrente.i
+.PHONY : Conto.i
 
 # target to preprocess a source file
-ContoCorrente.cpp.i:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/ContoCorrente.cpp.i
-	$(MAKE) -f CMakeFiles/myExecutable.dir/build.make CMakeFiles/myExecutable.dir/ContoCorrente.cpp.i
-.PHONY : ContoCorrente.cpp.i
+Conto.cpp.i:
+	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/Conto.cpp.i
+	$(MAKE) -f CMakeFiles/myExecutable.dir/build.make CMakeFiles/myExecutable.dir/Conto.cpp.i
+.PHONY : Conto.cpp.i
 
-ContoCorrente.s: ContoCorrente.cpp.s
+Conto.s: Conto.cpp.s
 
-.PHONY : ContoCorrente.s
+.PHONY : Conto.s
 
 # target to generate assembly for a file
-ContoCorrente.cpp.s:
-	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/ContoCorrente.cpp.s
-	$(MAKE) -f CMakeFiles/myExecutable.dir/build.make CMakeFiles/myExecutable.dir/ContoCorrente.cpp.s
-.PHONY : ContoCorrente.cpp.s
+Conto.cpp.s:
+	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/Conto.cpp.s
+	$(MAKE) -f CMakeFiles/myExecutable.dir/build.make CMakeFiles/myExecutable.dir/Conto.cpp.s
+.PHONY : Conto.cpp.s
 
 Date.o: Date.cpp.o
 
@@ -536,9 +536,9 @@ help:
 	@echo "... gmock"
 	@echo "... gtest_main"
 	@echo "... gtest"
-	@echo "... ContoCorrente.o"
-	@echo "... ContoCorrente.i"
-	@echo "... ContoCorrente.s"
+	@echo "... Conto.o"
+	@echo "... Conto.i"
+	@echo "... Conto.s"
 	@echo "... Date.o"
 	@echo "... Date.i"
 	@echo "... Date.s"

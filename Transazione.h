@@ -4,14 +4,19 @@
 
 #include "string"
 #include "Date.h"
-#include "Utenza.h"
 #include "DateTime.h"
+#include "Conto.h"
+
+class Conto;
+
+enum class typeTransaction {
+    Bonifico, Deposito, Prelievo
+};
 
 class Transazione {
 public:
-    Transazione();
-    Transazione(const std::string o, float i, Utenza* m,  DateTime* d, bool comp) : operazione(o), invio(i),  mittente(m), dataora(d), completed(comp) {}
-    Transazione(const std::string o, float i, Utenza* m,  Utenza* r, DateTime* d, bool comp) : operazione(o), invio(i),  mittente(m), ricevitore(r), dataora(d), completed(comp) {}
+    Transazione(){}
+    Transazione(const typeTransaction t, float i, Conto* m,  Conto* r, DateTime* d, bool comp);
 
     virtual ~Transazione();
 
@@ -23,18 +28,17 @@ public:
     float getInvio() const;
     DateTime *getDataora() const;
     bool isCompleted() const;
-    Utenza *getMittente() const;
-    Utenza *getRicevitore() const;
-    const std::string &getOperazione() const;
+    Conto* getMittente() const;
+    Conto* getRicevitore() const;
+    typeTransaction getType() const;
 
     void setDataora(DateTime *dataora);
     void setCompleted(bool completed);
-    void setOperazione(const std::string &operazione);
 
 private:
-    std::string operazione;
-    Utenza* mittente;
-    Utenza* ricevitore;
+    typeTransaction type;
+    Conto* mittente;
+    Conto* ricevitore;
     float invio;
     DateTime* dataora;
     bool completed;

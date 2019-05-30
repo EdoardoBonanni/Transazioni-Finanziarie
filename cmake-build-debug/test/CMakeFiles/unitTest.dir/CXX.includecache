@@ -296,15 +296,15 @@ cxxabi.h
 acxx_demangle.h
 -
 
-/home/edoardo/CLionProjects/TransazioniFinanziarie/ContoCorrente.h
+/home/edoardo/CLionProjects/TransazioniFinanziarie/Conto.h
 Utenza.h
 /home/edoardo/CLionProjects/TransazioniFinanziarie/Utenza.h
-Transazione.h
-/home/edoardo/CLionProjects/TransazioniFinanziarie/Transazione.h
-Investimento.h
-/home/edoardo/CLionProjects/TransazioniFinanziarie/Investimento.h
 FileMgr.h
 /home/edoardo/CLionProjects/TransazioniFinanziarie/FileMgr.h
+Investimento.h
+/home/edoardo/CLionProjects/TransazioniFinanziarie/Investimento.h
+Transazione.h
+/home/edoardo/CLionProjects/TransazioniFinanziarie/Transazione.h
 list
 -
 
@@ -331,16 +331,18 @@ DateTime.h
 /home/edoardo/CLionProjects/TransazioniFinanziarie/DateTime.h
 Utenza.h
 /home/edoardo/CLionProjects/TransazioniFinanziarie/Utenza.h
+Conto.h
+/home/edoardo/CLionProjects/TransazioniFinanziarie/Conto.h
 
 /home/edoardo/CLionProjects/TransazioniFinanziarie/Transazione.h
 string
 /home/edoardo/CLionProjects/TransazioniFinanziarie/string
 Date.h
 /home/edoardo/CLionProjects/TransazioniFinanziarie/Date.h
-Utenza.h
-/home/edoardo/CLionProjects/TransazioniFinanziarie/Utenza.h
 DateTime.h
 /home/edoardo/CLionProjects/TransazioniFinanziarie/DateTime.h
+Conto.h
+/home/edoardo/CLionProjects/TransazioniFinanziarie/Conto.h
 
 /home/edoardo/CLionProjects/TransazioniFinanziarie/Utenza.h
 string
@@ -354,11 +356,11 @@ gtest/gtest.h
 ../Utenza.h
 /home/edoardo/CLionProjects/TransazioniFinanziarie/Utenza.h
 
-/home/edoardo/CLionProjects/TransazioniFinanziarie/test/contocorrenteFixture.cpp
+/home/edoardo/CLionProjects/TransazioniFinanziarie/test/contoFixture.cpp
 gtest/gtest.h
 /home/edoardo/CLionProjects/TransazioniFinanziarie/test/gtest/gtest.h
-../ContoCorrente.h
-/home/edoardo/CLionProjects/TransazioniFinanziarie/ContoCorrente.h
+../Conto.h
+/home/edoardo/CLionProjects/TransazioniFinanziarie/Conto.h
 
 /home/edoardo/CLionProjects/TransazioniFinanziarie/test/dateTest.cpp
 gtest/gtest.h

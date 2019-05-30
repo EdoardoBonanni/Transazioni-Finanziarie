@@ -1,12 +1,14 @@
 
 #include "gtest/gtest.h"
-#include "../ContoCorrente.h"
+#include "../Conto.h"
 
-class contocorrenteSuite : public ::testing::Test {
+class contoSuite : public ::testing::Test {
 protected:
     virtual void setUp(){
-        Utenza* me = new Utenza("Edoardo", "Bonanni", 'm', 2, 3, 1998, false, "Via Calcinaia", 59 , "FI");
-        Utenza* other = new Utenza("Pinco", "Pallino", 'm', 15, 7, 1990, false, "Via Calamandrei", 89 , "MI");
+        me = new Utenza("Edoardo", "Bonanni", 'm', 2, 3, 1998, false, "Via Calcinaia", 59 , "FI");
+        other = new Utenza("Pinco", "Pallino", 'm', 15, 7, 1990, false, "Via Calamandrei", 89 , "MI");
+        myBankAccount = new Conto(me, 0, 0);
+        otherBankAccount = new Conto(other, 0, 0);
     }
 
     virtual void deleteList(){
@@ -26,12 +28,13 @@ protected:
     FileMgr* otherInvestment;
     Utenza* me;
     Utenza* other;
-    ContoCorrente* myBankAccount;
-    ContoCorrente* otherBankAccount;
+    Conto* myBankAccount;
+    Conto* otherBankAccount;
 };
 
-TEST_F(contocorrenteSuite, someTransaction){
+TEST_F(contoSuite, someTransaction){
     bool fatalerror = false;
+    typeTransaction type;
     std::string filenameMyFileTransaction = me->getNome() + me->getCognome() + "Transaction.txt";
     std::string filenameOtherFileTransaction = other->getNome() + other->getCognome() +"Transaction.txt";
     float mySaldo = 0;
@@ -51,17 +54,20 @@ TEST_F(contocorrenteSuite, someTransaction){
     DateTime* dt8 = new DateTime(26, 4, 2018, 17, 22, 55, false);
     DateTime* dt9 = new DateTime(30, 4, 2018, 15, 3, 28, false);
 
-    Transazione* d1= new Transazione("Deposito", 5000.50, me, dt1, false);
-    Transazione* d2= new Transazione("Deposito", 120.50, me, dt2, false);
-    Transazione* d3= new Transazione("Deposito", 400, other, dt2, false);
+    type = typeTransaction::Deposito;
+    Transazione* d1= new Transazione(type, 5000.50, myBankAccount, NULL, dt1, false);
+    Transazione* d2= new Transazione(type, 120.50, myBankAccount, NULL, dt2, false);
+    Transazione* d3= new Transazione(type, 400, otherBankAccount, NULL, dt2, false);
 
-    Transazione* p1 = new Transazione("Prelievo", 300, me, dt3, false);
-    Transazione* p2 = new Transazione("Prelievo", 10000, me, dt4, false);
-    Transazione* p3 = new Transazione("Prelievo", 100, other, dt3, false);
+    type = typeTransaction ::Prelievo;
+    Transazione* p1 = new Transazione(type, 300, myBankAccount, NULL,  dt3, false);
+    Transazione* p2 = new Transazione(type, 10000, myBankAccount, NULL,  dt4, false);
+    Transazione* p3 = new Transazione(type, 100, otherBankAccount, NULL, dt3, false);
 
-    Transazione* b1 = new Transazione("Bonifico", 150, me, other, dt5, false);
-    Transazione* b2 = new Transazione("Bonifico", 20000, me, other, dt6, false);
-    Transazione* b3 = new Transazione("Bonifico", 200, other, me, dt7, false);
+    type = typeTransaction ::Bonifico;
+    Transazione* b1 = new Transazione(type, 150, myBankAccount, otherBankAccount, dt5, false);
+    Transazione* b2 = new Transazione(type, 20000, myBankAccount, otherBankAccount, dt6, false);
+    Transazione* b3 = new Transazione(type, 200, otherBankAccount, myBankAccount, dt7, false);
 
     //add depositi
     myBankAccount->addTransazione(d1, meTransaction, fatalerror);
@@ -140,7 +146,7 @@ TEST_F(contocorrenteSuite, someTransaction){
     delete b3;
 }
 
-TEST_F(contocorrenteSuite, someInvestment) {
+TEST_F(contoSuite, someInvestment) {
     bool fatalerror = false;
     std::string filenameMyFileTransaction = me->getNome() + me->getCognome() + "Transaction.txt";
     std::string filenameOtherFileTransaction = other->getNome() + other->getCognome() +"Transaction.txt";
@@ -164,12 +170,12 @@ TEST_F(contocorrenteSuite, someInvestment) {
     DateTime* dt3 = new DateTime(28, 3, 2018, 14, 12, 55, false);
     DateTime* dt4 = new DateTime(1, 4, 2018, 11, 18, 2, false);
 
-    Transazione* d1= new Transazione("Deposito", 5000.50, me, dt1, false);
-    Transazione* d2= new Transazione("Deposito", 400, other, dt1, false);
+    Transazione* d1= new Transazione(typeTransaction::Deposito, 5000.50, myBankAccount, NULL, dt1, false);
+    Transazione* d2= new Transazione(typeTransaction::Deposito, 400, otherBankAccount, NULL, dt1, false);
 
-    Investimento* i1 = new Investimento("Azioni ferrari", 330, me, dt2, false);
-    Investimento* i2 = new Investimento("Azioni mercedes", 150, me, dt2, false);
-    Investimento* i3 = new Investimento("Azioni audi", 150, other, dt3, false);
+    Investimento* i1 = new Investimento("Azioni ferrari", 330, myBankAccount, dt2, false);
+    Investimento* i2 = new Investimento("Azioni mercedes", 150, myBankAccount, dt2, false);
+    Investimento* i3 = new Investimento("Azioni audi", 150, otherBankAccount, dt3, false);
 
     //Prova investimento
     myBankAccount->addInvestimento(i1, meTransaction, fatalerror);

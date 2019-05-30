@@ -6,24 +6,30 @@
 
 
 #include "Utenza.h"
-#include "Transazione.h"
-#include "Investimento.h"
 #include "FileMgr.h"
+#include "Investimento.h"
+#include "Transazione.h"
 #include <list>
 
-class ContoCorrente {
-public:
-    ContoCorrente(Utenza* t, float s=0, float si=0);
-    ~ContoCorrente();
+class Transazione;
+class Investimento;
+class FileMgr;
 
-    ContoCorrente(const ContoCorrente& that);
-    ContoCorrente& operator=(ContoCorrente& that);
+class Conto {
+public:
+    Conto(Utenza* t, std::string n, float s=0, float si=0);
+    ~Conto();
+
+    Conto(const Conto& that);
+    Conto& operator=(Conto& that);
 
     float getSaldo() const;
     float getSoldiInvestiti() const;
     Utenza* getUtenza() const;
-    void setSaldo(float saldo);
 
+    const std::string &getNome() const;
+
+    void setSaldo(float saldo);
     void setSoldiInvestiti(float soldiInvestiti);
 
     bool addInvestimento(Investimento* i, FileMgr* fm, bool& fatalerror);
@@ -35,6 +41,7 @@ private:
     float soldiInvestiti;
     std::list<Investimento*> investimenti;
     std::list<Transazione*> transazioni;
+    std::string nome;
     Utenza* titolare;
 
     bool addInvestmentToFile(Investimento* i, FileMgr* fm, bool& fatalerror);

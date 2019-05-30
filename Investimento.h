@@ -5,11 +5,14 @@
 #include <tgmath.h>
 #include "DateTime.h"
 #include "Utenza.h"
+#include "Conto.h"
+
+class Conto;
 
 class Investimento {
 public:
     Investimento(){}
-    Investimento(std::string c, float i, Utenza* u, DateTime* d, bool comp);
+    Investimento(std::string causale, float i, Conto* c, DateTime* d, bool comp);
 
     virtual ~Investimento();
 
@@ -22,7 +25,7 @@ public:
     float getInvestimento() const;
     bool isCompleted() const;
     float getGuadagno() const;
-    Utenza *getUtenza() const;
+    Conto *getConto() const;
     DateTime *getDataora() const;
 
     void setDataora(DateTime *dataora);
@@ -34,7 +37,7 @@ public:
 private:
     std::string causale;
     float investimento;
-    Utenza* utenza;
+    Conto* conto;
     DateTime* dataora;
     bool completed;
     float guadagno;

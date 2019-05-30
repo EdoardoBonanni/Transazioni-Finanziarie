@@ -25,7 +25,7 @@ test/CMakeFiles/unitTest.dir/UtenzaTest.cpp.o
  /home/edoardo/CLionProjects/TransazioniFinanziarie/Date.h
  /home/edoardo/CLionProjects/TransazioniFinanziarie/Utenza.h
  /home/edoardo/CLionProjects/TransazioniFinanziarie/test/UtenzaTest.cpp
-test/CMakeFiles/unitTest.dir/contocorrenteFixture.cpp.o
+test/CMakeFiles/unitTest.dir/contoFixture.cpp.o
  ../test/lib/googletest-master/googletest/include/gtest/gtest-death-test.h
  ../test/lib/googletest-master/googletest/include/gtest/gtest-matchers.h
  ../test/lib/googletest-master/googletest/include/gtest/gtest-message.h
@@ -46,14 +46,14 @@ test/CMakeFiles/unitTest.dir/contocorrenteFixture.cpp.o
  ../test/lib/googletest-master/googletest/include/gtest/internal/gtest-port.h
  ../test/lib/googletest-master/googletest/include/gtest/internal/gtest-string.h
  ../test/lib/googletest-master/googletest/include/gtest/internal/gtest-type-util.h
- /home/edoardo/CLionProjects/TransazioniFinanziarie/ContoCorrente.h
+ /home/edoardo/CLionProjects/TransazioniFinanziarie/Conto.h
  /home/edoardo/CLionProjects/TransazioniFinanziarie/Date.h
  /home/edoardo/CLionProjects/TransazioniFinanziarie/DateTime.h
  /home/edoardo/CLionProjects/TransazioniFinanziarie/FileMgr.h
  /home/edoardo/CLionProjects/TransazioniFinanziarie/Investimento.h
  /home/edoardo/CLionProjects/TransazioniFinanziarie/Transazione.h
  /home/edoardo/CLionProjects/TransazioniFinanziarie/Utenza.h
- /home/edoardo/CLionProjects/TransazioniFinanziarie/test/contocorrenteFixture.cpp
+ /home/edoardo/CLionProjects/TransazioniFinanziarie/test/contoFixture.cpp
 test/CMakeFiles/unitTest.dir/dateTest.cpp.o
  ../test/lib/googletest-master/googletest/include/gtest/gtest-death-test.h
  ../test/lib/googletest-master/googletest/include/gtest/gtest-matchers.h
@@ -122,9 +122,12 @@ test/CMakeFiles/unitTest.dir/investmentTest.cpp.o
  ../test/lib/googletest-master/googletest/include/gtest/internal/gtest-port.h
  ../test/lib/googletest-master/googletest/include/gtest/internal/gtest-string.h
  ../test/lib/googletest-master/googletest/include/gtest/internal/gtest-type-util.h
+ /home/edoardo/CLionProjects/TransazioniFinanziarie/Conto.h
  /home/edoardo/CLionProjects/TransazioniFinanziarie/Date.h
  /home/edoardo/CLionProjects/TransazioniFinanziarie/DateTime.h
+ /home/edoardo/CLionProjects/TransazioniFinanziarie/FileMgr.h
  /home/edoardo/CLionProjects/TransazioniFinanziarie/Investimento.h
+ /home/edoardo/CLionProjects/TransazioniFinanziarie/Transazione.h
  /home/edoardo/CLionProjects/TransazioniFinanziarie/Utenza.h
  /home/edoardo/CLionProjects/TransazioniFinanziarie/test/investmentTest.cpp
 test/CMakeFiles/unitTest.dir/runAllTests.cpp.o
@@ -170,8 +173,11 @@ test/CMakeFiles/unitTest.dir/transactionTest.cpp.o
  ../test/lib/googletest-master/googletest/include/gtest/internal/gtest-port.h
  ../test/lib/googletest-master/googletest/include/gtest/internal/gtest-string.h
  ../test/lib/googletest-master/googletest/include/gtest/internal/gtest-type-util.h
+ /home/edoardo/CLionProjects/TransazioniFinanziarie/Conto.h
  /home/edoardo/CLionProjects/TransazioniFinanziarie/Date.h
  /home/edoardo/CLionProjects/TransazioniFinanziarie/DateTime.h
+ /home/edoardo/CLionProjects/TransazioniFinanziarie/FileMgr.h
+ /home/edoardo/CLionProjects/TransazioniFinanziarie/Investimento.h
  /home/edoardo/CLionProjects/TransazioniFinanziarie/Transazione.h
  /home/edoardo/CLionProjects/TransazioniFinanziarie/Utenza.h
  /home/edoardo/CLionProjects/TransazioniFinanziarie/test/transactionTest.cpp

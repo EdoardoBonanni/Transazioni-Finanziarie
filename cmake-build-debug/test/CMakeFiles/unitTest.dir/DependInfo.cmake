@@ -5,7 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/edoardo/CLionProjects/TransazioniFinanziarie/test/UtenzaTest.cpp" "/home/edoardo/CLionProjects/TransazioniFinanziarie/cmake-build-debug/test/CMakeFiles/unitTest.dir/UtenzaTest.cpp.o"
-  "/home/edoardo/CLionProjects/TransazioniFinanziarie/test/contocorrenteFixture.cpp" "/home/edoardo/CLionProjects/TransazioniFinanziarie/cmake-build-debug/test/CMakeFiles/unitTest.dir/contocorrenteFixture.cpp.o"
+  "/home/edoardo/CLionProjects/TransazioniFinanziarie/test/contoFixture.cpp" "/home/edoardo/CLionProjects/TransazioniFinanziarie/cmake-build-debug/test/CMakeFiles/unitTest.dir/contoFixture.cpp.o"
   "/home/edoardo/CLionProjects/TransazioniFinanziarie/test/dateTest.cpp" "/home/edoardo/CLionProjects/TransazioniFinanziarie/cmake-build-debug/test/CMakeFiles/unitTest.dir/dateTest.cpp.o"
   "/home/edoardo/CLionProjects/TransazioniFinanziarie/test/datetimeTest.cpp" "/home/edoardo/CLionProjects/TransazioniFinanziarie/cmake-build-debug/test/CMakeFiles/unitTest.dir/datetimeTest.cpp.o"
   "/home/edoardo/CLionProjects/TransazioniFinanziarie/test/investmentTest.cpp" "/home/edoardo/CLionProjects/TransazioniFinanziarie/cmake-build-debug/test/CMakeFiles/unitTest.dir/investmentTest.cpp.o"

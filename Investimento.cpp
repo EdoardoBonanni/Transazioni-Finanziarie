@@ -1,9 +1,9 @@
 
 #include "Investimento.h"
 
-Investimento::Investimento(std::string c, float i, Utenza *u, DateTime *d, bool comp) {
-    causale = c;
-    utenza = u;
+Investimento::Investimento(std::string causale, float i, Conto* c, DateTime *d, bool comp) {
+    this->causale = causale;
+    conto = c;
     investimento = i;
     guadagno = 0;
     completed = comp;
@@ -17,7 +17,7 @@ Investimento::~Investimento() {}
 Investimento::Investimento(const Investimento &that) {
     causale = that.causale;
     investimento = that.investimento;
-    utenza = that.utenza;
+    conto = that.conto;
     dataora = that.dataora;
     completed = that.completed;
     guadagno = that.guadagno;
@@ -26,7 +26,7 @@ Investimento::Investimento(const Investimento &that) {
 Investimento& Investimento::operator=(Investimento &that) {
     causale = that.causale;
     investimento = that.investimento;
-    utenza = that.utenza;
+    conto = that.conto;
     dataora = that.dataora;
     completed = that.completed;
     guadagno = that.guadagno;
@@ -35,7 +35,7 @@ Investimento& Investimento::operator=(Investimento &that) {
 
 
 bool Investimento::operator==(const Investimento &i) {
-    if(utenza->operator==(*(i.utenza)) && investimento == i.investimento && dataora->operator==(*(i.dataora))
+    if(conto == i.conto && investimento == i.investimento && dataora->operator==(*(i.dataora))
        && causale == i.causale)
         return true;
     return false;
@@ -50,7 +50,7 @@ void Investimento::simulateInvestment(DateTime *now) {
         float g = (rand() % 10000) - 100;
         g = round(g * 100.0) / 100.0;
         guadagno += g;
-        if(guadagno=0)
+        if(guadagno==0)
             guadagno=1;
     }
 }
@@ -79,8 +79,8 @@ float Investimento::getGuadagno() const {
     return guadagno;
 }
 
-Utenza *Investimento::getUtenza() const {
-    return utenza;
+Conto *Investimento::getConto() const {
+    return conto;
 }
 
 DateTime *Investimento::getDataora() const {

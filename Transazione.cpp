@@ -1,33 +1,90 @@
 
 #include "Transazione.h"
 
-bool Transazione::operator==(const Transazione &t) {
-    if(mittente == t.mittente && ricevitore == t.ricevitore
-       && invio == t.invio && dataora == t.dataora
-       && operazione == t.operazione && completed == t.completed)
-        return true;
-    return false;
+
+Transazione::Transazione(const typeTransaction t, float i, Conto *m, Conto *r, DateTime *d, bool comp) {
+    type = t;
+    switch(type){
+        case typeTransaction::Deposito:
+            invio = i;
+            mittente = m;
+            dataora = d;
+            completed = comp;
+            break;
+        case typeTransaction::Prelievo:
+            invio = i;
+            mittente = m;
+            dataora = d;
+            completed = comp;
+            break;
+        case typeTransaction::Bonifico:
+            invio = i;
+            mittente = m;
+            dataora = d;
+            completed = comp;
+            break;
+    }
 }
 
 Transazione::~Transazione() {}
 
 Transazione::Transazione(const Transazione &that) {
-    operazione = that.operazione;
-    invio = that.invio;
-    mittente = that.mittente;
-    ricevitore = that.ricevitore;
-    dataora = that.dataora;
-    completed = that.completed;
+    type = that.type;
+    switch(type){
+        case typeTransaction::Deposito:
+            invio = that.invio;
+            mittente = that.mittente;
+            dataora = that.dataora;
+            completed = that.completed;
+            break;
+        case typeTransaction::Prelievo:
+            invio = that.invio;
+            mittente = that.mittente;
+            dataora = that.dataora;
+            completed = that.completed;
+            break;
+        case typeTransaction::Bonifico:
+            invio = that.invio;
+            mittente = that.mittente;
+            ricevitore = that.ricevitore;
+            dataora = that.dataora;
+            completed = that.completed;
+            break;
+    }
 }
 
 Transazione& Transazione::operator=(Transazione &that) {
-    operazione = that.operazione;
-    invio = that.invio;
-    mittente = that.mittente;
-    ricevitore = that.ricevitore;
-    dataora = that.dataora;
-    completed = that.completed;
+    type = that.type;
+    switch(type){
+        case typeTransaction::Deposito:
+            invio = that.invio;
+            mittente = that.mittente;
+            dataora = that.dataora;
+            completed = that.completed;
+            break;
+        case typeTransaction::Prelievo:
+            invio = that.invio;
+            mittente = that.mittente;
+            dataora = that.dataora;
+            completed = that.completed;
+            break;
+        case typeTransaction::Bonifico:
+            invio = that.invio;
+            mittente = that.mittente;
+            ricevitore = that.ricevitore;
+            dataora = that.dataora;
+            completed = that.completed;
+            break;
+    }
     return *this;
+}
+
+bool Transazione::operator==(const Transazione &t) {
+    if(mittente == t.mittente && ricevitore == t.ricevitore
+       && invio == t.invio && dataora == t.dataora
+       && type == t.type && completed == t.completed)
+        return true;
+    return false;
 }
 
 bool Transazione::operator!=(const Transazione &t){
@@ -54,18 +111,14 @@ void Transazione::setCompleted(bool completed) {
     Transazione::completed = completed;
 }
 
-Utenza *Transazione::getMittente() const {
+Conto *Transazione::getMittente() const {
     return mittente;
 }
 
-Utenza *Transazione::getRicevitore() const {
+Conto *Transazione::getRicevitore() const {
     return ricevitore;
 }
 
-void Transazione::setOperazione(const std::string &operazione) {
-    Transazione::operazione = operazione;
-}
-
-const std::string &Transazione::getOperazione() const {
-    return operazione;
+typeTransaction Transazione::getType() const {
+    return type;
 }

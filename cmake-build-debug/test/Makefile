@@ -198,32 +198,32 @@ UtenzaTest.cpp.s:
 	cd /home/edoardo/CLionProjects/TransazioniFinanziarie/cmake-build-debug && $(MAKE) -f test/CMakeFiles/unitTest.dir/build.make test/CMakeFiles/unitTest.dir/UtenzaTest.cpp.s
 .PHONY : UtenzaTest.cpp.s
 
-contocorrenteFixture.o: contocorrenteFixture.cpp.o
+contoFixture.o: contoFixture.cpp.o
 
-.PHONY : contocorrenteFixture.o
+.PHONY : contoFixture.o
 
 # target to build an object file
-contocorrenteFixture.cpp.o:
-	cd /home/edoardo/CLionProjects/TransazioniFinanziarie/cmake-build-debug && $(MAKE) -f test/CMakeFiles/unitTest.dir/build.make test/CMakeFiles/unitTest.dir/contocorrenteFixture.cpp.o
-.PHONY : contocorrenteFixture.cpp.o
+contoFixture.cpp.o:
+	cd /home/edoardo/CLionProjects/TransazioniFinanziarie/cmake-build-debug && $(MAKE) -f test/CMakeFiles/unitTest.dir/build.make test/CMakeFiles/unitTest.dir/contoFixture.cpp.o
+.PHONY : contoFixture.cpp.o
 
-contocorrenteFixture.i: contocorrenteFixture.cpp.i
+contoFixture.i: contoFixture.cpp.i
 
-.PHONY : contocorrenteFixture.i
+.PHONY : contoFixture.i
 
 # target to preprocess a source file
-contocorrenteFixture.cpp.i:
-	cd /home/edoardo/CLionProjects/TransazioniFinanziarie/cmake-build-debug && $(MAKE) -f test/CMakeFiles/unitTest.dir/build.make test/CMakeFiles/unitTest.dir/contocorrenteFixture.cpp.i
-.PHONY : contocorrenteFixture.cpp.i
+contoFixture.cpp.i:
+	cd /home/edoardo/CLionProjects/TransazioniFinanziarie/cmake-build-debug && $(MAKE) -f test/CMakeFiles/unitTest.dir/build.make test/CMakeFiles/unitTest.dir/contoFixture.cpp.i
+.PHONY : contoFixture.cpp.i
 
-contocorrenteFixture.s: contocorrenteFixture.cpp.s
+contoFixture.s: contoFixture.cpp.s
 
-.PHONY : contocorrenteFixture.s
+.PHONY : contoFixture.s
 
 # target to generate assembly for a file
-contocorrenteFixture.cpp.s:
-	cd /home/edoardo/CLionProjects/TransazioniFinanziarie/cmake-build-debug && $(MAKE) -f test/CMakeFiles/unitTest.dir/build.make test/CMakeFiles/unitTest.dir/contocorrenteFixture.cpp.s
-.PHONY : contocorrenteFixture.cpp.s
+contoFixture.cpp.s:
+	cd /home/edoardo/CLionProjects/TransazioniFinanziarie/cmake-build-debug && $(MAKE) -f test/CMakeFiles/unitTest.dir/build.make test/CMakeFiles/unitTest.dir/contoFixture.cpp.s
+.PHONY : contoFixture.cpp.s
 
 dateTest.o: dateTest.cpp.o
 
@@ -376,9 +376,9 @@ help:
 	@echo "... UtenzaTest.o"
 	@echo "... UtenzaTest.i"
 	@echo "... UtenzaTest.s"
-	@echo "... contocorrenteFixture.o"
-	@echo "... contocorrenteFixture.i"
-	@echo "... contocorrenteFixture.s"
+	@echo "... contoFixture.o"
+	@echo "... contoFixture.i"
+	@echo "... contoFixture.s"
 	@echo "... dateTest.o"
 	@echo "... dateTest.i"
 	@echo "... dateTest.s"
