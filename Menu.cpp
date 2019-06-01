@@ -55,7 +55,7 @@ public:
         typeTransaction type;
         std::shared_ptr<Conto> myBankAccount, otherBankAccount;
         std::shared_ptr<Utenza> me, other;
-        std::unique_ptr<FileMgr> fileOtherUser, fileOtherUserTransaction, fileOtherUserInvestment;
+        FileMgr *fileOtherUser, *fileOtherUserTransaction, *fileOtherUserInvestment;
         std::shared_ptr<Transazione> t1;
         std::unique_ptr<Investimento> i;
         cin.exceptions(std::istream::failbit);
@@ -88,9 +88,9 @@ public:
             filenameInvestment = nome + nomeMyconto +"Investment.txt";
             filenameTransaction = nome + nomeMyconto + "Transaction.txt";
         }
-        std::unique_ptr<FileMgr> fileUtenze = std::unique_ptr<FileMgr>(new FileMgr(filename, true, fatalError));
-        std::unique_ptr<FileMgr> fileInvestmentUtenza = std::unique_ptr<FileMgr> (new FileMgr(filenameInvestment, true, fatalError));
-        std::unique_ptr<FileMgr> fileTransactionUtenza = std::unique_ptr<FileMgr> (new FileMgr(filenameTransaction, true, fatalError));
+        FileMgr* fileUtenze (new FileMgr(filename, true, fatalError));
+        FileMgr* fileInvestmentUtenza (new FileMgr(filenameInvestment, true, fatalError));
+        FileMgr* fileTransactionUtenza (new FileMgr(filenameTransaction, true, fatalError));
         if (fileUtenze->isFileExists() == false && !fatalError) {
             if (pf == 1) {
                 do {
@@ -218,7 +218,7 @@ public:
                         dt = calcolaDateTime(dt);
                         type = typeTransaction ::Prelievo;
                         t1 = make_shared<Transazione>(type, f1, myBankAccount, myBankAccount, dt, false);
-                        res = myBankAccount->addTransazione(t1, fileTransactionUtenza.get(), fatalError);
+                        res = myBankAccount->addTransazione(t1, fileTransactionUtenza, fatalError);
                         if (!fatalError && res) {
                             cout << "Prelievo avvenuto con successo" << endl;
                             f = round(myBankAccount->getSaldo() * 100.0) / 100.0;
@@ -243,7 +243,7 @@ public:
                                         dt = calcolaDateTime(dt);
                                         type = typeTransaction ::Deposito;
                                         t1 = make_shared<Transazione>(type, f1, myBankAccount, myBankAccount, dt, false);
-                                        res = myBankAccount->addTransazione(t1, fileTransactionUtenza.get(), fatalError);
+                                        res = myBankAccount->addTransazione(t1, fileTransactionUtenza, fatalError);
                                         if(!fatalError && res) {
                                             cout << "Il suo deposito di " << deposito << " è andato a buon fine"
                                                  << endl;
@@ -301,8 +301,8 @@ public:
                                 filenameOtherTransaction = nomeInvio + nomeOtherConto +"Transaction.txt";
                             }
                         }
-                        fileOtherUser = std::unique_ptr<FileMgr> (new FileMgr(filenameOther, true, fatalError));
-                        fileOtherUserTransaction = std::unique_ptr<FileMgr> (new FileMgr(filenameOtherTransaction, true, fatalError));
+                        fileOtherUser = (new FileMgr(filenameOther, true, fatalError));
+                        fileOtherUserTransaction = (new FileMgr(filenameOtherTransaction, true, fatalError));
                         if (fileOtherUser->isFileExists() && !fatalError && !sendToYou) {
                             f = myBankAccount->getSaldo();
                             do{
@@ -328,9 +328,9 @@ public:
                             type = typeTransaction ::Bonifico;
                             t1 = make_shared<Transazione>(type, f1, myBankAccount, otherBankAccount, dt, false);
                             if ((invio > 0) && !fatalError) {
-                                //res = myBankAccount->addTransazione(t1, fileTransactionUtenza.get(), fatalError);
+                                res = myBankAccount->addTransazione(t1, fileTransactionUtenza, fatalError);
                                 if(res)
-                                    res1 = otherBankAccount->addTransazione(t1, fileOtherUserTransaction.get(), fatalError);
+                                    res1 = otherBankAccount->addTransazione(std::move(t1), fileOtherUserTransaction, fatalError);
                                 if(!fatalError && res && res1){
                                     cout << "Bonifico inviato con successo " << endl;
                                     f = round(myBankAccount->getSaldo() * 100.0) / 100.0;
@@ -365,7 +365,7 @@ public:
                         f1 = round(investimento * 100.0) / 100.0;
                         dt = calcolaDateTime(dt);
                         i = std::unique_ptr<Investimento>(new Investimento(causale, f1, myBankAccount, dt, false));
-                        res = myBankAccount->addInvestimento(i.get(), fileInvestmentUtenza.get(), fatalError);
+                        res = myBankAccount->addInvestimento(i.get(), fileInvestmentUtenza, fatalError);
                         if(!fatalError && res){
                             cout << "Investimento eseguito con successo " << endl;
                             f = round(myBankAccount->getSaldo() * 100.0) / 100.0;
@@ -395,7 +395,7 @@ public:
                         f1 = round(investimento * 100.0) / 100.0;
                         i = std::unique_ptr<Investimento>(new Investimento(causale, f1, myBankAccount, dt, true));
                         now = calcolaDateTime(dt);
-                        res = myBankAccount->removeInvestimento(i.get(), now, fileInvestmentUtenza.get(), fatalError);
+                        res = myBankAccount->removeInvestimento(i.get(), now, fileInvestmentUtenza, fatalError);
                         if(!fatalError && res){
                             cout << "Investimento rimosso" << endl;
                             cout << "Soldi investiti " << myBankAccount->getSoldiInvestiti() << endl;

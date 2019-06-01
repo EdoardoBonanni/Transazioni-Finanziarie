@@ -71,35 +71,36 @@ bool Conto::addTransazione(std::shared_ptr<Transazione> t, FileMgr* fm, bool& fa
         case typeTransaction::Deposito:
             saldo += t->getInvio();
             //saldo = round(saldo * 100.0) / 100.0;
+            t->setCompleted(true);
             transazioni.push_back(t);
             addTransactionToFile(t, fm, fatalerror);
             return true;
         case typeTransaction::Prelievo:
             if (t->getInvio() <= saldo) {
                 transazioni.push_back(t);
+                t->setCompleted(true);
                 addTransactionToFile(t, fm, fatalerror);
                 saldo -= t->getInvio();
                 //saldo = round(saldo * 100.0) / 100.0;
-                t->setCompleted(true);
                 return true;
             }
         case typeTransaction::Bonifico:
             if (t->getMittente()->getUtenza() == titolare && nome == t->getMittente()->getNome()) {
                 if (t->getInvio() <= saldo) {
+                    t->setCompleted(true);
                     transazioni.push_back(t);
                     addTransactionToFile(t, fm, fatalerror);
                     saldo -= t->getInvio();
                     //saldo = round(saldo * 100.0) / 100.0;
-                    t->setCompleted(true);
                     return true;
                 }
             }
             else {
                 transazioni.push_back(t);
+                t->setCompleted(true);
                 addTransactionToFile(t, fm, fatalerror);
                 saldo += t->getInvio();
                 //saldo = round(saldo * 100.0) / 100.0;
-                t->setCompleted(true);
                 return true;
             }
     }
