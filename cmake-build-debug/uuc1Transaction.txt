@@ -1,3 +1,5 @@
 Deposito da c1 di u u di 816.489990 30:5:2019 19:9:0
 Deposito da c1 di u u di 908.260010 30:5:2019 19:9:2
 Prelievo da c1 di u u di 1.000000 30:5:2019 19:9:4
+Bonifico da c1 di p p a c1 di u u di 2.000000 3:6:2019 21:16:37
+Bonifico da c1 di p p a c1 di u u di 2.000000 3:6:2019 21:19:55

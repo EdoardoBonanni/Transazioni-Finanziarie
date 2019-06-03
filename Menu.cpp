@@ -330,7 +330,7 @@ public:
                             if ((invio > 0) && !fatalError) {
                                 res = myBankAccount->addTransazione(t1, fileTransactionUtenza, fatalError);
                                 if(res)
-                                    res1 = otherBankAccount->addTransazione(std::move(t1), fileOtherUserTransaction, fatalError);
+                                    res1 = otherBankAccount->addTransazione(t1, fileOtherUserTransaction, fatalError);
                                 if(!fatalError && res && res1){
                                     cout << "Bonifico inviato con successo " << endl;
                                     f = round(myBankAccount->getSaldo() * 100.0) / 100.0;

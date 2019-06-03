@@ -20,6 +20,7 @@ Transazione::Transazione(const typeTransaction t, float i, std::shared_ptr<Conto
         case typeTransaction::Bonifico:
             invio = i;
             mittente = m;
+            ricevitore = r;
             dataora = d;
             completed = comp;
             break;

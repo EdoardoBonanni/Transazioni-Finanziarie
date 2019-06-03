@@ -32,3 +32,13 @@ Deposito da c1 di p p di 677.419983 30:5:2019 22:11:36
 Deposito da c1 di p p di 870.520020 1:6:2019 15:2:49
 Deposito da c1 di p p di 353.720001 1:6:2019 15:4:17
 Deposito da c1 di p p di 602.150024 1:6:2019 15:10:8
+Deposito da c1 di p p di 57.180000 3:6:2019 21:8:22
+Deposito da c1 di p p di 307.890015 3:6:2019 21:8:26
+Deposito da c1 di p p di 391.739990 3:6:2019 21:13:46
+Deposito da c1 di p p di 531.760010 3:6:2019 21:16:30
+Bonifico da c1 di p p a c1 di u u di 2.000000 3:6:2019 21:16:37
+Deposito da c1 di p p di 454.929993 3:6:2019 21:19:48
+Bonifico da c1 di p p a c1 di u u di 2.000000 3:6:2019 21:19:55
+Prelievo da c1 di p p di 12.000000 3:6:2019 21:19:59
+Prelievo da c1 di p p di 2.000000 3:6:2019 21:20:49
+Deposito da c1 di p p di 920.200012 3:6:2019 21:20:59
