@@ -36,17 +36,18 @@ Utenza::Utenza(const Utenza &that) {
     if(that.ispersonaFisica()){
         nome = that.nome;
         cognome = that.cognome;
-        dataNascita->setGiorno(that.dataNascita->getGiorno(), true);
-        dataNascita->setMese(that.dataNascita->getMese(), true);
-        dataNascita->setAnno(that.dataNascita->getAnno(), true);
+        sesso = that.sesso;
+        dataNascita = std::shared_ptr<Date>(new Date(that.dataNascita.operator*().getGiorno(), that.dataNascita.operator*().getMese(), that.dataNascita.operator*().getAnno(), true));
         indirizzo = that.indirizzo;
         numeroCivico = that.numeroCivico;
         provincia = that.provincia;
+        personaFisica = true;
     }else{
         nome = that.nome;
         indirizzo = that.indirizzo;
         numeroCivico = that.numeroCivico;
         provincia = that.provincia;
+        personaFisica = false;
     }
 }
 
@@ -54,24 +55,25 @@ Utenza& Utenza::operator=(Utenza &that) {
     if(that.ispersonaFisica()){
         nome = that.nome;
         cognome = that.cognome;
-        dataNascita->setGiorno(that.dataNascita->getGiorno(), true);
-        dataNascita->setMese(that.dataNascita->getMese(), true);
-        dataNascita->setAnno(that.dataNascita->getAnno(), true);
+        sesso = that.sesso;
+        dataNascita = std::shared_ptr<Date>(new Date(that.dataNascita.operator*().getGiorno(), that.dataNascita.operator*().getMese(), that.dataNascita.operator*().getAnno(), false));
         indirizzo = that.indirizzo;
         numeroCivico = that.numeroCivico;
         provincia = that.provincia;
+        personaFisica = true;
     }else{
         nome = that.nome;
         indirizzo = that.indirizzo;
         numeroCivico = that.numeroCivico;
         provincia = that.provincia;
+        personaFisica = false;
     }
     return *this;
 }
 
 bool Utenza::operator==(const Utenza &u) {
     if(personaFisica==true && u.ispersonaFisica()==true) {
-        if (nome == u.nome && cognome == u.cognome && (dataNascita->operator==(*u.dataNascita)) && sesso == u.sesso)
+        if (nome == u.nome && cognome == u.cognome && (dataNascita.operator*().operator==(u.dataNascita.operator*())) && sesso == u.sesso)
             return true;
 
     }

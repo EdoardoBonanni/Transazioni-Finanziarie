@@ -34,13 +34,13 @@ TEST(UtenzaTest, setTest){
     Utenza u2("Poste", "Via Togliatti", 2, "FI");
     Utenza u3("Edoardo", "Bonanni", true);
     Utenza u4("Poste", "", false);
-    EXPECT_FALSE(u1 == u3);
-    EXPECT_FALSE(u2 == u4);
-    u2.setSesso('m');
-    u2.setDataNascita(std::make_shared<Date>(2, 3, 1998, false));
-    EXPECT_EQ(u1.getDataNascita()->getGiorno(), u2.getDataNascita()->getGiorno());
+    EXPECT_TRUE(u1 != u3);
+    EXPECT_TRUE(u2 != u4);
+    u3.setSesso('m');
+    u3.setDataNascita(std::make_shared<Date>(2, 3, 1998, false));
+    EXPECT_EQ(u1.getDataNascita()->getGiorno(), u3.getDataNascita()->getGiorno());
     EXPECT_TRUE(u1 == u3);
-    u4.setIndirizzo("Via togliatti");
+    u4.setIndirizzo("Via Togliatti");
     u4.setNumeroCivico(2);
     u4.setProvincia("FI");
     EXPECT_TRUE(u2 == u4);
@@ -50,10 +50,10 @@ TEST(UtenzaTest, setTest){
 TEST(UtenzaTest, opAssignamentANDcopyConstructorTest){
     Utenza u1("Edoardo", "Bonanni", 'm', 2, 3, 1998, false, "Via calcinaia", 59, "FI");
     Utenza u2;
-    u2=u1;
+    u2 = u1;
     EXPECT_TRUE(u1 == u2);
     Utenza u3(u2);
-    EXPECT_TRUE(u1 == u3);
+    EXPECT_TRUE(u2 == u3);
     Utenza u4("Poste", "Via Togliatti", 2, "FI");
     u2 = u4;
     EXPECT_TRUE(u2 == u4);

@@ -48,7 +48,7 @@ Date& Date::operator=(Date &that) {
 }
 
 bool Date::operator==(const Date &d) {
-    if(giorno == d.giorno && mese == d.mese && anno == d.anno && isValid)
+    if(giorno == d.giorno && mese == d.mese && anno == d.anno && isValid == d.isValid && isValid == true)
         return true;
     else
         return  false;

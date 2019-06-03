@@ -10,8 +10,8 @@ TEST(transactionTest, ConstructorAndEqualTest){
     std::shared_ptr<Conto> c1 = std::make_shared<Conto>(u1, "c1", 0, 0);
     std::shared_ptr<Conto> c2 = std::make_shared<Conto>(u2, "c2", 0, 0);
     std::shared_ptr<DateTime> dt1 = std::make_shared<DateTime>(2, 2, 2019, 22, 12, 3, true);
-    std::shared_ptr<DateTime> dt2 = std::make_shared<DateTime>(2, 2, 2019, 22, 12, 7, true);
-    std::shared_ptr<DateTime> dt3 = std::make_shared<DateTime>(2, 2, 2019, 22, 12, 18, true);
+    std::shared_ptr<DateTime> dt2 = std::make_shared<DateTime>(2, 2, 2019, 22, 13, 7, true);
+    std::shared_ptr<DateTime> dt3 = std::make_shared<DateTime>(2, 2, 2019, 22, 13, 18, true);
 
     type = typeTransaction::Deposito;
     Transazione t1(type, 100.50, c1, c1, dt1, false);

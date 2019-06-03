@@ -16,7 +16,7 @@ TEST(investmentTest, ConstructorAndEqualTest){
     EXPECT_EQ(i1.getConto()->getNome(), "c1");
     EXPECT_EQ(i1.getConto()->getUtenza()->getNome(), "Edoardo");
     EXPECT_EQ(i1.getDataora()->getMinuto(), 12);
-    EXPECT_EQ(i1.getDataora()->getSecondo(), 5);
+    EXPECT_NE(i1.getDataora()->getSecondo(), 5);
 
     Investimento i2("Azioni fiat", 1000, c1, dt1, false);
     Investimento i3("Azioni fiat", 1000, c1, dt2, false);
@@ -58,7 +58,7 @@ TEST(investmentTest, simulateInvestmentTest){
 
     Investimento i1("Azioni ferrari", 2000, c1, dt1, false);
     EXPECT_EQ(i1.getGuadagno(), 0);
-    ASSERT_FALSE(dt2 > dt1);
+    ASSERT_TRUE(dt2 > dt1);
     i1.simulateInvestment(dt2);
     EXPECT_EQ(i1.getGuadagno(), 0);
     i1.setCompleted(true);
