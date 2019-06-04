@@ -12,7 +12,7 @@ class Conto;
 class Investimento {
 public:
     Investimento(){}
-    Investimento(std::string causale, float i, std::shared_ptr<Conto> c, std::shared_ptr<DateTime> d, bool comp);
+    Investimento(std::string causale, float i, std::shared_ptr<Conto> c, DateTime* d, bool comp);
 
     virtual ~Investimento();
 
@@ -26,19 +26,19 @@ public:
     bool isCompleted() const;
     float getGuadagno() const;
     std::shared_ptr<Conto> getConto() const;
-    std::shared_ptr<DateTime> getDataora() const;
+    DateTime* getDataora() const;
 
-    void setDataora(std::shared_ptr<DateTime> dataora);
+    void setDataora(DateTime* dataora);
     void setCompleted(bool completed);
 
-    void simulateInvestment(std::shared_ptr<DateTime> now);
+    void simulateInvestment(DateTime* now);
 
 
 private:
     std::string causale;
     float investimento;
     std::shared_ptr<Conto> conto;
-    std::shared_ptr<DateTime> dataora;
+    DateTime* dataora;
     bool completed;
     float guadagno;
 

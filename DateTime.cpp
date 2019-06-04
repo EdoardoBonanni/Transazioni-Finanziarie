@@ -72,7 +72,7 @@ bool DateTime::operator>(const DateTime &that) {
 
 bool DateTime::operator==(const DateTime &dt) {
     if(giorno == dt.giorno && mese == dt.mese && anno == dt.anno
-       && secondo == dt.secondo && minuto == dt.minuto && ora == dt.ora && isValid)
+       && secondo == dt.secondo && minuto == dt.minuto && ora == dt.ora)
         return true;
     return false;
 }

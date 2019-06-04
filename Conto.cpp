@@ -96,12 +96,14 @@ bool Conto::addTransazione(std::shared_ptr<Transazione> t, FileMgr* fm, bool& fa
                 }
             }
             else {
-                transazioni.push_back(t);
-                t->setCompleted(true);
-                addTransactionToFile(t, fm, fatalerror);
-                saldo += t->getInvio();
-                //saldo = round(saldo * 100.0) / 100.0;
-                return true;
+                if(t->getInvio() <= t->getMittente()->getSaldo()){
+                    transazioni.push_back(t);
+                    t->setCompleted(true);
+                    addTransactionToFile(t, fm, fatalerror);
+                    saldo += t->getInvio();
+                    //saldo = round(saldo * 100.0) / 100.0;
+                    return true;
+                }
             }
     }
     return false;
@@ -121,7 +123,7 @@ bool Conto::addInvestimento(Investimento* i, FileMgr* fm, bool& fatalerror) {
     return false;
 }
 
-bool Conto::removeInvestimento(Investimento* i, std::shared_ptr<DateTime> now, FileMgr* fm, bool& fatalerror) {
+bool Conto::removeInvestimento(Investimento* i, DateTime* now, FileMgr* fm, bool& fatalerror) {
     int pos=0;
     std::list<Investimento*>::iterator iter;
     for(iter=investimenti.begin(); iter != investimenti.end(); ++iter){
@@ -134,7 +136,7 @@ bool Conto::removeInvestimento(Investimento* i, std::shared_ptr<DateTime> now, F
         i->simulateInvestment(now);
         investimenti.remove(i);
         removeInvestmentFromFile(i, fm, fatalerror);
-        saldo += i->getInvestimento() + i->getGuadagno();
+        saldo += i->getGuadagno();
         soldiInvestiti -= i->getInvestimento();
         return true;
     }

@@ -33,7 +33,7 @@ public:
     void setSoldiInvestiti(float soldiInvestiti);
 
     bool addInvestimento(Investimento* i, FileMgr* fm, bool& fatalerror);
-    bool removeInvestimento(Investimento* i, std::shared_ptr<DateTime> now, FileMgr* fm, bool& fatalerror);
+    bool removeInvestimento(Investimento* i, DateTime* now, FileMgr* fm, bool& fatalerror);
     bool addTransazione(std::shared_ptr<Transazione> t, FileMgr* fm, bool& fatalerror);
 
 private:

@@ -12,7 +12,7 @@ Utenza::Utenza(const std::string n, const std::string c, bool pf) : nome(n), cog
 Utenza::Utenza(const std::string n, const std::string c, char s,
                         const int gn, const int mn, const int an, bool isBissextile)
         :nome(n), cognome(c), sesso(s) {
-    dataNascita = std::make_shared<Date>(gn, mn, an, isBissextile);
+    dataNascita = new Date(gn, mn, an, isBissextile);
     personaFisica = true;
 }
 
@@ -20,7 +20,7 @@ Utenza::Utenza(const std::string n, const std::string c, char s,
                const int gn, const int mn, const int an, bool isBissextile,
                const std::string i,const int nc, const std::string p)
         :nome(n), cognome(c), sesso(s), indirizzo(i), numeroCivico(nc), provincia(p){
-    dataNascita = std::make_shared<Date>(gn, mn, an, isBissextile);
+    dataNascita = new Date(gn, mn, an, isBissextile);
     personaFisica = true;
 }
 
@@ -37,7 +37,7 @@ Utenza::Utenza(const Utenza &that) {
         nome = that.nome;
         cognome = that.cognome;
         sesso = that.sesso;
-        dataNascita = std::shared_ptr<Date>(new Date(that.dataNascita.operator*().getGiorno(), that.dataNascita.operator*().getMese(), that.dataNascita.operator*().getAnno(), true));
+        dataNascita = that.dataNascita;
         indirizzo = that.indirizzo;
         numeroCivico = that.numeroCivico;
         provincia = that.provincia;
@@ -56,7 +56,7 @@ Utenza& Utenza::operator=(Utenza &that) {
         nome = that.nome;
         cognome = that.cognome;
         sesso = that.sesso;
-        dataNascita = std::shared_ptr<Date>(new Date(that.dataNascita.operator*().getGiorno(), that.dataNascita.operator*().getMese(), that.dataNascita.operator*().getAnno(), false));
+        dataNascita = that.dataNascita;
         indirizzo = that.indirizzo;
         numeroCivico = that.numeroCivico;
         provincia = that.provincia;
@@ -72,12 +72,12 @@ Utenza& Utenza::operator=(Utenza &that) {
 }
 
 bool Utenza::operator==(const Utenza &u) {
-    if(personaFisica==true && u.ispersonaFisica()==true) {
-        if (nome == u.nome && cognome == u.cognome && (dataNascita.operator*().operator==(u.dataNascita.operator*())) && sesso == u.sesso)
+    if(personaFisica==true && u.personaFisica==true) {
+        if (nome == u.nome && cognome == u.cognome && dataNascita->operator==(*u.dataNascita) && sesso == u.sesso)
             return true;
 
     }
-    if(personaFisica == false && u.ispersonaFisica()==false){
+    if(personaFisica == false && u.personaFisica==false){
         if(nome == u.nome && indirizzo == u.indirizzo && numeroCivico == u.numeroCivico && provincia == u.provincia)
             return true;
     }
@@ -85,12 +85,12 @@ bool Utenza::operator==(const Utenza &u) {
 }
 
 bool Utenza::operator!=(const Utenza &u) {
-    if(personaFisica==true && u.ispersonaFisica()==true) {
-        if (nome == u.nome && cognome == u.cognome && dataNascita == u.dataNascita)
+    if(personaFisica==true && u.personaFisica==true) {
+        if (nome == u.nome && cognome == u.cognome && dataNascita==u.dataNascita && sesso == u.sesso)
             return false;
 
     }
-    if(personaFisica == false && u.ispersonaFisica()==false){
+    if(personaFisica == false && u.personaFisica==false){
         if(nome == u.nome && indirizzo == u.indirizzo && numeroCivico == u.numeroCivico && provincia == u.provincia)
             return false;
     }
@@ -126,7 +126,7 @@ const std::string Utenza::getProvincia() const {
     return provincia;
 }
 
-std::shared_ptr<Date> Utenza::getDataNascita() const {
+Date* Utenza::getDataNascita() const {
     return dataNascita;
 }
 
@@ -154,7 +154,7 @@ void Utenza::setNumeroCivico(int numeroCivico) {
     Utenza::numeroCivico = numeroCivico;
 }
 
-void Utenza::setDataNascita(std::shared_ptr<Date> dataNascita) {
+void Utenza::setDataNascita(Date* dataNascita) {
     Utenza::dataNascita = dataNascita;
 }
 

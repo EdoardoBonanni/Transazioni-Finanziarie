@@ -1,7 +1,7 @@
 
 #include "Investimento.h"
 
-Investimento::Investimento(std::string causale, float i, std::shared_ptr<Conto> c, std::shared_ptr<DateTime> d, bool comp) {
+Investimento::Investimento(std::string causale, float i, std::shared_ptr<Conto> c, DateTime* d, bool comp) {
     this->causale = causale;
     conto = c;
     investimento = i;
@@ -36,7 +36,7 @@ Investimento& Investimento::operator=(Investimento &that) {
 
 
 bool Investimento::operator==(const Investimento &i) {
-    if(conto == i.conto && investimento == i.investimento && dataora->operator==(*(i.dataora))
+    if(conto == i.conto && investimento == i.investimento && dataora == i.dataora
        && causale == i.causale)
         return true;
     return false;
@@ -46,11 +46,11 @@ bool Investimento::operator!=(const Investimento &i) {
     return !(*this == i);
 }
 
-void Investimento::simulateInvestment(std::shared_ptr<DateTime> now) {
+void Investimento::simulateInvestment(DateTime* now) {
     if (dataora != now && completed) {
         float g = (rand() % 10000) - 100;
         g = round(g * 100.0) / 100.0;
-        guadagno += g;
+        guadagno = g;
         if(guadagno==0)
             guadagno=1;
     }
@@ -68,7 +68,7 @@ bool Investimento::isCompleted() const {
     return completed;
 }
 
-void Investimento::setDataora(std::shared_ptr<DateTime> dataora) {
+void Investimento::setDataora(DateTime* dataora) {
     Investimento::dataora = dataora;
 }
 
@@ -84,7 +84,7 @@ std::shared_ptr<Conto> Investimento::getConto() const {
     return conto;
 }
 
-std::shared_ptr<DateTime> Investimento::getDataora() const {
+DateTime* Investimento::getDataora() const {
     return dataora;
 }
 

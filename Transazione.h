@@ -16,7 +16,7 @@ enum class typeTransaction {
 class Transazione {
 public:
     Transazione(){}
-    Transazione(const typeTransaction t, float i, std::shared_ptr<Conto> m,  std::shared_ptr<Conto> r, std::shared_ptr<DateTime> d, bool comp);
+    Transazione(const typeTransaction t, float i, std::shared_ptr<Conto> m,  std::shared_ptr<Conto> r, DateTime* d, bool comp);
 
     virtual ~Transazione();
 
@@ -26,13 +26,13 @@ public:
     bool operator!=(const Transazione &t);
 
     float getInvio() const;
-    std::shared_ptr<DateTime> getDataora() const;
+    DateTime* getDataora() const;
     bool isCompleted() const;
     std::shared_ptr<Conto> getMittente() const;
     std::shared_ptr<Conto> getRicevitore() const;
     typeTransaction getType() const;
 
-    void setDataora(std::shared_ptr<DateTime> dataora);
+    void setDataora(DateTime* dataora);
     void setCompleted(bool completed);
 
 private:
@@ -40,7 +40,7 @@ private:
     std::shared_ptr<Conto> mittente;
     std::shared_ptr<Conto> ricevitore;
     float invio;
-    std::shared_ptr<DateTime> dataora;
+    DateTime* dataora;
     bool completed;
 };
 

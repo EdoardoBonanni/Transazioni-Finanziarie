@@ -15,7 +15,7 @@ TEST(UtenzaTest, ConstructorTest){
 TEST(UtenzaTest, equalTest){
     Utenza u1("Edoardo", "Bonanni", 'm', 2, 3, 1998, false, "Via calcinaia", 59, "FI");
     Utenza u2("EDOARDO", "BONANNI", 'm', 2, 3, 1998, false);
-    Utenza u3("EDOARDO", "BONANNI", 'm', 2, 3, 1998, true);
+    Utenza u3("EDOARDO", "BONANNI", 'm', 2, 3, 1998, false);
     Utenza u4("EDOARDO", "BONANNI", 'f', 2, 3, 1998, true);
     EXPECT_FALSE(u1 == u2);
     EXPECT_TRUE(u2 == u3);
@@ -37,7 +37,7 @@ TEST(UtenzaTest, setTest){
     EXPECT_TRUE(u1 != u3);
     EXPECT_TRUE(u2 != u4);
     u3.setSesso('m');
-    u3.setDataNascita(std::make_shared<Date>(2, 3, 1998, false));
+    u3.setDataNascita(new Date(2, 3, 1998, false));
     EXPECT_EQ(u1.getDataNascita()->getGiorno(), u3.getDataNascita()->getGiorno());
     EXPECT_TRUE(u1 == u3);
     u4.setIndirizzo("Via Togliatti");

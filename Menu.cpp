@@ -34,10 +34,10 @@ private:
         float s = stof(container[0]);
         return s;
     }
-    std::shared_ptr<DateTime> calcolaDateTime(std::shared_ptr<DateTime> dt){
+    DateTime* calcolaDateTime(DateTime* dt){
         time_t t = time(0);
         struct tm *now = std::localtime(&t);
-        dt = make_shared<DateTime>(now->tm_mday, now->tm_mon + 1, now->tm_year + 1900, now->tm_hour, now->tm_min, now->tm_sec, true);
+        dt = (new DateTime(now->tm_mday, now->tm_mon + 1, now->tm_year + 1900, now->tm_hour, now->tm_min, now->tm_sec, true));
         return dt;
     }
 public:
@@ -49,7 +49,7 @@ public:
         bool res, res1, result, isBissextile = false, exitMenu = false, searchCognome = false, failure = false, fatalError = false, sendToYou =false;
         int switch1, switch2, gn, mn, an, pf, pfo, nc;
         const char *c;
-        std::shared_ptr<DateTime> dt, now;
+        DateTime* dt, *now;
         char sesso, delim1 = ' ';;
         std::stringstream ss;
         typeTransaction type;
