@@ -9,7 +9,7 @@ class DateTime : public Date {
 public:
     DateTime(){}
     DateTime(int g, int mese, int a, int o, int min, int s, bool isBissextile);
-    ~DateTime();
+    virtual ~DateTime();
 
     DateTime(const DateTime& that);
     DateTime& operator=(const DateTime& that);
