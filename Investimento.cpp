@@ -12,8 +12,6 @@ Investimento::Investimento(std::string causale, float i, std::shared_ptr<Conto> 
 }
 
 Investimento::~Investimento() {
-    if(dataora != nullptr)
-        delete dataora;
 }
 
 

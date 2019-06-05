@@ -40,7 +40,7 @@ Utenza::Utenza(const Utenza &that) {
         nome = that.nome;
         cognome = that.cognome;
         sesso = that.sesso;
-        dataNascita = that.dataNascita;
+        dataNascita = new Date(*that.dataNascita);
         indirizzo = that.indirizzo;
         numeroCivico = that.numeroCivico;
         provincia = that.provincia;
@@ -62,7 +62,7 @@ Utenza& Utenza::operator=(Utenza &that) {
         nome = that.nome;
         cognome = that.cognome;
         sesso = that.sesso;
-        dataNascita = that.dataNascita;
+        dataNascita = new Date(*that.dataNascita);
         indirizzo = that.indirizzo;
         numeroCivico = that.numeroCivico;
         provincia = that.provincia;
