@@ -1,40 +1,38 @@
 Deposito da c1 di Edoardo Bonanni di 5000.500000 12:3:2018 12:2:33
-Deposito da c1 di Edoardo Bonanni di 5000.500000 12:3:2018 12:2:33
-Deposito da c1 di Edoardo Bonanni di 120.500000 15:3:2018 15:24:3
-Deposito da c1 di Edoardo Bonanni di 5000.500000 12:3:2018 12:2:33
 Deposito da c1 di Edoardo Bonanni di 120.500000 15:3:2018 15:24:3
 Prelievo da c1 di Edoardo Bonanni di 300.000000 28:3:2018 14:12:55
-Deposito da c1 di Edoardo Bonanni di 5000.500000 12:3:2018 12:2:33
-Deposito da c1 di Edoardo Bonanni di 120.500000 15:3:2018 15:24:3
-Prelievo da c1 di Edoardo Bonanni di 300.000000 28:3:2018 14:12:55
-Deposito da c1 di Edoardo Bonanni di 5000.500000 12:3:2018 12:2:33
-Deposito da c1 di Edoardo Bonanni di 120.500000 15:3:2018 15:24:3
-Prelievo da c1 di Edoardo Bonanni di 300.000000 28:3:2018 14:12:55
-Deposito da c1 di Edoardo Bonanni di 5000.500000 12:3:2018 12:2:33
-Deposito da c1 di Edoardo Bonanni di 120.500000 15:3:2018 15:24:3
-Prelievo da c1 di Edoardo Bonanni di 300.000000 28:3:2018 14:12:55
-Deposito da c1 di Edoardo Bonanni di 5000.500000 12:3:2018 12:2:33
-Deposito da c1 di Edoardo Bonanni di 120.500000 15:3:2018 15:24:3
-Prelievo da c1 di Edoardo Bonanni di 300.000000 28:3:2018 14:12:55
-Deposito da c1 di Edoardo Bonanni di 5000.500000 12:3:2018 12:2:33
-Deposito da c1 di Edoardo Bonanni di 120.500000 15:3:2018 15:24:3
-Prelievo da c1 di Edoardo Bonanni di 300.000000 28:3:2018 14:12:55
+Bonifico da c1 di Edoardo Bonanni a c2 di Pinco Pallino di 150.000000 5:4:2018 18:18:18
+Bonifico da c2 di Pinco Pallino a c1 di Edoardo Bonanni di 200.000000 22:4:2018 22:45:56
 Deposito da c1 di Edoardo Bonanni di 5000.500000 12:3:2018 12:2:33
 Deposito da c1 di Edoardo Bonanni di 120.500000 15:3:2018 15:24:3
 Prelievo da c1 di Edoardo Bonanni di 300.000000 28:3:2018 14:12:55
 Bonifico da c1 di Edoardo Bonanni a c2 di Pinco Pallino di 150.000000 5:4:2018 18:18:18
+Bonifico da c2 di Pinco Pallino a c1 di Edoardo Bonanni di 200.000000 22:4:2018 22:45:56
 Deposito da c1 di Edoardo Bonanni di 5000.500000 12:3:2018 12:2:33
 Deposito da c1 di Edoardo Bonanni di 120.500000 15:3:2018 15:24:3
 Prelievo da c1 di Edoardo Bonanni di 300.000000 28:3:2018 14:12:55
 Bonifico da c1 di Edoardo Bonanni a c2 di Pinco Pallino di 150.000000 5:4:2018 18:18:18
+Bonifico da c2 di Pinco Pallino a c1 di Edoardo Bonanni di 200.000000 22:4:2018 22:45:56
 Deposito da c1 di Edoardo Bonanni di 5000.500000 12:3:2018 12:2:33
 Deposito da c1 di Edoardo Bonanni di 120.500000 15:3:2018 15:24:3
 Prelievo da c1 di Edoardo Bonanni di 300.000000 28:3:2018 14:12:55
 Bonifico da c1 di Edoardo Bonanni a c2 di Pinco Pallino di 150.000000 5:4:2018 18:18:18
+Bonifico da c2 di Pinco Pallino a c1 di Edoardo Bonanni di 200.000000 22:4:2018 22:45:56
 Deposito da c1 di Edoardo Bonanni di 5000.500000 12:3:2018 12:2:33
 Deposito da c1 di Edoardo Bonanni di 120.500000 15:3:2018 15:24:3
 Prelievo da c1 di Edoardo Bonanni di 300.000000 28:3:2018 14:12:55
 Bonifico da c1 di Edoardo Bonanni a c2 di Pinco Pallino di 150.000000 5:4:2018 18:18:18
+Bonifico da c2 di Pinco Pallino a c1 di Edoardo Bonanni di 200.000000 22:4:2018 22:45:56
+Deposito da c1 di Edoardo Bonanni di 5000.500000 12:3:2018 12:2:33
+Deposito da c1 di Edoardo Bonanni di 120.500000 15:3:2018 15:24:3
+Prelievo da c1 di Edoardo Bonanni di 300.000000 28:3:2018 14:12:55
+Bonifico da c1 di Edoardo Bonanni a c2 di Pinco Pallino di 150.000000 5:4:2018 18:18:18
+Bonifico da c2 di Pinco Pallino a c1 di Edoardo Bonanni di 200.000000 22:4:2018 22:45:56
+Deposito da c1 di Edoardo Bonanni di 5000.500000 12:3:2018 12:2:33
+Deposito da c1 di Edoardo Bonanni di 120.500000 15:3:2018 15:24:3
+Prelievo da c1 di Edoardo Bonanni di 300.000000 28:3:2018 14:12:55
+Bonifico da c1 di Edoardo Bonanni a c2 di Pinco Pallino di 150.000000 5:4:2018 18:18:18
+Bonifico da c2 di Pinco Pallino a c1 di Edoardo Bonanni di 200.000000 22:4:2018 22:45:56
 Deposito da c1 di Edoardo Bonanni di 5000.500000 12:3:2018 12:2:33
 Deposito da c1 di Edoardo Bonanni di 120.500000 15:3:2018 15:24:3
 Prelievo da c1 di Edoardo Bonanni di 300.000000 28:3:2018 14:12:55
@@ -71,90 +69,37 @@ Prelievo da c1 di Edoardo Bonanni di 300.000000 28:3:2018 14:12:55
 Bonifico da c1 di Edoardo Bonanni a c2 di Pinco Pallino di 150.000000 5:4:2018 18:18:18
 Bonifico da c2 di Pinco Pallino a c1 di Edoardo Bonanni di 200.000000 22:4:2018 22:45:56
 Deposito da c1 di Edoardo Bonanni di 5000.500000 12:3:2018 12:2:33
+Deposito da c1 di Edoardo Bonanni di 120.500000 15:3:2018 15:24:3
+Prelievo da c1 di Edoardo Bonanni di 300.000000 28:3:2018 14:12:55
+Bonifico da c1 di Edoardo Bonanni a c2 di Pinco Pallino di 150.000000 5:4:2018 18:18:18
+Bonifico da c2 di Pinco Pallino a c1 di Edoardo Bonanni di 200.000000 22:4:2018 22:45:56
 Deposito da c1 di Edoardo Bonanni di 5000.500000 12:3:2018 12:2:33
 Deposito da c1 di Edoardo Bonanni di 120.500000 15:3:2018 15:24:3
 Prelievo da c1 di Edoardo Bonanni di 300.000000 28:3:2018 14:12:55
 Bonifico da c1 di Edoardo Bonanni a c2 di Pinco Pallino di 150.000000 5:4:2018 18:18:18
 Bonifico da c2 di Pinco Pallino a c1 di Edoardo Bonanni di 200.000000 22:4:2018 22:45:56
 Deposito da c1 di Edoardo Bonanni di 5000.500000 12:3:2018 12:2:33
+Deposito da c1 di Edoardo Bonanni di 120.500000 15:3:2018 15:24:3
+Prelievo da c1 di Edoardo Bonanni di 300.000000 28:3:2018 14:12:55
+Bonifico da c1 di Edoardo Bonanni a c2 di Pinco Pallino di 150.000000 5:4:2018 18:18:18
+Bonifico da c2 di Pinco Pallino a c1 di Edoardo Bonanni di 200.000000 22:4:2018 22:45:56
 Deposito da c1 di Edoardo Bonanni di 5000.500000 12:3:2018 12:2:33
 Deposito da c1 di Edoardo Bonanni di 120.500000 15:3:2018 15:24:3
 Prelievo da c1 di Edoardo Bonanni di 300.000000 28:3:2018 14:12:55
 Bonifico da c1 di Edoardo Bonanni a c2 di Pinco Pallino di 150.000000 5:4:2018 18:18:18
 Bonifico da c2 di Pinco Pallino a c1 di Edoardo Bonanni di 200.000000 22:4:2018 22:45:56
 Deposito da c1 di Edoardo Bonanni di 5000.500000 12:3:2018 12:2:33
+Deposito da c1 di Edoardo Bonanni di 120.500000 15:3:2018 15:24:3
+Prelievo da c1 di Edoardo Bonanni di 300.000000 28:3:2018 14:12:55
+Bonifico da c1 di Edoardo Bonanni a c2 di Pinco Pallino di 150.000000 5:4:2018 18:18:18
+Bonifico da c2 di Pinco Pallino a c1 di Edoardo Bonanni di 200.000000 22:4:2018 22:45:56
 Deposito da c1 di Edoardo Bonanni di 5000.500000 12:3:2018 12:2:33
 Deposito da c1 di Edoardo Bonanni di 120.500000 15:3:2018 15:24:3
 Prelievo da c1 di Edoardo Bonanni di 300.000000 28:3:2018 14:12:55
 Bonifico da c1 di Edoardo Bonanni a c2 di Pinco Pallino di 150.000000 5:4:2018 18:18:18
 Bonifico da c2 di Pinco Pallino a c1 di Edoardo Bonanni di 200.000000 22:4:2018 22:45:56
 Deposito da c1 di Edoardo Bonanni di 5000.500000 12:3:2018 12:2:33
-Deposito da c1 di Edoardo Bonanni di 5000.500000 12:3:2018 12:2:33
 Deposito da c1 di Edoardo Bonanni di 120.500000 15:3:2018 15:24:3
 Prelievo da c1 di Edoardo Bonanni di 300.000000 28:3:2018 14:12:55
 Bonifico da c1 di Edoardo Bonanni a c2 di Pinco Pallino di 150.000000 5:4:2018 18:18:18
 Bonifico da c2 di Pinco Pallino a c1 di Edoardo Bonanni di 200.000000 22:4:2018 22:45:56
-Deposito da c1 di Edoardo Bonanni di 5000.500000 12:3:2018 12:2:33
-Deposito da c1 di Edoardo Bonanni di 5000.500000 12:3:2018 12:2:33
-Deposito da c1 di Edoardo Bonanni di 120.500000 15:3:2018 15:24:3
-Prelievo da c1 di Edoardo Bonanni di 300.000000 28:3:2018 14:12:55
-Bonifico da c1 di Edoardo Bonanni a c2 di Pinco Pallino di 150.000000 5:4:2018 18:18:18
-Bonifico da c2 di Pinco Pallino a c1 di Edoardo Bonanni di 200.000000 22:4:2018 22:45:56
-Deposito da c1 di Edoardo Bonanni di 5000.500000 12:3:2018 12:2:33
-Deposito da c1 di Edoardo Bonanni di 5000.500000 12:3:2018 12:2:33
-Deposito da c1 di Edoardo Bonanni di 120.500000 15:3:2018 15:24:3
-Prelievo da c1 di Edoardo Bonanni di 300.000000 28:3:2018 14:12:55
-Bonifico da c1 di Edoardo Bonanni a c2 di Pinco Pallino di 150.000000 5:4:2018 18:18:18
-Bonifico da c2 di Pinco Pallino a c1 di Edoardo Bonanni di 200.000000 22:4:2018 22:45:56
-Deposito da c1 di Edoardo Bonanni di 5000.500000 12:3:2018 12:2:33
-Deposito da c1 di Edoardo Bonanni di 5000.500000 12:3:2018 12:2:33
-Deposito da c1 di Edoardo Bonanni di 120.500000 15:3:2018 15:24:3
-Prelievo da c1 di Edoardo Bonanni di 300.000000 28:3:2018 14:12:55
-Deposito da c1 di Edoardo Bonanni di 5000.500000 12:3:2018 12:2:33
-Deposito da c1 di Edoardo Bonanni di 120.500000 15:3:2018 15:24:3
-Prelievo da c1 di Edoardo Bonanni di 300.000000 28:3:2018 14:12:55
-Bonifico da c1 di Edoardo Bonanni a c2 di Pinco Pallino di 150.000000 5:4:2018 18:18:18
-Bonifico da c2 di Pinco Pallino a c1 di Edoardo Bonanni di 200.000000 22:4:2018 22:45:56
-Deposito da c1 di Edoardo Bonanni di 5000.500000 12:3:2018 12:2:33
-Deposito da c1 di Edoardo Bonanni di 5000.500000 12:3:2018 12:2:33
-Deposito da c1 di Edoardo Bonanni di 120.500000 15:3:2018 15:24:3
-Prelievo da c1 di Edoardo Bonanni di 300.000000 28:3:2018 14:12:55
-Bonifico da c1 di Edoardo Bonanni a c2 di Pinco Pallino di 150.000000 5:4:2018 18:18:18
-Bonifico da c2 di Pinco Pallino a c1 di Edoardo Bonanni di 200.000000 22:4:2018 22:45:56
-Deposito da c1 di Edoardo Bonanni di 5000.500000 12:3:2018 12:2:33
-Deposito da c1 di Edoardo Bonanni di 5000.500000 12:3:2018 12:2:33
-Deposito da c1 di Edoardo Bonanni di 120.500000 15:3:2018 15:24:3
-Prelievo da c1 di Edoardo Bonanni di 300.000000 28:3:2018 14:12:55
-Bonifico da c1 di Edoardo Bonanni a c2 di Pinco Pallino di 150.000000 5:4:2018 18:18:18
-Bonifico da c2 di Pinco Pallino a c1 di Edoardo Bonanni di 200.000000 22:4:2018 22:45:56
-Deposito da c1 di Edoardo Bonanni di 5000.500000 12:3:2018 12:2:33
-Deposito da c1 di Edoardo Bonanni di 5000.500000 12:3:2018 12:2:33
-Deposito da c1 di Edoardo Bonanni di 120.500000 15:3:2018 15:24:3
-Prelievo da c1 di Edoardo Bonanni di 300.000000 28:3:2018 14:12:55
-Bonifico da c1 di Edoardo Bonanni a c2 di Pinco Pallino di 150.000000 5:4:2018 18:18:18
-Bonifico da c2 di Pinco Pallino a c1 di Edoardo Bonanni di 200.000000 22:4:2018 22:45:56
-Deposito da c1 di Edoardo Bonanni di 5000.500000 12:3:2018 12:2:33
-Deposito da c1 di Edoardo Bonanni di 5000.500000 12:3:2018 12:2:33
-Deposito da c1 di Edoardo Bonanni di 120.500000 15:3:2018 15:24:3
-Prelievo da c1 di Edoardo Bonanni di 300.000000 28:3:2018 14:12:55
-Bonifico da c1 di Edoardo Bonanni a c2 di Pinco Pallino di 150.000000 5:4:2018 18:18:18
-Bonifico da c2 di Pinco Pallino a c1 di Edoardo Bonanni di 200.000000 22:4:2018 22:45:56
-Deposito da c1 di Edoardo Bonanni di 5000.500000 12:3:2018 12:2:33
-Deposito da c1 di Edoardo Bonanni di 5000.500000 12:3:2018 12:2:33
-Deposito da c1 di Edoardo Bonanni di 120.500000 15:3:2018 15:24:3
-Prelievo da c1 di Edoardo Bonanni di 300.000000 28:3:2018 14:12:55
-Bonifico da c1 di Edoardo Bonanni a c2 di Pinco Pallino di 150.000000 5:4:2018 18:18:18
-Bonifico da c2 di Pinco Pallino a c1 di Edoardo Bonanni di 200.000000 22:4:2018 22:45:56
-Deposito da c1 di Edoardo Bonanni di 5000.500000 12:3:2018 12:2:33
-Deposito da c1 di Edoardo Bonanni di 5000.500000 12:3:2018 12:2:33
-Deposito da c1 di Edoardo Bonanni di 120.500000 15:3:2018 15:24:3
-Prelievo da c1 di Edoardo Bonanni di 300.000000 28:3:2018 14:12:55
-Bonifico da c1 di Edoardo Bonanni a c2 di Pinco Pallino di 150.000000 5:4:2018 18:18:18
-Bonifico da c2 di Pinco Pallino a c1 di Edoardo Bonanni di 200.000000 22:4:2018 22:45:56
-Deposito da c1 di Edoardo Bonanni di 5000.500000 12:3:2018 12:2:33
-Deposito da c1 di Edoardo Bonanni di 5000.500000 12:3:2018 12:2:33
-Deposito da c1 di Edoardo Bonanni di 120.500000 15:3:2018 15:24:3
-Prelievo da c1 di Edoardo Bonanni di 300.000000 28:3:2018 14:12:55
-Bonifico da c1 di Edoardo Bonanni a c2 di Pinco Pallino di 150.000000 5:4:2018 18:18:18
-Bonifico da c2 di Pinco Pallino a c1 di Edoardo Bonanni di 200.000000 22:4:2018 22:45:56
-Deposito da c1 di Edoardo Bonanni di 5000.500000 12:3:2018 12:2:33

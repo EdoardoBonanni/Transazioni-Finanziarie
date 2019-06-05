@@ -8,7 +8,7 @@ public:
     Date(){};
     Date(int g, int m, int a, bool isBissextile);
 
-    virtual ~Date();
+    virtual ~Date(){}
 
     Date(const Date& that);
     Date& operator=(Date& that);

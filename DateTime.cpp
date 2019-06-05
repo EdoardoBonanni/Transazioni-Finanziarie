@@ -123,4 +123,3 @@ void DateTime::setGiorno(const int g, bool isBissextile){
         this->giorno = g;
 }
 
-DateTime::~DateTime() {}

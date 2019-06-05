@@ -27,7 +27,7 @@ public:
     bool operator==(const Utenza &u);
     bool operator!=(const Utenza &u);
 
-    virtual ~Utenza();
+    ~Utenza();
 
     bool ispersonaFisica() const;
     const std::string getNome() const;

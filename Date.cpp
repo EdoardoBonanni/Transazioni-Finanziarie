@@ -12,8 +12,6 @@ Date::Date(int g, int m, int a, bool isBissextile) {
     }
 }
 
-Date::~Date() {}
-
 bool Date::checkData(int g, int m, int a, bool isBissextile) {
     if(a>1900 && a<2020){
         if((m==4 || m==6 || m==9 || m==11) && g<=30 && g>0)

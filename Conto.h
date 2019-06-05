@@ -18,7 +18,7 @@ class FileMgr;
 class Conto {
 public:
     Conto(std::shared_ptr<Utenza> t, std::string n, float s=0, float si=0);
-    ~Conto();
+    virtual ~Conto();
 
     Conto(const Conto& that);
     Conto& operator=(Conto& that);

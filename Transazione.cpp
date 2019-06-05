@@ -28,6 +28,8 @@ Transazione::Transazione(const typeTransaction t, float i, std::shared_ptr<Conto
 }
 
 Transazione::~Transazione() {
+    if(dataora!= nullptr)
+        delete dataora;
 }
 
 Transazione::Transazione(const Transazione &that) {

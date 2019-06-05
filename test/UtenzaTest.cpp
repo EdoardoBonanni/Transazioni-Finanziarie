@@ -24,8 +24,6 @@ TEST(UtenzaTest, equalTest){
     Utenza u6("Poste", "Via Togliatti", 2, "FI");
     EXPECT_FALSE(u1 == u5);
     EXPECT_FALSE(u5 != u6);
-    Utenza u7("Edoardo", "Bonanni", true);
-    EXPECT_TRUE(u1 != u7);
 
 }
 

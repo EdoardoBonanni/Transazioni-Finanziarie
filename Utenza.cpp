@@ -30,6 +30,9 @@ Utenza::Utenza(const std::string n,const std::string i,const int nc,const std::s
 }
 
 Utenza::~Utenza() {
+    if(personaFisica)
+        if(dataNascita != nullptr)
+            delete dataNascita;
 }
 
 Utenza::Utenza(const Utenza &that) {
@@ -52,6 +55,9 @@ Utenza::Utenza(const Utenza &that) {
 }
 
 Utenza& Utenza::operator=(Utenza &that) {
+    if(personaFisica)
+        if(dataNascita != nullptr)
+            delete dataNascita;
     if(that.ispersonaFisica()){
         nome = that.nome;
         cognome = that.cognome;
