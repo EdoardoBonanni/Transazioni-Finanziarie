@@ -11,7 +11,6 @@ protected:
         otherBankAccount = std::make_shared<Conto>(other, "c2", 0, 0);
     }
 
-
     std::shared_ptr<Utenza> me;
     std::shared_ptr<Utenza> other;
     std::shared_ptr<Conto> myBankAccount;
@@ -40,19 +39,19 @@ TEST_F(contoSuite, someTransaction){
 
 
     type = typeTransaction::Deposito;
-    std::shared_ptr<Transazione> d1 = std::make_shared<Transazione>(type, 5000.50, myBankAccount, myBankAccount, &dt1, false);
-    std::shared_ptr<Transazione> d2 = std::make_shared<Transazione>(type, 120.50, myBankAccount, myBankAccount, &dt2, false);
-    std::shared_ptr<Transazione> d3 = std::make_shared<Transazione>(type, 400, otherBankAccount, otherBankAccount, &dt2, false);
+    std::shared_ptr<Transazione> d1 = std::make_shared<Transazione>(type, 5000.50, myBankAccount, myBankAccount, dt1, false);
+    std::shared_ptr<Transazione> d2 = std::make_shared<Transazione>(type, 120.50, myBankAccount, myBankAccount, dt2, false);
+    std::shared_ptr<Transazione> d3 = std::make_shared<Transazione>(type, 400, otherBankAccount, otherBankAccount, dt2, false);
 
     type = typeTransaction ::Prelievo;
-    std::shared_ptr<Transazione> p1 = std::make_shared<Transazione>(type, 300, myBankAccount, myBankAccount,  &dt3, false);
-    std::shared_ptr<Transazione> p2 = std::make_shared<Transazione>(type, 10000, myBankAccount, myBankAccount,  &dt4, false);
-    std::shared_ptr<Transazione> p3 = std::make_shared<Transazione>(type, 100, otherBankAccount, otherBankAccount, &dt3, false);
+    std::shared_ptr<Transazione> p1 = std::make_shared<Transazione>(type, 300, myBankAccount, myBankAccount,  dt3, false);
+    std::shared_ptr<Transazione> p2 = std::make_shared<Transazione>(type, 10000, myBankAccount, myBankAccount,  dt4, false);
+    std::shared_ptr<Transazione> p3 = std::make_shared<Transazione>(type, 100, otherBankAccount, otherBankAccount, dt3, false);
 
     type = typeTransaction ::Bonifico;
-    std::shared_ptr<Transazione> b1 = std::make_shared<Transazione>(type, 150, myBankAccount, otherBankAccount, &dt5, false);
-    std::shared_ptr<Transazione> b2 = std::make_shared<Transazione>(type, 50000, myBankAccount, otherBankAccount, &dt6, false);
-    std::shared_ptr<Transazione> b3 = std::make_shared<Transazione>(type, 200, otherBankAccount, myBankAccount, &dt7, false);
+    std::shared_ptr<Transazione> b1 = std::make_shared<Transazione>(type, 150, myBankAccount, otherBankAccount, dt5, false);
+    std::shared_ptr<Transazione> b2 = std::make_shared<Transazione>(type, 50000, myBankAccount, otherBankAccount, dt6, false);
+    std::shared_ptr<Transazione> b3 = std::make_shared<Transazione>(type, 200, otherBankAccount, myBankAccount, dt7, false);
 
 
     //add depositi
@@ -127,8 +126,8 @@ TEST_F(contoSuite, someInvestment) {
     DateTime dt3(28, 3, 2018, 14, 12, 55, false);
     DateTime dt4(1, 4, 2018, 11, 18, 2, false);
 
-    std::shared_ptr<Transazione> d1 = std::make_shared<Transazione>(typeTransaction::Deposito, 5000.50, myBankAccount, myBankAccount, &dt1, false);
-    std::shared_ptr<Transazione> d2 = std::make_shared<Transazione>(typeTransaction::Deposito, 400, otherBankAccount, otherBankAccount, &dt1, false);
+    std::shared_ptr<Transazione> d1 = std::make_shared<Transazione>(typeTransaction::Deposito, 5000.50, myBankAccount, myBankAccount, dt1, false);
+    std::shared_ptr<Transazione> d2 = std::make_shared<Transazione>(typeTransaction::Deposito, 400, otherBankAccount, otherBankAccount, dt1, false);
 
     Investimento i1 ("Azioni ferrari", 330, myBankAccount, &dt2, false);
     Investimento i2 ("Azioni mercedes", 150, myBankAccount, &dt2, false);
@@ -215,15 +214,15 @@ TEST_F(contoSuite, sameUserDifferentBankaccount) {
     DateTime dt6(16, 4, 2018, 10, 1, 29, false);
 
     std::shared_ptr<Transazione> d1 = std::make_shared<Transazione>(typeTransaction::Deposito, 5000.50, myBankAccount,
-                                                                    myBankAccount, &dt1, false);
+                                                                    myBankAccount, dt1, false);
     std::shared_ptr<Transazione> d2 = std::make_shared<Transazione>(typeTransaction::Deposito, 400, myBankAccount2,
-                                                                    myBankAccount2, &dt1, false);
+                                                                    myBankAccount2, dt1, false);
 
-    std::shared_ptr<Transazione> p1 = std::make_shared<Transazione>(typeTransaction::Prelievo, 800, myBankAccount, myBankAccount,  &dt2, false);
-    std::shared_ptr<Transazione> p2 = std::make_shared<Transazione>(typeTransaction::Prelievo, 50, myBankAccount2, myBankAccount2, &dt2, false);
+    std::shared_ptr<Transazione> p1 = std::make_shared<Transazione>(typeTransaction::Prelievo, 800, myBankAccount, myBankAccount,  dt2, false);
+    std::shared_ptr<Transazione> p2 = std::make_shared<Transazione>(typeTransaction::Prelievo, 50, myBankAccount2, myBankAccount2, dt2, false);
 
-    std::shared_ptr<Transazione> b1 = std::make_shared<Transazione>(typeTransaction::Bonifico, 200, myBankAccount, myBankAccount2, &dt3, false);
-    std::shared_ptr<Transazione> b2 = std::make_shared<Transazione>(typeTransaction::Bonifico, 200, myBankAccount2, myBankAccount, &dt4, false);
+    std::shared_ptr<Transazione> b1 = std::make_shared<Transazione>(typeTransaction::Bonifico, 200, myBankAccount, myBankAccount2, dt3, false);
+    std::shared_ptr<Transazione> b2 = std::make_shared<Transazione>(typeTransaction::Bonifico, 200, myBankAccount2, myBankAccount, dt4, false);
 
     Investimento i1("Azioni ferrari", 330, myBankAccount, &dt5, false);
     Investimento i2("Azioni mercedes", 150, myBankAccount2, &dt5, false);

@@ -43,3 +43,9 @@ Prelievo da c1 di p p di 12.000000 3:6:2019 21:19:59
 Prelievo da c1 di p p di 2.000000 3:6:2019 21:20:49
 Deposito da c1 di p p di 920.200012 3:6:2019 21:20:59
 Deposito da c1 di p p di 192.750000 5:6:2019 22:33:9
+Deposito da c1 di p p di 932.510010 6:6:2019 21:41:45
+Prelievo da c1 di p p di 0.000000 6:6:2019 21:41:49
+Prelievo da c1 di p p di 0.000000 6:6:2019 21:41:52
+Prelievo da c1 di p p di 2.000000 6:6:2019 21:41:55
+Deposito da c1 di p p di 820.669983 6:6:2019 21:50:54
+Prelievo da c1 di p p di 2.000000 6:6:2019 21:50:56

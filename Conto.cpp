@@ -161,9 +161,9 @@ bool Conto::addTransactionToFile(std::shared_ptr<Transazione> t, FileMgr* fm, bo
         //float invio = round(t->getInvio() * 100.0) / 100.0;
         float invio = t->getInvio();
         str += std::to_string(invio) + " ";
-        str += std::to_string(t->getDataora()->getGiorno()) + ":" + std::to_string(t->getDataora()->getMese()) + ":"
-               + std::to_string(t->getDataora()->getAnno()) + " " + std::to_string(t->getDataora()->getOra()) + ":"
-               + std::to_string(t->getDataora()->getMinuto() )+ ":" +std::to_string(t->getDataora()->getSecondo());
+        str += std::to_string(t->getDataora().getGiorno()) + ":" + std::to_string(t->getDataora().getMese()) + ":"
+               + std::to_string(t->getDataora().getAnno()) + " " + std::to_string(t->getDataora().getOra()) + ":"
+               + std::to_string(t->getDataora().getMinuto() )+ ":" +std::to_string(t->getDataora().getSecondo());
     }
     if(t->getType() == typeTransaction::Deposito || t->getType() == typeTransaction::Prelievo) {
         if (t->getType() == typeTransaction::Deposito)
@@ -182,9 +182,9 @@ bool Conto::addTransactionToFile(std::shared_ptr<Transazione> t, FileMgr* fm, bo
         //float invio = round(t->getInvio() * 100.0) / 100.0;
         float invio = t->getInvio();
         str += std::to_string(t->getInvio()) + " ";
-        str += std::to_string(t->getDataora()->getGiorno()) + ":" + std::to_string(t->getDataora()->getMese()) + ":"
-               + std::to_string(t->getDataora()->getAnno()) + " " + std::to_string(t->getDataora()->getOra()) + ":"
-               + std::to_string(t->getDataora()->getMinuto()) + ":" +std::to_string(t->getDataora()->getSecondo());
+        str += std::to_string(t->getDataora().getGiorno()) + ":" + std::to_string(t->getDataora().getMese()) + ":"
+               + std::to_string(t->getDataora().getAnno()) + " " + std::to_string(t->getDataora().getOra()) + ":"
+               + std::to_string(t->getDataora().getMinuto()) + ":" +std::to_string(t->getDataora().getSecondo());
     }
     fm->write(str, fatalerror);
     if(fatalerror)

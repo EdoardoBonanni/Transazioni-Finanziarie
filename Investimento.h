@@ -41,9 +41,6 @@ private:
     DateTime* dataora;
     bool completed;
     float guadagno;
-
-
-
 };
 
 #endif //TRANSAZIONIFINANZIARIE_INVESTIMENTO_H

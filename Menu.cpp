@@ -37,7 +37,7 @@ private:
     DateTime* calcolaDateTime(DateTime* dt){
         time_t t = time(0);
         struct tm *now = std::localtime(&t);
-        dt = (new DateTime(now->tm_mday, now->tm_mon + 1, now->tm_year + 1900, now->tm_hour, now->tm_min, now->tm_sec, true));
+        dt = new DateTime(now->tm_mday, now->tm_mon + 1, now->tm_year + 1900, now->tm_hour, now->tm_min, now->tm_sec, true);
         return dt;
     }
 public:
@@ -217,7 +217,7 @@ public:
                         f1 = round(prelievo * 100.0) / 100.0;
                         dt = calcolaDateTime(dt);
                         type = typeTransaction ::Prelievo;
-                        t1 = make_shared<Transazione>(type, f1, myBankAccount, myBankAccount, dt, false);
+                        t1 = make_shared<Transazione>(type, f1, myBankAccount, myBankAccount, *dt, false);
                         res = myBankAccount->addTransazione(t1, fileTransactionUtenza, fatalError);
                         if (!fatalError && res) {
                             cout << "Prelievo avvenuto con successo" << endl;
@@ -242,7 +242,7 @@ public:
                                         deposito = round(f1 * 100.0) / 100.0;
                                         dt = calcolaDateTime(dt);
                                         type = typeTransaction ::Deposito;
-                                        t1 = make_shared<Transazione>(type, f1, myBankAccount, myBankAccount, dt, false);
+                                        t1 = make_shared<Transazione>(type, f1, myBankAccount, myBankAccount, *dt, false);
                                         res = myBankAccount->addTransazione(t1, fileTransactionUtenza, fatalError);
                                         if(!fatalError && res) {
                                             cout << "Il suo deposito di " << deposito << " è andato a buon fine"
@@ -326,7 +326,7 @@ public:
                             f1 = round(invio * 100.0) / 100.0;
                             dt = calcolaDateTime(dt);
                             type = typeTransaction ::Bonifico;
-                            t1 = make_shared<Transazione>(type, f1, myBankAccount, otherBankAccount, dt, false);
+                            t1 = make_shared<Transazione>(type, f1, myBankAccount, otherBankAccount, *dt, false);
                             if ((invio > 0) && !fatalError) {
                                 res = myBankAccount->addTransazione(t1, fileTransactionUtenza, fatalError);
                                 if(res)

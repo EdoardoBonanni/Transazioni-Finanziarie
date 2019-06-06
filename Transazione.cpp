@@ -2,7 +2,7 @@
 #include "Transazione.h"
 
 
-Transazione::Transazione(const typeTransaction t, float i, std::shared_ptr<Conto> m, std::shared_ptr<Conto> r, DateTime* d, bool comp) {
+Transazione::Transazione(const typeTransaction t, float i, std::shared_ptr<Conto> m, std::shared_ptr<Conto> r, const DateTime& d, bool comp) {
     type = t;
     switch(type){
         case typeTransaction::Deposito:
@@ -97,7 +97,7 @@ float Transazione::getInvio() const {
     return invio;
 }
 
-DateTime* Transazione::getDataora() const {
+DateTime Transazione::getDataora() const {
     return dataora;
 }
 
@@ -105,7 +105,7 @@ bool Transazione::isCompleted() const {
     return completed;
 }
 
-void Transazione::setDataora(DateTime* dataora) {
+void Transazione::setDataora(const DateTime& dataora) {
     Transazione::dataora = dataora;
 }
 
